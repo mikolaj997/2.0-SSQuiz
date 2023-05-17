@@ -14,7 +14,29 @@
 <div id="app">
     <h1>{{ name }}</h1>
     <div class="quiz section">
-        <h2>{{word}}</h2>
+    
+
+      
+      <div class="word first">
+        <h2>word: {{word.id}}</h2>
+      </div>
+        
+<div class="answers first">
+  <button><h3 class="a1">answer 1</h3></button>
+  <button><h3 class="a2">answer 2</h3></button>
+  <button><h3 class="a3">answer 3</h3></button>
+  <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+</div>
+
+<div class="word second"><h2>word: {{word.id}}</h2></div>
+        
+<div class="answers second">
+  <button><h3 class="a1">answer 1</h3></button>
+  <button><h3 class="a2">answer 2</h3></button>
+  <button><h3 class="a3">answer 3</h3></button>
+  <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+</div>
+        
     </div>
     
 

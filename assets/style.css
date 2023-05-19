@@ -1,0 +1,25 @@
+body{
+    background-color: whitesmoke;
+}
+.quiz{
+    display:flex;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+.word {
+    position: absolute;
+    top:5px;
+}
+.answers {
+    position: absolute;
+    top: 100px;
+}
+
+
+.corect{
+    background-color: green;
+}
+.wrong{
+    background-color: red;
+}

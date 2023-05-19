@@ -1,70 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="./assets/style.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link rel="stylesheet" href="./assets/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-    
+
 <div id="app">
-    <h1>{{ name }}</h1>
-    <div class="quiz section">
-    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#">{{ name }}</a>
+</nav>
 
-      
-      <div class="word first">
-        <h2>word: {{word.id}}</h2>
-      </div>
-        
-<div class="answers first">
-  <button><h3 class="a1">answer 1</h3></button>
-  <button><h3 class="a2">answer 2</h3></button>
-  <button><h3 class="a3">answer 3</h3></button>
-  <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+<div class="container mt-4">
+<div class="row">
+<div class="col-md-6">
+<h2>Vue.js + Bootstrap</h2>
+<p>{{ message }}</p>
+</div>
+</div>
 </div>
 
-<div class="word second"><h2>word: {{word.id}}</h2></div>
-        
-<div class="answers second">
-  <button><h3 class="a1">answer 1</h3></button>
-  <button><h3 class="a2">answer 2</h3></button>
-  <button><h3 class="a3">answer 3</h3></button>
-  <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-</div>
-        
-    </div>
-    
-
+<div class="d-flex justify-content-center">
+<div class="word first">
+<h2>{{ word1 }}</h2>
 </div>
 
+</div>
+<div class="d-flex justify-content-center">
+<div class="word first">
+<div class="answers first" v-for="definition in definition1">
+<button>
+<h3 class="a1">{{definition.definition}}</h3>
+</button>
+<!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+</div>
+
+</div>
+</div>
+
+<div class="d-flex justify-content-center">
+<div>
+<h2> {{ word2 }}</h2>
+</div>
+
+</div>
+<div class="d-flex justify-content-center">
+<div class="word first">
+<div class="answers first" v-for="definition in definition2">
+<button>
+<h3 class="a1">{{definition.definition}}</h3>
+</button>
+<!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+</div>
+
+</div>
+</div>
+
+<div class="d-flex justify-content-center">
+<div class="word first">
+<h2>{{word3}}</h2>
+</div>
+
+</div>
+<div class="d-flex justify-content-center">
+<div class="word first">
+<div class="answers first" v-for="definition in definition3">
+<button>
+<h3 class="a1">{{definition.definition}}</h3>
+</button>
+<!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+</div>
+
+</div>
+</div>
+
+<div class="d-flex justify-content-center">
+<div class="word first">
+<h2>{{word4}}</h2>
+</div>
+
+</div>
+<div class="d-flex justify-content-center">
+<div class="word first">
+<div class="answers first" v-for="definition in definition4">
+<button>
+<h3 class="a1">{{definition.definition}}</h3>
+</button>
+<!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+</div>
+
+</div>
+</div>
+<!-- 
+<div class="d-flex justify-content-center">
+<div class="word first">
+<h2>{{word5}}</h2>
+</div>
+
+</div>
+<div class="d-flex justify-content-center row">
+<div class="word first">
+<div class="answers first" v-for="definition in definition5">
+<button>
+<h3 class="a1" >{{definition.definition}}</h3>
+</button>
+<!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+<!-- </div>
+
+</div>
+</div> --> -->
+<button>zatwierdz</button>
+</div>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+crossorigin="anonymous"></script> -->
 <script>
-  const { createApp } = Vue
+const { createApp } = Vue
 
-  createApp({
-    data() {
-      return {
-        name: 'SSMindGames',
-        word: [
-    { Id: 1, word: "acid",  definition: "kwas", Level: 4, ExtendedCategory: "pollution" , PrecizedCategory: "substancja"},
-    { Id: 2, word: "petrol",  definition: "benzyna", Level: 4,ExtendedCategory: "pollution" , PrecizedCategory: "substancja"},
-    { Id: 3,word: "nitrogen",  definition: "substancja", Level: 4,ExtendedCategory: "pollution" , PrecizedCategory: "pollution" }
-] 
-      }
-    }
-//     methods:{
+createApp({
+data() {
+return {
+name: 'SSMindGames',
+
+word1: 'acid',
+definition1: [
+{ definition: 'kwas', flag: true },
+{ definition: 'siarka', flag: false },
+{ definition: 'benzyna', flag: false },
+],
+word2: 'petrol',
+definition2: [
+{ definition: 'benzyna', flag: true },
+{ definition: 'kwas', flag: false },
+{ definition: 'sadza', flag: false },
+],
+word3: 'dioxide',
+definition3: [
+{ definition: 'tlen', flag: false },
+{ definition: 'dwutlenek', flag: true },
+{ definition: 'tlenek', flag: false },
+],
+word4: 'sulpour',
+definition4: [
+{ definition: 'siarka', flag: true },
+{ definition: 'sadza', flag: false },
+{ definition: 'siarczan', flag: false },
+],
+word5: 'soot',
+definition5: [
+{ definition: 'siarka', flag: false },
+{ definition: 'sadza', flag: true },
+{ definition: 'siarczan', flag: false }
+]
+
+}
+
+},
+computed: {
+word1() {
+return this.word1
+},
+word2() {
+return this.word2
+},
+word3() {
+return this.word3
+},
+word4() {
+return this.word4
+},
+word5() {
+return this.word5
+}
+}
+// methods:{
 // words: function() {
 // const text = this.word.Id
 
 // }
-    
+
 // }
-    
-  }).mount('#app')
+
+}).mount('#app')
 </script>
 </body>
+
 </html>

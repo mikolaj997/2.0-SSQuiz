@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +37,8 @@ aria-label="Slide 3"></button>
 </div>
 <div class="d-flex justify-content-center">
 <div class="word first">
-<div class="answers first" v-for="(definition, index) in definition1" :key="definition.id">
-<button :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
+<div class="answers first" >
+<button v-for="(definition, index) in definition1" :key="definition.id" :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
 class="answer">
 <h3 class="a1"><span></span>{{ definition.definition }}</h3>
 </button>
@@ -55,8 +54,8 @@ class="answer">
 </div>
 <div class="d-flex justify-content-center">
 <div class="word first">
-<div class="answers first" v-for="definition in definition2">
-<button v-on:click="checkIfCorrect(definition)" class="answer">
+<div class="answers first" >
+<button v-for="(definition, index) in definition1" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
 <h3 class="a1">{{definition.definition}}</h3>
 </button>
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
@@ -73,8 +72,8 @@ class="answer">
 </div>
 <div class="d-flex justify-content-center">
 <div class="word first">
-<div class="answers first" v-for="definition in definition3">
-<button v-on:click="checkIfCorrect(definition)" class="answer">
+<div class="answers first" >
+<button v-for="(definition, index) in definition1" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
 <h3 class="a1">{{definition.definition}}</h3>
 </button>
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
@@ -82,26 +81,29 @@ class="answer">
 
 </div>
 </div>
+
+
+<div class="d-flex justify-content-center">
+    <div class="word first">
+    <h2 class="words">{{ forWord4 }}</h2>
+    </div>
+    
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="word first">
+    <div class="answers first" >
+    <button class="answer" v-for="(definition, index) in definition1" :key="definition.id" v-on:click="checkIfCorrect(definition)">
+    <h3 class="a1">{{definition.definition}}</h3>
+    </button>
+    <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+    </div>
+    
+    </div>
+    </div>
+
 </div>
 <div class="carousel-item">
 
-<div class="d-flex justify-content-center">
-<div class="word first">
-<h2 class="words">{{ forWord4 }}</h2>
-</div>
-
-</div>
-<div class="d-flex justify-content-center">
-<div class="word first">
-<div class="answers first" v-for="definition in definition4">
-<button class="answer" v-on:click="checkIfCorrect(definition)">
-<h3 class="a1">{{definition.definition}}</h3>
-</button>
-<!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-</div>
-
-</div>
-</div>
 
 <div class="d-flex justify-content-center">
 <div class="word first">
@@ -111,8 +113,8 @@ class="answer">
 </div>
 <div class="d-flex justify-content-center row">
 <div class="word first">
-<div class="answers first" v-for="definition in definition5">
-<button v-on:click="checkIfCorrect(definition)" class="answer">
+<div class="answers first" >
+<button v-for="(definition, index) in definition1" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
 <h3 class="a1">{{definition.definition}}</h3>
 </button>
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
@@ -130,7 +132,7 @@ class="answer">
 </div>
 
 </div>
-<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+<button @click:="" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
 data-bs-slide="prev">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 <span class="visually-hidden previous">Previous</span>
@@ -477,236 +479,6 @@ return this.word5
 },
 }).mount('#app');
 </script>
-=======
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
-<body>
-
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">{{ name }}</a>
-        </nav>
-
-        <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2>{{ forWord1 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <div class="answers first" v-for="definition in definition1">
-                                <button v-on:click="checkIfCorrect">
-                                    <h3 class="a1">{{definition.definition}}</h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div>
-                            <h2> {{ forWord2 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <div class="answers first" v-for="definition in definition2">
-                                <button>
-                                    <h3 class="a1">{{definition.definition}}</h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2>{{ forWord3 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <div class="answers first" v-for="definition in definition3">
-                                <button>
-                                    <h3 class="a1">{{definition.definition}}</h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    
-            <div class="d-flex justify-content-center">
-                <div class="word first">
-                    <h2>{{ forWord4 }}</h2>
-                </div>
-
-            </div>
-            <div class="d-flex justify-content-center">
-                <div class="word first">
-                    <div class="answers first" v-for="definition in definition4">
-                        <button>
-                            <h3 class="a1">{{definition.definition}}</h3>
-                        </button>
-                        <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-center">
-                <div class="word first">
-                    <h2>{{ forWord5 }}</h2>
-                </div>
-
-            </div>
-            <div class="d-flex justify-content-center row">
-                <div class="word first">
-                    <div class="answers first" v-for="definition in definition5">
-                        <button>
-                            <h3 class="a1">{{definition.definition}}</h3>
-                        </button>
-                        <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                    </div>
-
-                </div>
-            </div>
-            <button>zatwierdz</button>
-                </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Vue.js + Bootstrap</h2>
-                        <p>{{ message }}</p>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-            
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"></script>
-        <script>
-            const { createApp } = Vue
-
-            createApp({
-                data() {
-                    return {
-                        name: 'SSMindGames',
-
-                        word1: 'acid',
-                        definition1: [
-                            { definition: 'kwas', flag: true },
-                            { definition: 'siarka', flag: false },
-                            { definition: 'benzyna', flag: false },
-                        ],
-                        word2: 'petrol',
-                        definition2: [
-                            { definition: 'benzyna', flag: true },
-                            { definition: 'kwas', flag: false },
-                            { definition: 'sadza', flag: false },
-                        ],
-                        word3: 'dioxide',
-                        definition3: [
-                            { definition: 'tlen', flag: false },
-                            { definition: 'dwutlenek', flag: true },
-                            { definition: 'tlenek', flag: false },
-                        ],
-                        word4: 'sulpour',
-                        definition4: [
-                            { definition: 'siarka', flag: true },
-                            { definition: 'sadza', flag: false },
-                            { definition: 'siarczan', flag: false },
-                        ],
-                        word5: 'soot',
-                        definition5: [
-                            { definition: 'siarka', flag: false },
-                            { definition: 'sadza', flag: true },
-                            { definition: 'siarczan', flag: false }
-                        ]
-
-                    }
-
-                },
-                methods:{
-                    checkIfCorrect(){
-                        if(this.definition1.flag==true){
-                            console.log('ok');
-                        }
-                    }
-
-                },
-                computed: {
-                    forWord1() {
-                        return this.word1
-                    },
-                    forWord2() {
-                        return this.word2
-                    },
-                    forWord3() {
-                        return this.word3
-                    },
-                    forWord4() {
-                        return this.word4
-                    },
-                    forWord5() {
-                        return this.word5
-                    }
-                }
-                // methods:{
-                // words: function() {
-                // const text = this.word.Id
-
-                // }
-
-                // }
-
-            }).mount('#app')
-        </script>
 </body>
 
 </html>
-

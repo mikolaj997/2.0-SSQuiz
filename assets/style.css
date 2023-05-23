@@ -23,3 +23,31 @@
 .wrong{
     background-color: red;
 } */
+.carousel{
+    height: 93vh;
+    }
+    .previous{
+    color:black
+    }
+    .next{
+    color:black
+    }
+    .words{
+    font-size: 55px;
+    }
+    .answer{
+    width: 150px;
+    margin: 5px;
+    background-color: whitesmoke;
+    border: 1px solid grey;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    }
+    .correct{
+    background-color: green;
+    }
+    .result{
+    margin: 30px;
+    left: 35px;
+    }
+    

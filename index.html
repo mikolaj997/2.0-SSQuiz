@@ -40,7 +40,7 @@ aria-label="Slide 3"></button>
 <div class="answers first" >
 <button v-for="(definition, index) in definition1" :key="definition.id" :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
 class="answer">
-<h3 class="a1"><span></span>{{ definition.definition }}</h3>
+<h3 class="a1">{{ definition.definition }} </h3>
 </button>
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
 </div>
@@ -55,8 +55,10 @@ class="answer">
 <div class="d-flex justify-content-center">
 <div class="word first">
 <div class="answers first" >
-<button v-for="(definition, index) in definition1" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
-<h3 class="a1">{{definition.definition}}</h3>
+<button v-for="definition in definition1" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
+<h3 class="a1">{{definition.definition}}
+    
+</h3>
 </button>
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
 </div>
@@ -73,8 +75,13 @@ class="answer">
 <div class="d-flex justify-content-center">
 <div class="word first">
 <div class="answers first" >
-<button v-for="(definition, index) in definition1" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
-<h3 class="a1">{{definition.definition}}</h3>
+<button v-for="(definition, index) in definition3" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
+<h3 class="a1">{{definition.definition}}
+    <span class="correct" v-if="definition3.isAnswered"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+          </svg>
+</h3>
 </button>
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
 </div>
@@ -164,28 +171,51 @@ aria-label="Slide 3"></button>
 </div>
 <div class="d-flex justify-content-center">
 <div class="word first">
-<div class="answers first" v-for="(definition, index) in definition1" :key="index">
-<button v-bind:class="isAnswered ? checkIfCorrect(definition) : ''"
-@click="checkIfCorrect(definition)" class="answer">
-<h3 class="a1">{{ definition.definition }}</h3>
+<div class="answers first" >
+<button v-for="(definition, index) in definition1" :key="definition.id" :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
+class="answer">
+<h3 class="a1" >{{ definition.definition }}
+    <span class="correct" v-if="definition.flag"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+          </svg>
+    </span>
+</h3>
+
 </button>
+
+<!-- <p v-on:click="theUserAnswer(definition)">odpowiedz udzielona: {{ userAnswer }}
+</p> -->
+
+
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
 </div>
 </div>
 </div>
 <div class="d-flex justify-content-center words">
 <div>
-<h2 class="words"> {{ forWord2 }}</h2>
+<h2 class="words"> {{ forWord2 }}
+</h2>
 </div>
 
 </div>
 <div class="d-flex justify-content-center">
 <div class="word first">
-<div class="answers first" v-for="definition in definition2">
-<button v-bind:class="isAnswered ? checkIfCorrect(definition) : ''"
-@click="checkIfCorrect(definition)" class="answer">
-<h3 class="a1">{{definition.definition}}</h3>
+<div class="answers first" >
+<button v-for="(definition, index) in definition2" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
+<h3 class="a1">{{definition.definition}}
+
+    <span class="correct" v-if="definition.flag"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+          </svg>
+    </span>
+</h3>
 </button>
+
+<!-- <p>odpowiedz udzielona: {{ userAnswer }}
+</p> -->
+
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
 </div>
 
@@ -200,37 +230,57 @@ aria-label="Slide 3"></button>
 </div>
 <div class="d-flex justify-content-center">
 <div class="word first">
-<div class="answers first" v-for="definition in definition3">
-<button v-bind:class="isAnswered ? checkIfCorrect(definition) : ''"
-@click="checkIfCorrect(definition)" class="answer">
-<h3 class="a1">{{definition.definition}}</h3>
+<div class="answers first" >
+<button v-for="(definition, index) in definition3" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
+<h3 class="a1">{{definition.definition}}
+    <span class="correct" v-if="definition.flag"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+          </svg>
+    </span>
+</h3>
 </button>
+
+<!-- <p>odpowiedz udzielona: {{ userAnswer }}
+</p> -->
+
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
 </div>
 
 </div>
 </div>
+
+
+<div class="d-flex justify-content-center">
+    <div class="word first">
+    <h2 class="words">{{ forWord4 }}</h2>
+    </div>
+    
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="word first">
+    <div class="answers first" >
+    <button class="answer" v-for="(definition, index) in definition4" :key="definition.id" v-on:click="checkIfCorrect(definition)">
+    <h3 class="a1">{{definition.definition}}
+        <span class="correct" v-if="definition.flag"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+              </svg>
+        </span>
+    </h3>
+    
+    </button>
+    <p>odpowiedz udzielona: {{ userAnswer }}
+    </p>
+    <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+    </div>
+    
+    </div>
+    </div>
+
 </div>
 <div class="carousel-item">
 
-<div class="d-flex justify-content-center">
-<div class="word first">
-<h2 class="words">{{ forWord4 }}</h2>
-</div>
-
-</div>
-<div class="d-flex justify-content-center">
-<div class="word first">
-<div class="answers first" v-for="definition in definition4">
-<button class="answer" v-bind:class="isAnswered ? checkIfCorrect(definition) : ''"
-@click="checkIfCorrect(definition)">
-<h3 class="a1">{{definition.definition}}</h3>
-</button>
-<!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-</div>
-
-</div>
-</div>
 
 <div class="d-flex justify-content-center">
 <div class="word first">
@@ -240,17 +290,23 @@ aria-label="Slide 3"></button>
 </div>
 <div class="d-flex justify-content-center row">
 <div class="word first">
-<div class="answers first" v-for="definition in definition5">
-<button v-bind:class="isAnswered ? checkIfCorrect(definition) : ''"
-@click="checkIfCorrect(definition)" class="answer">
-<h3 class="a1">{{definition.definition}}</h3>
+<div class="answers first" >
+<button v-for="(definition, index) in definition5" :key="definition.id" v-on:click="checkIfCorrect(definition)" class="answer">
+<h3 class="a1" >{{definition.definition}}
+    <span class="correct" v-if="definition.flag"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+          </svg>
+    </span> 
+</h3>
 </button>
 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
 </div>
 
+
 </div>
+
 </div>
-<button>zatwierdz</button>
 
 <div class="carousel-item">
 <img src="..." class="d-block w-100" alt="...">
@@ -259,7 +315,7 @@ aria-label="Slide 3"></button>
 </div>
 
 </div>
-<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+<button @click:="" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
 data-bs-slide="prev">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 <span class="visually-hidden previous">Previous</span>
@@ -271,11 +327,6 @@ data-bs-slide="next">
 </button>
 </div>
 
-<div class="container mt-4">
-<div class="row">
-<div class="col-md-6">
-<h2>Vue.js + Bootstrap</h2>
-<p>{{ message }}</p>
 
 <div v-if="showResult">
 <h3>Liczba poprawnych odpowiedzi: {{ correctAnswers }}</h3>
@@ -351,11 +402,19 @@ currentSlide: 0,
 correctAnswers: 0,
 showResult: false,
 isAnswered: false,
+userAnswer: [],
 selectedAnswers: [],
 };
 },
 methods: {
+//     theUserAnswer(definition){
+//         this.userAnswer = definition
+// // p.write(this.userAnswer)
+// console.log(userAnswer);
+//     },
+
 checkIfCorrect(definition) {
+
 if (definition.flag) {
 console.log('Poprawna odpowiedź!');
 this.correctAnswers++;
@@ -399,40 +458,38 @@ this.showResult = true;
 }
 ,
 submitAnswers() {
-this.isAnswered = true; // ustawienie flagi, że odpowiedzi zostały udzielone
+this.isAnswered = true; 
 
-// obliczanie liczby poprawnych odpowiedzi
+
 this.correctAnswers = 0;
 for (const definition of this.definition1) {
 if (definition.flag) {
 this.correctAnswers++;
 }
 }
-// powtórz to samo dla pozostałych definicji
 
-this.isAnswered = true; // ustawienie flagi, że odpowiedzi zostały udzielone
 
-// obliczanie liczby poprawnych odpowiedzi
+this.isAnswered = true; 
+
+
 this.correctAnswers = 0;
 for (const definition of this.definition2) {
 if (definition.flag) {
 this.correctAnswers++;
 }
 }
-// powtórz to samo dla pozostałych definicji
 
-this.isAnswered = true; // ustawienie flagi, że odpowiedzi zostały udzielone
 
-// obliczanie liczby poprawnych odpowiedzi
+this.isAnswered = true; 
+
 this.correctAnswers = 0;
 for (const definition of this.definition3) {
 if (definition.flag) {
 this.correctAnswers++;
 }
 }
-// powtórz to samo dla pozostałych definicji
 
-this.isAnswered = true; // ustawienie flagi, że odpowiedzi zostały udzielone
+this.isAnswered = true; 
 
 // obliczanie liczby poprawnych odpowiedzi
 this.correctAnswers = 0;
@@ -441,20 +498,16 @@ if (definition.flag) {
 this.correctAnswers++;
 }
 }
-// powtórz to samo dla pozostałych definicji
 
-this.isAnswered = true; // ustawienie flagi, że odpowiedzi zostały udzielone
 
-// obliczanie liczby poprawnych odpowiedzi
+this.isAnswered = true; 
 this.correctAnswers = 0;
 for (const definition of this.definition5) {
 if (definition.flag) {
 this.correctAnswers++;
 }
 }
-// powtórz to samo dla pozostałych definicji
 
-// opcjonalnie, można wyświetlić informację o liczbie poprawnych odpowiedzi
 console.log('Liczba poprawnych odpowiedzi:', this.correctAnswers);
 },
 
@@ -463,7 +516,7 @@ computed: {
 forWord1() {
 return this.word1;
 },
-// Pozostałe computed
+
 forWord2() {
 return this.word2
 },

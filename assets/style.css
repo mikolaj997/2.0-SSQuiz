@@ -45,10 +45,13 @@
     border-bottom-left-radius: 25px;
     }
     .correct{
-    background-color: green;
+    color: green;
     }
     .result{
     margin: 30px;
     left: 35px;
+    }
+    .wrong{
+        color: red;
     }
     

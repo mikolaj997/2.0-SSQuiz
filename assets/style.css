@@ -23,6 +23,10 @@
 .wrong{
     background-color: red;
 } */
+.relutlCount{
+    /* margin-left: 200px; */
+    position: absolute;
+    right: 0;}
 .carousel{
     height: 93vh;
     }

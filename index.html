@@ -15,7 +15,9 @@
 <body>
 <div id="app">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="#">{{ name }}</a>
+<a class="navbar-brand" href="#">{{ name }}
+    <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
+</a>
 </nav>
 
 <div v-if="!showResult" id="carouselExampleIndicators" class="carousel slide" ref="carousel"
@@ -308,9 +310,9 @@ class="answer">
 
 </div>
 
-<div class="carousel-item">
+<!-- <div class="carousel-item">
 <img src="..." class="d-block w-100" alt="...">
-</div>
+</div> -->
 
 </div>
 
@@ -329,14 +331,14 @@ data-bs-slide="next">
 
 
 <div v-if="showResult">
-<h3>Liczba poprawnych odpowiedzi: {{ correctAnswers }}</h3>
+
 <h4>Odpowiedzi:</h4>
 <ul>
 
 <li v-if="(definition, index) in definition1" v-on:click="correctAnswers" :key="index">
 {{ definition.definition }} - {{ definition.flag ? 'Poprawna' : 'Niepoprawna' }}
 </li>
-<!-- Wyświetlanie pozostałych odpowiedzi -->
+
 <li v-for="(definition, index) in definition2" :key="index">
 {{ definition.definition }} - {{ definition.flag ? 'Poprawna' : 'Niepoprawna' }}
 </li>
@@ -394,6 +396,12 @@ word5: 'soot',
 definition5: [
 { definition: 'siarka', flag: false },
 { definition: 'sadza', flag: true },
+{ definition: 'siarczan', flag: false }
+],
+word6: 'coal',
+definition6: [
+{ definition: 'węgiel', flag: true },
+{ definition: 'dwutlenek', flag: false },
 { definition: 'siarczan', flag: false }
 ],
 

@@ -23,6 +23,11 @@
 .wrong{
     background-color: red;
 } */
+.navButtons{
+    position: absolute;
+    left: 25%;
+    top: 5px;
+}
 .relutlCount{
     /* margin-left: 200px; */
     position: absolute;

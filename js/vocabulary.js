@@ -1,5 +1,39 @@
-[
-    { Id: 1, word: "acid",  definition: "kwas", Level: 4, ExtendedCategory: "pollution" , PrecizedCategory: "substancja"},
-    { Id: 2, word: "petrol",  definition: "benzyna", Level: 4,ExtendedCategory: "pollution" , PrecizedCategory: "substancja"},
-    { Id: 3,word: "nitrogen",  definition: "substancja", Level: 4,ExtendedCategory: "pollution" , PrecizedCategory: "pollution" }
-]
+//non functional
+
+pollution: [
+    {word: 'acid', definition: 'kwas'},
+    {word: 'petrol', definition: 'benzyna'},
+    {word: 'dioxide', definition: 'dwutlenek'},
+    {word: 'sulpour',definition: 'siarka'},
+    {word: 'soot',definition: 'sadza'},
+
+    {word: 'exhoust', definition: 'spaliny'},
+    {word: 'harmful', definition: 'szkodliwy'},
+    {word: 'monoxide', definition: 'tlenek'},
+    {word: 'nitrogen',definition: 'azot'},
+    {word: 'particule',definition: 'cząsteczka'},
+],
+sport: [
+    {word: 'archery', definition: 'łucznictwo'},
+    {word: 'basketball', definition: 'koszykówka'},
+    {word: 'coach', definition: 'trener'},
+    {word: 'draw',definition: 'remis'},
+    {word: 'fencing',definition: 'szermierka'},
+    {word: 'goalkeeper', definition: 'bramkarz'},
+    {word: 'net', definition: 'siatka'},
+    {word: 'pole vault', definition: 'skok o tyczce'},
+    {word: 'racket',definition: 'rakieta'},
+    {word: 'relay',definition: 'sztafeta'},
+],
+common: [
+    {word: 'to bring', definition: 'przynieść'},
+    {word: 'to manage', definition: 'zdołać'},
+    {word: 'to predict', definition: 'przewidywać'},
+    {word: 'to say',definition: 'mówić'},
+    {word: 'to make',definition: 'robić'},
+    {word: 'to know', definition: 'wiedzieć'},
+    {word: 'to come', definition: 'przyjść'},
+    {word: 'to find', definition: 'znalesc'},
+    {word: 'to call',definition: 'dzwonić'},
+    {word: 'to play',definition: 'grać'},
+],

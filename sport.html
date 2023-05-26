@@ -18,8 +18,8 @@
             <a class="navbar-brand" href="#">{{ name }}
                 <div class="navButtons">
 
-                    <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
-                            href="vocabularyList.html">pojęcia i definicje</a></button>
+                    <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> pojęcia i
+                        definicje</button>
                     <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                     </button>
                     <button type="button" class="btn btn-outline-secondary">modyfikacje</button>
@@ -51,13 +51,13 @@
                 <div class="carousel-item active">
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord1 }}</h2>
+                            <h2 class="words">{{ forWord11 }}</h2>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition1" :key="definition.id"
+                                <button v-for="(definition, index) in definition11" :key="definition.id"
                                     :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
                                     class="answer">
                                     <h3 class="a1">{{ definition.definition }} </h3>
@@ -68,13 +68,13 @@
 
                     <div class="d-flex justify-content-center">
                         <div>
-                            <h2 class="words"> {{ forWord2 }}</h2>
+                            <h2 class="words"> {{ forWord12 }}</h2>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="definition in definition2" :key="definition.id"
+                                <button v-for="definition in definition12" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 class="a1">{{definition.definition}}
 
@@ -88,14 +88,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord3 }}</h2>
+                            <h2 class="words">{{ forWord13 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition3" :key="definition.id"
+                                <button v-for="(definition, index) in definition13" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 class="a1">{{definition.definition}}
                                         <span class="correct" v-if="definition3.isAnswered">
@@ -115,14 +115,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord4 }}</h2>
+                            <h2 class="words">{{ forWord14 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button class="answer" v-for="(definition, index) in definition4" :key="definition.id"
+                                <button class="answer" v-for="(definition, index) in definition14" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)">
                                     <h3 class="a1">{{definition.definition}}</h3>
                                 </button>
@@ -138,14 +138,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord5 }}</h2>
+                            <h2 class="words">{{ forWord15 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center row">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition1" :key="definition.id"
+                                <button v-for="(definition, index) in definition15" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 class="a1">{{definition.definition}}</h3>
                                 </button>
@@ -191,13 +191,13 @@
                 <div class="carousel-item active">
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord1 }}</h2>
+                            <h2 class="words">{{ forWord11 }}</h2>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition1" :key="definition.id"
+                                <button v-for="(definition, index) in definition11" :key="definition.id"
                                     :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
                                     class="answer">
                                     <h3 class="a1">{{ definition.definition }}
@@ -222,7 +222,7 @@
                     </div>
                     <div class="d-flex justify-content-center words">
                         <div>
-                            <h2 class="words"> {{ forWord2 }}
+                            <h2 class="words"> {{ forWord12 }}
                             </h2>
                         </div>
 
@@ -230,7 +230,7 @@
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition2" :key="definition.id"
+                                <button v-for="(definition, index) in definition12" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 class="a1">{{definition.definition}}
 
@@ -255,14 +255,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord3 }}</h2>
+                            <h2 class="words">{{ forWord13 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition3" :key="definition.id"
+                                <button v-for="(definition, index) in definition13" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 class="a1">{{definition.definition}}
                                         <span class="correct" v-if="definition.flag">
@@ -287,14 +287,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord4 }}</h2>
+                            <h2 class="words">{{ forWord14 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button class="answer" v-for="(definition, index) in definition4" :key="definition.id"
+                                <button class="answer" v-for="(definition, index) in definition14" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)">
                                     <h3 class="a1">{{definition.definition}}
                                         <span class="correct" v-if="definition.flag">
@@ -321,7 +321,7 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord5 }}</h2>
+                            <h2 class="words">{{ forWord15 }}</h2>
                         </div>
 
                     </div>
@@ -381,18 +381,18 @@
 
             </ul>
 
-            <!-- <ul v-if="showAllWords">
+            <ul v-if="showAllWords">
 
-<li v-for="item in pollution " >
-{{ item.word }} - {{ item.definition }}
-</li>
-<li v-for="item in sport" >
-{{ item.word }} - {{ item.definition }}
-</li>
-<li v-for="item in common" >
-{{ item.word }} - {{ item.definition }}
-</li>
-</ul> -->
+                <li v-for="item in pollution ">
+                    {{ item.word }} - {{ item.definition }}
+                </li>
+                <li v-for="item in sport">
+                    {{ item.word }} - {{ item.definition }}
+                </li>
+                <li v-for="item in common">
+                    {{ item.word }} - {{ item.definition }}
+                </li>
+            </ul>
         </div>
 
 

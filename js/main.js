@@ -433,6 +433,22 @@ createApp({
         forWord5() {
             return this.word5
         },
+        forWord6() {
+            return this.word6;
+        },
+
+        forWord7() {
+            return this.word7
+        },
+        forWord8() {
+            return this.word8
+        },
+        forWord9() {
+            return this.word9
+        },
+        forWord10() {
+            return this.word10
+        },
         forWord11() {
             return this.word11;
         },
@@ -449,10 +465,24 @@ createApp({
         forWord15() {
             return this.word15
         },
+        forWord16() {
+            return this.word16;
+        },
+        forWord17() {
+            return this.word17
+        },
+        forWord18() {
+            return this.word18
+        },
+        forWord19() {
+            return this.word19
+        },
+        forWord20() {
+            return this.word20
+        },
         forWord21() {
             return this.word21;
         },
-
         forWord22() {
             return this.word22
         },
@@ -464,6 +494,21 @@ createApp({
         },
         forWord25() {
             return this.word25
+        },
+        forWord26() {
+            return this.word26;
+        },
+        forWord27() {
+            return this.word27
+        },
+        forWord28() {
+            return this.word28
+        },
+        forWord29() {
+            return this.word29
+        },
+        forWord30() {
+            return this.word30
         }
     },
 }).mount('#app');

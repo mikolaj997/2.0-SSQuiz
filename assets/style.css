@@ -5,7 +5,6 @@
 }
 
 .relutlCount {
-    /* margin-left: 200px; */
     position: absolute;
     right: 0;
 }
@@ -44,7 +43,7 @@
 }
 
 .answer {
-    width: 150px;
+    width: 180px;
     margin: 5px;
     background-color: whitesmoke;
     border: 1px solid grey;
@@ -63,4 +62,40 @@
 
 .wrong {
     color: red;
+}
+
+.comman {
+    text-decoration: none;
+}
+
+.pollution {
+    text-decoration: none;
+}
+
+.sport {
+    text-decoration: none;
+}
+
+.comman:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.pollution:hover {
+    text-decoration: none;
+    color: white
+}
+
+.sport:hover {
+    text-decoration: none;
+    color: white
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+a:hover{
+    
+    text-decoration: none;
+    color: white;
 }

@@ -337,19 +337,6 @@ createApp({
                 // strzałka w prawo - następny slajd
                 this.$refs.carousel.next();
             }
-        }
-        ,
-
-        goToPrevSlide() {
-            if (this.currentSlide > 0) {
-                this.currentSlide--;
-            }
-        },
-
-        goToNextSlide() {
-            if (this.currentSlide < 2) {
-                this.currentSlide++;
-            }
         },
         showResults() {
             this.showResult = true;
@@ -359,62 +346,7 @@ createApp({
         },
         showAllOfWords() {
             this.showAllWords = true;
-        }
-        ,
-        submitAnswers() {
-            this.isAnswered = true;
-
-
-            this.correctAnswers = 0;
-            for (const definition of this.definition1) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-
-            this.isAnswered = true;
-
-
-            this.correctAnswers = 0;
-            for (const definition of this.definition2) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-
-            this.isAnswered = true;
-
-            this.correctAnswers = 0;
-            for (const definition of this.definition3) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-            this.isAnswered = true;
-
-            // obliczanie liczby poprawnych odpowiedzi
-            this.correctAnswers = 0;
-            for (const definition of this.definition4) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-
-            this.isAnswered = true;
-            this.correctAnswers = 0;
-            for (const definition of this.definition5) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-            console.log('Liczba poprawnych odpowiedzi:', this.correctAnswers);
         },
-
     },
     computed: {
         forWord1() {

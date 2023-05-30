@@ -317,7 +317,7 @@ createApp({
 
         checkIfCorrect(definition) {
 
-            if (definition.flag) {
+            if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
 

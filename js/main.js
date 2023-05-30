@@ -291,6 +291,7 @@ createApp({
 
             // Pozostałe pytania i odpowiedzi
             showPopup: false,
+            showPopup2: false,
             currentSlide: 0,
             correctAnswers: 0,
             showResult: false,
@@ -309,6 +310,9 @@ createApp({
         //     },
         togglePopup() {
             this.showPopup = !this.showPopup;
+        },
+        togglePopup2() {
+            this.showPopup2 = !this.showPopup2;
         },
 
         checkIfCorrect(definition) {

@@ -12,35 +12,38 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<div>
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">{{ name }}
+                
                 <div class="navButtons">
 
                     <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
-                            href="vocabularyList.html">pojęcia i definicje</a></button>
+                        href="vocabularyList.html">pojęcia i definicje</a></button>
                     <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                     </button>
-                    <button @click="togglePopup2"  type="button" class="btn btn-outline-secondary">modyfikacje</button>
+                    <button @click="togglePopup2" type="button" class="btn btn-outline-secondary">modyfikacje</button>
                 </div>
                 <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
             </a>
         </nav>
+
         <div>
-            <div v-if="showPopup" class="popup">
-                <button class="btn btn-outline-secondary comman"><a class="comman" href="common.html">common</a></button>
-                <button class="btn btn-outline-secondary pollution"> <a href="index.html">pollution</a></button>
-                <button class="btn btn-outline-secondary sport"><a href="sport.html">sport</a></button>
+           <div v-if="showPopup" class="popup">
+                <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
+                <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
+                <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
             </div>
         </div>
+
         <div>
             <div v-if="showPopup2" class="popupM">
                 <button class="btn btn-outline-secondary comman"><a class="comman" href="modifications.html">5 pojęć z karzdej kategorii</a></button>
                 <button class="btn btn-outline-secondary pollution"> <a href="modifications.html">10 pojęć z karzdej kategorii</a></button>
             </div>
         </div>
-        <!-- v-if="!showResult" -->
+
         <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -54,18 +57,17 @@
                 <div class="carousel-item active">
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord1 }}
-                            </h2>
+                            <h2 class="words">{{ forWord11 }}</h2>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition1" :key="definition.id"
+                                <button v-for="(definition, index) in definition11" :key="definition.id"
                                     :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
                                     class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{ definition.definition }}
-                                    </h3>
+                                    <h3 v-if="!showResult" class="a1">{{ definition.definition }} </h3>
+
                                     <!-- after submitting answers -->
                                     <h3 v-if="showResult" class="a1">{{ definition.definition }}
                                         <span class="correct" v-if="definition.flag">
@@ -83,16 +85,16 @@
 
                     <div class="d-flex justify-content-center">
                         <div>
-                            <h2 class="words"> {{ forWord2 }}</h2>
+                            <h2 class="words"> {{ forWord12 }}</h2>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="definition in definition2" :key="definition.id"
+                                <button v-for="definition in definition12" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}
-                                    </h3>
+                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
                                     <!-- after submitting answers -->
                                     <h3 v-if="showResult" class="a1">{{ definition.definition }}
                                         <span class="correct" v-if="definition.flag">
@@ -112,17 +114,17 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord3 }}</h2>
+                            <h2 class="words">{{ forWord13 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition3" :key="definition.id"
+                                <button v-for="(definition, index) in definition13" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}
-                                    </h3>
+                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
                                     <!-- after submitting answers -->
                                     <h3 v-if="showResult" class="a1">{{ definition.definition }}
                                         <span class="correct" v-if="definition.flag">
@@ -143,14 +145,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord4 }}</h2>
+                            <h2 class="words">{{ forWord14 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="word first">
                             <div class="answers first">
-                                <button class="answer" v-for="(definition, index) in definition4" :key="definition.id"
+                                <button class="answer" v-for="(definition, index) in definition14" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
@@ -177,30 +179,20 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord5 }}</h2>
+                            <h2 class="words">{{ forWord15 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center row">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition5" :key="definition.id"
+                                <button v-for="(definition, index) in definition15" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
                                 </button>
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
+
 
                         </div>
 
@@ -208,45 +200,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord6 }}</h2>
+                            <h2 class="words">{{ forWord16 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center row">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition6" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord7 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition7" :key="definition.id"
+                                <button v-for="(definition, index) in definition16" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
@@ -270,14 +231,45 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord8 }}</h2>
+                            <h2 class="words">{{ forWord17 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center row">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition8" :key="definition.id"
+                                <button v-for="(definition, index) in definition17" :key="definition.id"
+                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                    <!-- after submitting answers -->
+                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                        <span class="correct" v-if="definition.flag">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                            </svg>
+                                        </span>
+                                    </h3>
+                                </button>
+                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <div class="word first">
+                            <h2 class="words">{{ forWord18 }}</h2>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-center row">
+                        <div class="word first">
+                            <div class="answers first">
+                                <button v-for="(definition, index) in definition18" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
@@ -303,19 +295,20 @@
 
 
 
+
                 <div class="carousel-item">
 
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord9 }}</h2>
+                            <h2 class="words">{{ forWord19 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center row">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition9" :key="definition.id"
+                                <button v-for="(definition, index) in definition19" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
@@ -339,14 +332,14 @@
 
                     <div class="d-flex justify-content-center">
                         <div class="word first">
-                            <h2 class="words">{{ forWord10 }}</h2>
+                            <h2 class="words">{{ forWord20 }}</h2>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center row">
                         <div class="word first">
                             <div class="answers first">
-                                <button v-for="(definition, index) in definition10" :key="definition.id"
+                                <button v-for="(definition, index) in definition20" :key="definition.id"
                                     v-on:click="checkIfCorrect(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
@@ -380,11 +373,14 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden previous">Previous</span>
         </button>
-        <button @click:="" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden next">Next</span>
         </button>
+
+
+
 
 
 
@@ -402,38 +398,38 @@
 
             </ul>
 
-            <!-- <ul v-if="showAllWords">
+            <ul v-if="showAllWords">
 
-<li v-for="item in pollution " >
-{{ item.word }} - {{ item.definition }}
-</li>
-<li v-for="item in sport" >
-{{ item.word }} - {{ item.definition }}
-</li>
-<li v-for="item in common" >
-{{ item.word }} - {{ item.definition }}
-</li>
-</ul> -->
+                <li v-for="item in pollution ">
+                    {{ item.word }} - {{ item.definition }}
+                </li>
+                <li v-for="item in sport">
+                    {{ item.word }} - {{ item.definition }}
+                </li>
+                <li v-for="item in common">
+                    {{ item.word }} - {{ item.definition }}
+                </li>
+            </ul>
         </div>
 
 
     </div>
 
 
-</div>
-</div>
-</div>
+    </div>
+    </div>
+    </div>
 
 
-<div class="modyfications popup2">
-    <button>stoper (on/off)</button>
-    <button>ilość pytań</button>
-</div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-<script src="./js/main.js"></script>
+    <div class="modyfications popup2">
+        <button>stoper (on/off)</button>
+        <button>ilość pytań</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

@@ -298,6 +298,8 @@ createApp({
             showVocabulary: false,
             showAllWords: false,
             isAnswered: false,
+            // fiveDefinitionModification: false,
+            // tenDefinitionModification: false,
             userAnswer: [],
             selectedAnswers: [],
         };
@@ -333,15 +335,15 @@ createApp({
 
         },
         // metoda handleKeyDown do obsługi zdarzenia keydown
-        handleKeyDown(event) {
-            if (event.keyCode === 37) {
-                // strzałka w lewo - poprzedni slajd
-                this.$refs.carousel.prev();
-            } else if (event.keyCode === 39) {
-                // strzałka w prawo - następny slajd
-                this.$refs.carousel.next();
-            }
-        },
+        // handleKeyDown(event) {
+        //     if (event.keyCode === 37) {
+        //         // strzałka w lewo - poprzedni slajd
+        //         this.$refs.carousel.prev();
+        //     } else if (event.keyCode === 39) {
+        //         // strzałka w prawo - następny slajd
+        //         this.$refs.carousel.next();
+        //     }
+        // },
         showResults() {
             this.showResult = true;
         },
@@ -350,6 +352,12 @@ createApp({
         },
         showAllOfWords() {
             this.showAllWords = true;
+        },
+        showFiveDefinitionModifications() {
+            this.fiveDefinitionModification = true;
+        },
+        showTenDefinitionModifications() {
+            this.tenDefinitionModification = true;
         },
     },
     computed: {

@@ -76,6 +76,12 @@
                                         </span>
                                     </h3>
                                 </button>
+                                  <div v-if="showResult">
+                                    <div v-for="(definition, index) in definition1" :key="definition.id">
+                                        <span :class="[isCorrect ? 'correct' : 'wrong']" v-if="definition.flag">
+                                            udzielona odpowiedz była {{ isCorrect ? 'poprawna' : 'niepoprawna' }}</span>
+                                   </div>
+                                </div>
                             </div>
                         </div>
                     </div>

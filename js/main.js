@@ -298,6 +298,7 @@ createApp({
             showVocabulary: false,
             showAllWords: false,
             isAnswered: false,
+            isCorrect: false,
             // fiveDefinitionModification: false,
             // tenDefinitionModification: false,
             userAnswer: [],
@@ -324,7 +325,7 @@ createApp({
                 this.correctAnswers++;
 
                 // const correctAnswer = document.querySelectorAll('.answer')
-
+                this.isCorrect = true
                 // correctAnswer.classList.add('correct')
                 if (this.isAnswered) {
                     return 'correct';

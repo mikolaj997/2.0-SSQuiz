@@ -1,7 +1,9 @@
 
 const { createApp } = Vue;
 
-
+//do backendu
+//const API_URL="(api)"
+//
 
 createApp({
 
@@ -9,6 +11,10 @@ createApp({
 
     data() {
         return {
+            //do backendu
+            words: [],
+            definitions: [],
+            //
             name: 'SSMindGames',
             word1: 'acid',
             definition1: [
@@ -305,7 +311,65 @@ createApp({
             selectedAnswers: [],
         };
     },
+    //do backendu
+    //chyba mounted musi byc jakos inaczej
+    // mounted: { 
+    //     // function(){
+    //     //     this.refreshData
+    //     // } 
+    // },
+    //
     methods: {
+        //do backendu
+        // async rereshData() {
+        //     axios.get(API_URL + "(siezka do api)").then((response) => {
+        //         this.words = response.data
+        //         this.definitions = response.data 
+        //     }
+        //     )
+        // },
+        // async addNewWords(){
+        //     var newWords=document.querySelector('.words').value
+        //     const formData=new FormData()
+        //     formData.append("newWords",newWords)
+
+        //     axios.post(API_URL+"(siezka do api np.(api/addNewWords))", formData).then((response)=>{
+        //         this.refreshData();
+        //         alert(response.data)
+        //     }
+        //     )
+
+        // },
+        // async addNewDefinitions(){
+        //     var newDefinitions=document.querySelector('.answers').value
+        //     const formData=new FormData()
+        //     formData.append("newDefinitions",newDefinitions)
+
+        //     axios.post(API_URL+"(siezka do api np.(api/addNewDefinitions)))", formData).then((response)=>{
+        //         this.refreshData();
+        //         alert(response.data)
+        //     }
+        //     )
+
+        // },
+
+        // async deleteWords(id){
+        //     axios.delete(API_URL+"(siezka do api np.(api/delateWords&id))"+id).then(
+        //         (response)=>{
+        //             this.refreshData()
+        //             alert(response.data)
+        //         }
+        //     )
+        // },
+
+        //
+
+
+
+
+
+
+
         //     theUserAnswer(definition){
         //         this.userAnswer = definition
         // // p.write(this.userAnswer)
@@ -361,6 +425,7 @@ createApp({
             this.tenDefinitionModification = true;
         },
     },
+
     computed: {
         forWord1() {
             return this.word1;
@@ -456,4 +521,5 @@ createApp({
             return this.word30
         }
     },
+
 }).mount('#app');

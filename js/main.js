@@ -2,7 +2,7 @@
 const { createApp } = Vue;
 
 //do backendu
-//const API_URL="(api)"
+const API_URL="https://localhost:7066/api/Words" //z visial studio
 //
 
 createApp({
@@ -312,22 +312,20 @@ createApp({
         };
     },
     //do backendu
-    //chyba mounted musi byc jakos inaczej
-    // mounted: { 
-    //     // function(){
-    //     //     this.refreshData
-    //     // } 
-    // },
+    
+    mounted: function(){
+            this.refreshData
+    },
     //
     methods: {
         //do backendu
-        // async rereshData() {
-        //     axios.get(API_URL + "(siezka do api)").then((response) => {
-        //         this.words = response.data
-        //         this.definitions = response.data 
-        //     }
-        //     )
-        // },
+        async rereshData() {
+            axios.get(API_URL + "(siezka do api)").then((response) => {
+                this.words = response.data
+                this.definitions = response.data 
+            }
+            )
+        },
         // async addNewWords(){
         //     var newWords=document.querySelector('.words').value
         //     const formData=new FormData()

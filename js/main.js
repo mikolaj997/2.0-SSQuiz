@@ -1,8 +1,11 @@
 
+//do po stromie html
+
+
 const { createApp } = Vue;
 
 //do backendu
-const API_URL="https://localhost:7066/api/Words" //z visial studio
+const API_URL="https://localhost:7066/" //z visial studio
 //
 
 createApp({
@@ -320,9 +323,10 @@ createApp({
     methods: {
         //do backendu
         async rereshData() {
-            axios.get(API_URL + "(siezka do api)").then((response) => {
+
+            axios.get(API_URL + "api/WordsController/GetWords").then((response) => {
                 this.words = response.data
-                this.definitions = response.data 
+                //this.definitions = response.data 
             }
             )
         },

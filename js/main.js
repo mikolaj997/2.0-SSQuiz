@@ -1,7 +1,12 @@
 
+//do po stromie html
+
+
 const { createApp } = Vue;
 
-
+//do backendu
+const API_URL="https://localhost:7066/" //z visial studio
+//
 
 createApp({
 
@@ -9,6 +14,10 @@ createApp({
 
     data() {
         return {
+            //do backendu
+            words: [],
+            definitions: [],
+            //
             name: 'SSMindGames',
             word1: 'acid',
             definition1: [
@@ -291,17 +300,78 @@ createApp({
 
             // Pozostałe pytania i odpowiedzi
             showPopup: false,
+            showPopup2: false,
             currentSlide: 0,
             correctAnswers: 0,
             showResult: false,
             showVocabulary: false,
             showAllWords: false,
             isAnswered: false,
+            isCorrect: false,
+            // fiveDefinitionModification: false,
+            // tenDefinitionModification: false,
             userAnswer: [],
             selectedAnswers: [],
         };
     },
+    //do backendu
+    
+    mounted: function(){
+            this.refreshData
+    },
+    //
     methods: {
+        //do backendu
+        async rereshData() {
+
+            axios.get(API_URL + "api/WordsController/GetWords").then((response) => {
+                this.words = response.data
+                //this.definitions = response.data 
+            }
+            )
+        },
+        // async addNewWords(){
+        //     var newWords=document.querySelector('.words').value
+        //     const formData=new FormData()
+        //     formData.append("newWords",newWords)
+
+        //     axios.post(API_URL+"(siezka do api np.(api/addNewWords))", formData).then((response)=>{
+        //         this.refreshData();
+        //         alert(response.data)
+        //     }
+        //     )
+
+        // },
+        // async addNewDefinitions(){
+        //     var newDefinitions=document.querySelector('.answers').value
+        //     const formData=new FormData()
+        //     formData.append("newDefinitions",newDefinitions)
+
+        //     axios.post(API_URL+"(siezka do api np.(api/addNewDefinitions)))", formData).then((response)=>{
+        //         this.refreshData();
+        //         alert(response.data)
+        //     }
+        //     )
+
+        // },
+
+        // async deleteWords(id){
+        //     axios.delete(API_URL+"(siezka do api np.(api/delateWords&id))"+id).then(
+        //         (response)=>{
+        //             this.refreshData()
+        //             alert(response.data)
+        //         }
+        //     )
+        // },
+
+        //
+
+
+
+
+
+
+
         //     theUserAnswer(definition){
         //         this.userAnswer = definition
         // // p.write(this.userAnswer)
@@ -310,15 +380,18 @@ createApp({
         togglePopup() {
             this.showPopup = !this.showPopup;
         },
+        togglePopup2() {
+            this.showPopup2 = !this.showPopup2;
+        },
 
         checkIfCorrect(definition) {
 
-            if (definition.flag) {
+            if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
 
                 // const correctAnswer = document.querySelectorAll('.answer')
-
+                this.isCorrect = true
                 // correctAnswer.classList.add('correct')
                 if (this.isAnswered) {
                     return 'correct';
@@ -329,28 +402,15 @@ createApp({
 
         },
         // metoda handleKeyDown do obsługi zdarzenia keydown
-        handleKeyDown(event) {
-            if (event.keyCode === 37) {
-                // strzałka w lewo - poprzedni slajd
-                this.$refs.carousel.prev();
-            } else if (event.keyCode === 39) {
-                // strzałka w prawo - następny slajd
-                this.$refs.carousel.next();
-            }
-        }
-        ,
-
-        goToPrevSlide() {
-            if (this.currentSlide > 0) {
-                this.currentSlide--;
-            }
-        },
-
-        goToNextSlide() {
-            if (this.currentSlide < 2) {
-                this.currentSlide++;
-            }
-        },
+        // handleKeyDown(event) {
+        //     if (event.keyCode === 37) {
+        //         // strzałka w lewo - poprzedni slajd
+        //         this.$refs.carousel.prev();
+        //     } else if (event.keyCode === 39) {
+        //         // strzałka w prawo - następny slajd
+        //         this.$refs.carousel.next();
+        //     }
+        // },
         showResults() {
             this.showResult = true;
         },
@@ -359,63 +419,15 @@ createApp({
         },
         showAllOfWords() {
             this.showAllWords = true;
-        }
-        ,
-        submitAnswers() {
-            this.isAnswered = true;
-
-
-            this.correctAnswers = 0;
-            for (const definition of this.definition1) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-
-            this.isAnswered = true;
-
-
-            this.correctAnswers = 0;
-            for (const definition of this.definition2) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-
-            this.isAnswered = true;
-
-            this.correctAnswers = 0;
-            for (const definition of this.definition3) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-            this.isAnswered = true;
-
-            // obliczanie liczby poprawnych odpowiedzi
-            this.correctAnswers = 0;
-            for (const definition of this.definition4) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-
-            this.isAnswered = true;
-            this.correctAnswers = 0;
-            for (const definition of this.definition5) {
-                if (definition.flag) {
-                    this.correctAnswers++;
-                }
-            }
-
-            console.log('Liczba poprawnych odpowiedzi:', this.correctAnswers);
         },
-
+        showFiveDefinitionModifications() {
+            this.fiveDefinitionModification = true;
+        },
+        showTenDefinitionModifications() {
+            this.tenDefinitionModification = true;
+        },
     },
+
     computed: {
         forWord1() {
             return this.word1;
@@ -433,6 +445,22 @@ createApp({
         forWord5() {
             return this.word5
         },
+        forWord6() {
+            return this.word6;
+        },
+
+        forWord7() {
+            return this.word7
+        },
+        forWord8() {
+            return this.word8
+        },
+        forWord9() {
+            return this.word9
+        },
+        forWord10() {
+            return this.word10
+        },
         forWord11() {
             return this.word11;
         },
@@ -449,10 +477,24 @@ createApp({
         forWord15() {
             return this.word15
         },
+        forWord16() {
+            return this.word16;
+        },
+        forWord17() {
+            return this.word17
+        },
+        forWord18() {
+            return this.word18
+        },
+        forWord19() {
+            return this.word19
+        },
+        forWord20() {
+            return this.word20
+        },
         forWord21() {
             return this.word21;
         },
-
         forWord22() {
             return this.word22
         },
@@ -464,6 +506,22 @@ createApp({
         },
         forWord25() {
             return this.word25
+        },
+        forWord26() {
+            return this.word26;
+        },
+        forWord27() {
+            return this.word27
+        },
+        forWord28() {
+            return this.word28
+        },
+        forWord29() {
+            return this.word29
+        },
+        forWord30() {
+            return this.word30
         }
     },
+
 }).mount('#app');

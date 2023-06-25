@@ -4,8 +4,7 @@
 
 const { createApp } = Vue;
 
-//do backendu
-const API_URL="https://localhost:7066/" //z visial studio
+
 //
 
 createApp({
@@ -301,6 +300,7 @@ createApp({
             // Pozostałe pytania i odpowiedzi
             showPopup: false,
             showPopup2: false,
+            showPopupFC: false,
             currentSlide: 0,
             correctAnswers: 0,
             showResult: false,
@@ -311,80 +311,74 @@ createApp({
             // fiveDefinitionModification: false,
             // tenDefinitionModification: false,
             userAnswer: [],
+            userAnswer2: [],
             selectedAnswers: [],
+            selectedAnswers2: [],
+            userAnswer3: [],
+            userAnswer4: [],
+            selectedAnswers3: [],
+            selectedAnswers4: [],
+            userAnswer5: [],
+            userAnswer6: [],
+            selectedAnswers5: [],
+            selectedAnswers6: [],
+            userAnswer7: [],
+            userAnswer8: [],
+            selectedAnswers7: [],
+            selectedAnswers8: [],
+            userAnswer9: [],
+            userAnswer10: [],
+            selectedAnswers9: [],
+            selectedAnswers10: [],
+            rotateFiszka: false,
+            id: 0,
+            id2: 0,
+            id3: 0,
+            sportCategory1: false,
+            showSport: false,
+            showCommon: false,
+            uns2: []
+
+
+
         };
     },
     //do backendu
-    
-    mounted: function(){
-            this.refreshData
-    },
+
+
     //
     methods: {
-        //do backendu
-        async rereshData() {
-
-            axios.get(API_URL + "api/WordsController/GetWords").then((response) => {
-                this.words = response.data
-                //this.definitions = response.data 
-            }
-            )
+        showSport() {
+            this.showSport1 = true;
         },
-        // async addNewWords(){
-        //     var newWords=document.querySelector('.words').value
-        //     const formData=new FormData()
-        //     formData.append("newWords",newWords)
+        showCommon() {
+            this.showCommon1 = true
+        },
+        inscreaseId() {
+            this.id++
+            this.id2 += this.id
+            this.id2++
+            this.id3++
+        },
+        toggleRotation() {
+            this.rotateFiszka = !this.rotateFiszka;
+        },
 
-        //     axios.post(API_URL+"(siezka do api np.(api/addNewWords))", formData).then((response)=>{
-        //         this.refreshData();
-        //         alert(response.data)
-        //     }
-        //     )
-
-        // },
-        // async addNewDefinitions(){
-        //     var newDefinitions=document.querySelector('.answers').value
-        //     const formData=new FormData()
-        //     formData.append("newDefinitions",newDefinitions)
-
-        //     axios.post(API_URL+"(siezka do api np.(api/addNewDefinitions)))", formData).then((response)=>{
-        //         this.refreshData();
-        //         alert(response.data)
-        //     }
-        //     )
-
-        // },
-
-        // async deleteWords(id){
-        //     axios.delete(API_URL+"(siezka do api np.(api/delateWords&id))"+id).then(
-        //         (response)=>{
-        //             this.refreshData()
-        //             alert(response.data)
-        //         }
-        //     )
-        // },
-
-        //
-
-
-
-
-
-
-
-        //     theUserAnswer(definition){
-        //         this.userAnswer = definition
-        // // p.write(this.userAnswer)
-        // console.log(userAnswer);
-        //     },
         togglePopup() {
             this.showPopup = !this.showPopup;
         },
         togglePopup2() {
             this.showPopup2 = !this.showPopup2;
         },
+        togglePopupFC() {
+            this.showPopupFC = !this.showPopupFC
+        },
 
         checkIfCorrect(definition) {
+
+            this.selectedAnswers.push(definition)
+            const [a, b] = [...this.selectedAnswers]
+            this.userAnswer = a
 
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
@@ -400,17 +394,126 @@ createApp({
                 console.log('Niepoprawna odpowiedź!');
             }
 
+
         },
-        // metoda handleKeyDown do obsługi zdarzenia keydown
-        // handleKeyDown(event) {
-        //     if (event.keyCode === 37) {
-        //         // strzałka w lewo - poprzedni slajd
-        //         this.$refs.carousel.prev();
-        //     } else if (event.keyCode === 39) {
-        //         // strzałka w prawo - następny slajd
-        //         this.$refs.carousel.next();
-        //     }
-        // },
+        checkIfCorrect2(definition) {
+            this.userAnswer2 = ''
+            this.selectedAnswers2.push(definition)
+            const [a, b] = [...this.selectedAnswers2]
+            this.userAnswer2= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect3(definition) {
+            this.userAnswer3 = ''
+            this.selectedAnswers3.push(definition)
+            const [a, b] = [...this.selectedAnswers3]
+            this.userAnswer3= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect4(definition) {
+            this.userAnswer4 = ''
+            this.selectedAnswers4.push(definition)
+            const [a, b] = [...this.selectedAnswers4]
+            this.userAnswer4= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect5(definition) {
+            this.userAnswer5 = ''
+            this.selectedAnswers5.push(definition)
+            const [a, b] = [...this.selectedAnswers5]
+            this.userAnswer5= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect6(definition) {
+            this.userAnswer6 = ''
+            this.selectedAnswers6.push(definition)
+            const [a, b] = [...this.selectedAnswers6]
+            this.userAnswer6= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect7(definition) {
+            this.userAnswer7 = ''
+            this.selectedAnswers7.push(definition)
+            const [a, b] = [...this.selectedAnswers7]
+            this.userAnswer7= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect8(definition) {
+            this.userAnswer8 = ''
+            this.selectedAnswers8.push(definition)
+            const [a, b] = [...this.selectedAnswers8]
+            this.userAnswer8= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect9(definition) {
+            this.userAnswer9 = ''
+            this.selectedAnswers9.push(definition)
+            const [a, b] = [...this.selectedAnswers9]
+            this.userAnswer9= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect10(definition) {
+            this.userAnswer10 = ''
+            this.selectedAnswers10.push(definition)
+            const [a, b] = [...this.selectedAnswers10]
+            this.userAnswer8= a
+           
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+
         showResults() {
             this.showResult = true;
         },

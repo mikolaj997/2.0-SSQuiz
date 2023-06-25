@@ -12,53 +12,111 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">{{ name }}
-                <div class="navButtons">
 
-                    <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> 
-                        <a href="vocabylaryList.html">pojęcia i definicje</a>
-                    </button>
-                    <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary">modyfikacje</button>
-                </div>
-                <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
-            </a>
-        </nav>
-        <div>
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">{{ name }}
+            <div class="navButtons">
+
+                <button type="button" class="btn btn-outline-secondary">
+                    pojęcia i definicje
+                </button>
+                <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
+                </button>
+                <button @click="togglePopupFC" type="button" class="btn btn-outline-secondary">Fiszki</button>
+            </div>
+            <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
+        </a>
+    </nav>
 
 
-            <div v-if="showPopup" class="popup">
-                <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
-                <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
-                <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
+    <div>
+        <div v-if="showPopup" class="popup">
+            <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
+            <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
+            <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
+        </div>
+    </div>
+
+    <!-- <div v-if="showPopupFc" class="popupFC">
+        <button class="btn btn-outline-secondary">common</button>
+        <button class="btn btn-outline-secondary">pollution</button>
+        <button class="btn btn-outline-secondary">sport</button>
+    </div> -->
+
+    <button v-on:click="showAllOfWords">pojęcia</button>
+
+    <div class="fiszki">
+
+
+        <select v-model="selectedCategory">
+            <option value="">Wybierz kategorię</option>
+            <option value="pollution">Pollution</option>
+            <option  value="sport">Sport</option>
+            <option value="common">Common</option>
+        </select>
+
+
+
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button @click="showCommon" class="btn btn-outline-secondary">common</button>
+        <button class="btn btn-outline-secondary">pollution</button>
+        <button v-on:click="sportCategory1" class="btn btn-outline-secondary sp">sport</button>
+    </div>
+
+
+    <div @click="toggleRotation" class="flashcard" :class="{ rotate: rotateFiszka }">
+
+        <div >
+            <div v-if="id <= 10" class="front" v-show="!rotateFiszka">
+                {{ this.pollution[this.id].word }}
+            </div>
+            <div v-if="id <= 9" class="back" v-show="rotateFiszka">
+                {{ this.pollution[this.id].definition }}
             </div>
         </div>
-        <button v-on:click="showAllOfWords">pojęcia</button>
 
-        <ul v-if="showAllWords">
+        <div v-if="showSport">
+            <div 
+             class="front" v-show="!rotateFiszka">
+                {{ this.sport[id].word }}
+            </div>
+            <div v-if="id2 <= 10" class="back" v-show="rotateFiszka">
+                {{ this.sport[this.id2].definition }}
+            </div>
+        </div>
 
-            <li v-for="item in pollution ">
-                {{ item.word }} - {{ item.definition }}
-            </li>
-            <li v-for="item in sport">
-                {{ item.word }} - {{ item.definition }}
-            </li>
-            <li v-for="item in common">
-                {{ item.word }} - {{ item.definition }}
-            </li>
     </div>
 
 
 
+    <button class="nextFlashcard" @click="inscreaseId()"> następna</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-    <script src="./js/main.js"></script>
+    <ul v-if="showAllWords">
+        <h1>pollution</h1>
+        <li v-for="item in pollution ">
+            {{ item.word }} - {{ item.definition }}
+        </li>
+        <h1>sport</h1>
+        <li v-for="item in sport">
+            {{ item.word }} - {{ item.definition }}
+        </li>
+        <h1>common</h1>
+        <li v-for="item in common">
+            {{ item.word }} - {{ item.definition }}
+        </li>
+    </ul>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+<script src="./js/main.js"></script>
 </body>
 
 </html>

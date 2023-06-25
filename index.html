@@ -69,6 +69,7 @@
                                     class="answer">
                                     <h3 v-if="!showResult" class="a1">{{ definition.definition }}
                                     </h3>
+                                    
                                     <!-- after submitting answers -->
                                     <h3 v-if="showResult" class="a1">{{ definition.definition }}
                                         <span class="correct" v-if="definition.flag">
@@ -85,7 +86,10 @@
                                         <span :class="[isCorrect ? 'correct' : 'wrong']" v-if="definition.flag">
                                             udzielona odpowiedz była {{ isCorrect ? 'poprawna' : 'niepoprawna' }}</span>
                                    </div>
+                                   
                                 </div>
+                                <br>
+                                odpowiedź: {{ this.userAnswer.definition }}
                             </div>
                         </div>
                     </div>
@@ -99,7 +103,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="definition in definition2" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect2(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}
                                     </h3>
                                     <!-- after submitting answers -->
@@ -113,6 +117,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer2.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -129,7 +135,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition3" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect3(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}
                                     </h3>
                                     <!-- after submitting answers -->
@@ -143,6 +149,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer3.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -160,7 +168,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button class="answer" v-for="(definition, index) in definition4" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)">
+                                    v-on:click="checkIfCorrect4(definition)">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -174,6 +182,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer4.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -194,7 +204,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition5" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect5(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -208,6 +218,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer5.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -225,7 +237,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition6" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect6(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -239,6 +251,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer6.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -256,7 +270,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition7" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect7(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -270,6 +284,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer7.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -287,7 +303,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition8" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect8(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -301,6 +317,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer8.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -339,6 +357,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer9.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
@@ -370,6 +390,8 @@
                                         </span>
                                     </h3>
                                 </button>
+                                <br>
+                                odpowiedź: {{ this.userAnswer10.definition }}
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 

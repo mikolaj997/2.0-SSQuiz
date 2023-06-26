@@ -379,17 +379,18 @@ createApp({
             this.selectedAnswers.push(definition)
             const [a, b] = [...this.selectedAnswers]
             this.userAnswer = a
+            console.log(this.userAnswer.flag);
 
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
 
                 // const correctAnswer = document.querySelectorAll('.answer')
-                this.isCorrect = true
+                // this.isCorrect = true
                 // correctAnswer.classList.add('correct')
-                if (this.isAnswered) {
-                    return 'correct';
-                }
+                // if (this.isAnswered) {
+                //     return 'correct';
+                // }
             } else {
                 console.log('Niepoprawna odpowiedź!');
             }
@@ -504,7 +505,7 @@ createApp({
             this.userAnswer10 = ''
             this.selectedAnswers10.push(definition)
             const [a, b] = [...this.selectedAnswers10]
-            this.userAnswer8= a
+            this.userAnswer10= a
            
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');

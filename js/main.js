@@ -401,8 +401,8 @@ createApp({
             this.userAnswer2 = ''
             this.selectedAnswers2.push(definition)
             const [a, b] = [...this.selectedAnswers2]
-            this.userAnswer2= a
-           
+            this.userAnswer2 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -414,8 +414,8 @@ createApp({
             this.userAnswer3 = ''
             this.selectedAnswers3.push(definition)
             const [a, b] = [...this.selectedAnswers3]
-            this.userAnswer3= a
-           
+            this.userAnswer3 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -427,8 +427,8 @@ createApp({
             this.userAnswer4 = ''
             this.selectedAnswers4.push(definition)
             const [a, b] = [...this.selectedAnswers4]
-            this.userAnswer4= a
-           
+            this.userAnswer4 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -440,8 +440,8 @@ createApp({
             this.userAnswer5 = ''
             this.selectedAnswers5.push(definition)
             const [a, b] = [...this.selectedAnswers5]
-            this.userAnswer5= a
-           
+            this.userAnswer5 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -453,8 +453,8 @@ createApp({
             this.userAnswer6 = ''
             this.selectedAnswers6.push(definition)
             const [a, b] = [...this.selectedAnswers6]
-            this.userAnswer6= a
-           
+            this.userAnswer6 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -466,8 +466,8 @@ createApp({
             this.userAnswer7 = ''
             this.selectedAnswers7.push(definition)
             const [a, b] = [...this.selectedAnswers7]
-            this.userAnswer7= a
-           
+            this.userAnswer7 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -479,8 +479,8 @@ createApp({
             this.userAnswer8 = ''
             this.selectedAnswers8.push(definition)
             const [a, b] = [...this.selectedAnswers8]
-            this.userAnswer8= a
-           
+            this.userAnswer8 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -492,8 +492,8 @@ createApp({
             this.userAnswer9 = ''
             this.selectedAnswers9.push(definition)
             const [a, b] = [...this.selectedAnswers9]
-            this.userAnswer9= a
-           
+            this.userAnswer9 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
@@ -505,8 +505,8 @@ createApp({
             this.userAnswer10 = ''
             this.selectedAnswers10.push(definition)
             const [a, b] = [...this.selectedAnswers10]
-            this.userAnswer10= a
-           
+            this.userAnswer10 = a
+
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;

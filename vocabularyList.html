@@ -44,7 +44,7 @@
     <div class="FlascardArea">
 
         <div @click="toggleRotation" class="flashcard" :class="{ rotate: rotateFiszka }">
-            <div v-if="!flashcardCategoryClicked" class="flashcardCategory">wybierz kategorię</div>
+            <div v-if="!flashcardCategoryClicked" class="flashcardCategory">wybierz kategorię i naciśnij na pole</div>
             <div v-if="showPollution1">
                 <div v-if="!showSport1 && !showCommon1" class="front" v-show="!rotateFiszka">
                     {{ this.pollution[this.id1].word }}

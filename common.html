@@ -19,7 +19,7 @@
                 <div class="navButtons">
 
                     <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
-                        href="vocabularyList.html">pojęcia i definicje</a></button>
+                            href="vocabularyList.html">pojęcia i definicje</a></button>
                     <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                     </button>
                     <button @click="togglePopup2" type="button" class="btn btn-outline-secondary">modyfikacje</button>
@@ -29,7 +29,7 @@
         </nav>
 
         <div>
-           <div v-if="showPopup" class="popup">
+            <div v-if="showPopup" class="popup">
                 <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
                 <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
                 <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
@@ -38,8 +38,9 @@
 
         <div>
             <div v-if="showPopup2" class="popupM">
-                <button class="btn btn-outline-secondary comman"><a class="comman" href="modifications.html">5 pojęć z karzdej kategorii</a></button>
-                 </div>
+                <button class="btn btn-outline-secondary comman"><a class="comman" href="modifications.html">5 pojęć z
+                        karzdej kategorii</a></button>
+            </div>
         </div>
 
         <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
@@ -250,7 +251,7 @@
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
-                             <div v-if="!showResult">
+                            <div v-if="!showResult">
                                 odpowiedź: {{ this.userAnswer5.definition }}
                             </div>
 

@@ -48,66 +48,6 @@ createApp({
                 { definition: 'sadza', flag: true },
                 { definition: 'siarczan', flag: false }
             ],
-            word6: 'coal',
-            definition6: [
-                { definition: 'węgiel', flag: true },
-                { definition: 'dwutlenek', flag: false },
-                { definition: 'siarczan', flag: false }
-            ],
-            word7: 'harmful',
-            definition7: [
-                { definition: 'siarka', flag: false },
-                { definition: 'sadza', flag: false },
-                { definition: 'siarczan', flag: true }
-            ],
-            word8: 'harmful',
-            definition8: [
-                { definition: 'tlen', flag: false },
-                { definition: 'dwutlenek', flag: true },
-                { definition: 'tlenek', flag: false },
-            ],
-            word9: 'harmful',
-            definition9: [
-                { id: 1, definition: 'kwas', flag: true },
-                { id: 2, definition: 'siarka', flag: false },
-                { id: 3, definition: 'benzyna', flag: false },
-            ],
-            word10: 'harmful',
-            definition10: [
-                { definition: 'tlen', flag: false },
-                { definition: 'dwutlenek', flag: true },
-                { definition: 'tlenek', flag: false },
-            ],
-            word1: 'acid',
-            definition1: [
-                { id: 1, definition: 'kwas', flag: true },
-                { id: 2, definition: 'siarka', flag: false },
-                { id: 3, definition: 'benzyna', flag: false },
-            ],
-            word2: 'petrol',
-            definition2: [
-                { definition: 'benzyna', flag: true },
-                { definition: 'kwas', flag: false },
-                { definition: 'sadza', flag: false },
-            ],
-            word3: 'dioxide',
-            definition3: [
-                { definition: 'tlen', flag: false },
-                { definition: 'dwutlenek', flag: true },
-                { definition: 'tlenek', flag: false },
-            ],
-            word4: 'sulpour',
-            definition4: [
-                { definition: 'siarka', flag: true },
-                { definition: 'sadza', flag: false },
-                { definition: 'siarczan', flag: false },
-            ],
-            word5: 'soot',
-            definition5: [
-                { definition: 'siarka', flag: false },
-                { definition: 'sadza', flag: true },
-                { definition: 'siarczan', flag: false }
-            ],
             word6: 'exhoust',
             definition6: [
                 { definition: 'spaliny', flag: true },
@@ -296,106 +236,118 @@ createApp({
                 { word: 'to call', definition: 'dzwonić' },
                 { word: 'to play', definition: 'grać' },
             ],
-
-            // Pozostałe pytania i odpowiedzi
+            id1: 0,
+            id2: 0,
+            id3: 0,
+            currentSlide: 0,
+            correctAnswers: 0,
+            rotateFiszka: false,
+            selectedOption: '',
             showPopup: false,
             showPopup2: false,
             showPopupFC: false,
-            currentSlide: 0,
-            correctAnswers: 0,
             showResult: false,
             showVocabulary: false,
             showAllWords: false,
             isAnswered: false,
             isCorrect: false,
-            // fiveDefinitionModification: false,
-            // tenDefinitionModification: false,
-            userAnswer: [],
-            userAnswer2: [],
-            selectedAnswers: [],
-            selectedAnswers2: [],
-            userAnswer3: [],
-            userAnswer4: [],
-            selectedAnswers3: [],
-            selectedAnswers4: [],
-            userAnswer5: [],
-            userAnswer6: [],
-            selectedAnswers5: [],
-            selectedAnswers6: [],
-            userAnswer7: [],
-            userAnswer8: [],
-            selectedAnswers7: [],
-            selectedAnswers8: [],
-            userAnswer9: [],
-            userAnswer10: [],
-            selectedAnswers9: [],
-            selectedAnswers10: [],
-            rotateFiszka: false,
-            id1: 0,
-            id2: 0,
-            id3: 0,
             sportCategory1: false,
             showSport1: false,
             showCommon1: false,
             showPollution1: false,
-            flashcardCategoryClicked:false,
-            uns2: [],
-            selectedOption: ''
-
-
-
+            flashcardCategoryClicked: false,
+            userAnswer: [],
+            userAnswer2: [],
+            userAnswer3: [],
+            userAnswer4: [],
+            userAnswer5: [],
+            userAnswer6: [],
+            userAnswer7: [],
+            userAnswer8: [],
+            userAnswer9: [],
+            userAnswer10: [],
+            selectedAnswers: [],
+            selectedAnswers2: [],
+            selectedAnswers3: [],
+            selectedAnswers4: [],
+            selectedAnswers5: [],
+            selectedAnswers6: [],
+            selectedAnswers7: [],
+            selectedAnswers8: [],
+            selectedAnswers9: [],
+            selectedAnswers10: [],
         };
     },
-    //do backendu
-
-
-    //
     methods: {
-        FlashcardCategory(){
+        FlashcardCategory() {
             this.selectedOption = event.target.id;
-            if(this.selectedOption=='option1'){
+            if (this.selectedOption == 'option1') {
                 this.showCommon1 = true;
-            this.showSport1 = false;
-            this.showPollution1 = false;
+                this.showSport1 = false;
+                this.showPollution1 = false;
 
-            this.flashcardCategoryClicked=true
+                this.flashcardCategoryClicked = true
             }
-            if(this.selectedOption=='option2'){
+            if (this.selectedOption == 'option2') {
                 this.showPollution1 = true;
                 this.showSport1 = false;
                 this.showCommon1 = false;
-    
-                this.flashcardCategoryClicked=true
+
+                this.flashcardCategoryClicked = true
             }
-            if(this.selectedOption=='option3'){
+            if (this.selectedOption == 'option3') {
                 this.showSport1 = true;
                 this.showCommon1 = false;
                 this.showPollution1 = false;
-    
-                this.flashcardCategoryClicked=true
+
+                this.flashcardCategoryClicked = true
             }
-            
+
         },
         showSport() {
             this.showSport1 = true;
             this.showCommon1 = false;
             this.showPollution1 = false;
 
-            this.flashcardCategoryClicked=true
+            this.flashcardCategoryClicked = true
         },
         showCommon() {
             this.showCommon1 = true;
             this.showSport1 = false;
             this.showPollution1 = false;
 
-            this.flashcardCategoryClicked=true
+            this.flashcardCategoryClicked = true
         },
         showPollution() {
             this.showPollution1 = true;
             this.showSport1 = false;
             this.showCommon1 = false;
 
-            this.flashcardCategoryClicked=true
+            this.flashcardCategoryClicked = true
+        },
+        showResults() {
+            this.showResult = true;
+        },
+        showPollutionVocabulary() {
+            this.showVocabulary = true;
+        },
+        showFiveDefinitionModifications() {
+            this.fiveDefinitionModification = true;
+        },
+        showTenDefinitionModifications() {
+            this.tenDefinitionModification = true;
+        },
+        toggleRotation() {
+            this.rotateFiszka = !this.rotateFiszka;
+        },
+        togglePopup() {
+            this.showPopup = !this.showPopup;
+        },
+        togglePopup2() {
+            this.showPopup2 = !this.showPopup2;
+        },
+        showAllOfWords() {
+            this.showAllWords = !this.showAllWords;
         },
         inscreaseId() {
             if (this.id1 < 9) {
@@ -408,20 +360,6 @@ createApp({
                 this.id3++
             }
         },
-        toggleRotation() {
-            this.rotateFiszka = !this.rotateFiszka;
-        },
-
-        togglePopup() {
-            this.showPopup = !this.showPopup;
-        },
-        togglePopup2() {
-            this.showPopup2 = !this.showPopup2;
-        },
-        showAllOfWords() {
-            this.showAllWords = !this.showAllWords;
-        },
-
         checkIfCorrect(definition) {
 
             this.selectedAnswers.push(definition)
@@ -432,18 +370,9 @@ createApp({
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
                 this.correctAnswers++;
-
-                // const correctAnswer = document.querySelectorAll('.answer')
-                // this.isCorrect = true
-                // correctAnswer.classList.add('correct')
-                // if (this.isAnswered) {
-                //     return 'correct';
-                // }
             } else {
                 console.log('Niepoprawna odpowiedź!');
             }
-
-
         },
         checkIfCorrect2(definition) {
             this.userAnswer2 = ''
@@ -562,19 +491,6 @@ createApp({
                 console.log('Niepoprawna odpowiedź!');
             }
         },
-
-        showResults() {
-            this.showResult = true;
-        },
-        showPollutionVocabulary() {
-            this.showVocabulary = true;
-        },
-        showFiveDefinitionModifications() {
-            this.fiveDefinitionModification = true;
-        },
-        showTenDefinitionModifications() {
-            this.tenDefinitionModification = true;
-        },
     },
 
     computed: {
@@ -597,7 +513,6 @@ createApp({
         forWord6() {
             return this.word6;
         },
-
         forWord7() {
             return this.word7
         },
@@ -613,7 +528,6 @@ createApp({
         forWord11() {
             return this.word11;
         },
-
         forWord12() {
             return this.word12
         },
@@ -672,5 +586,4 @@ createApp({
             return this.word30
         }
     },
-
 }).mount('#app');

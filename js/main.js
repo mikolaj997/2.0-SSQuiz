@@ -331,13 +331,16 @@ createApp({
             selectedAnswers9: [],
             selectedAnswers10: [],
             rotateFiszka: false,
-            id: 0,
+            id1: 0,
             id2: 0,
             id3: 0,
             sportCategory1: false,
-            showSport: false,
-            showCommon: false,
-            uns2: []
+            showSport1: false,
+            showCommon1: false,
+            showPollution1: false,
+            flashcardCategoryClicked:false,
+            uns2: [],
+            selectedOption: ''
 
 
 
@@ -348,17 +351,62 @@ createApp({
 
     //
     methods: {
+        FlashcardCategory(){
+            this.selectedOption = event.target.id;
+            if(this.selectedOption=='option1'){
+                this.showCommon1 = true;
+            this.showSport1 = false;
+            this.showPollution1 = false;
+
+            this.flashcardCategoryClicked=true
+            }
+            if(this.selectedOption=='option2'){
+                this.showPollution1 = true;
+                this.showSport1 = false;
+                this.showCommon1 = false;
+    
+                this.flashcardCategoryClicked=true
+            }
+            if(this.selectedOption=='option3'){
+                this.showSport1 = true;
+                this.showCommon1 = false;
+                this.showPollution1 = false;
+    
+                this.flashcardCategoryClicked=true
+            }
+            
+        },
         showSport() {
             this.showSport1 = true;
+            this.showCommon1 = false;
+            this.showPollution1 = false;
+
+            this.flashcardCategoryClicked=true
         },
         showCommon() {
-            this.showCommon1 = true
+            this.showCommon1 = true;
+            this.showSport1 = false;
+            this.showPollution1 = false;
+
+            this.flashcardCategoryClicked=true
+        },
+        showPollution() {
+            this.showPollution1 = true;
+            this.showSport1 = false;
+            this.showCommon1 = false;
+
+            this.flashcardCategoryClicked=true
         },
         inscreaseId() {
-            this.id++
-            this.id2 += this.id
-            this.id2++
-            this.id3++
+            if (this.id1 < 9) {
+                this.id1++
+            }
+            if (this.id2 < 9) {
+                this.id2++
+            }
+            if (this.id3 < 9) {
+                this.id3++
+            }
         },
         toggleRotation() {
             this.rotateFiszka = !this.rotateFiszka;
@@ -370,8 +418,8 @@ createApp({
         togglePopup2() {
             this.showPopup2 = !this.showPopup2;
         },
-        togglePopupFC() {
-            this.showPopupFC = !this.showPopupFC
+        showAllOfWords() {
+            this.showAllWords = !this.showAllWords;
         },
 
         checkIfCorrect(definition) {
@@ -520,9 +568,6 @@ createApp({
         },
         showPollutionVocabulary() {
             this.showVocabulary = true;
-        },
-        showAllOfWords() {
-            this.showAllWords = true;
         },
         showFiveDefinitionModifications() {
             this.fiveDefinitionModification = true;

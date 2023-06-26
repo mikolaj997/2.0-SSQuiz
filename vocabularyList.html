@@ -23,9 +23,9 @@
                 </button>
                 <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                 </button>
-                <button @click="togglePopupFC" type="button" class="btn btn-outline-secondary">Fiszki</button>
+                <button type="button" class="btn btn-outline-secondary">Fiszki</button>
             </div>
-            <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
+
         </a>
     </nav>
 
@@ -38,76 +38,89 @@
         </div>
     </div>
 
-    <!-- <div v-if="showPopupFc" class="popupFC">
-        <button class="btn btn-outline-secondary">common</button>
-        <button class="btn btn-outline-secondary">pollution</button>
-        <button class="btn btn-outline-secondary">sport</button>
-    </div> -->
 
     <button v-on:click="showAllOfWords">pojęcia</button>
 
-    <div class="fiszki">
+    <div class="FlascardArea">
 
-
-        <select v-model="selectedCategory">
-            <option value="">Wybierz kategorię</option>
-            <option value="pollution">Pollution</option>
-            <option  value="sport">Sport</option>
-            <option value="common">Common</option>
-        </select>
-
-
-
-    </div>
-
-    <div class="d-flex justify-content-center">
-        <button @click="showCommon" class="btn btn-outline-secondary">common</button>
-        <button class="btn btn-outline-secondary">pollution</button>
-        <button v-on:click="sportCategory1" class="btn btn-outline-secondary sp">sport</button>
-    </div>
-
-
-    <div @click="toggleRotation" class="flashcard" :class="{ rotate: rotateFiszka }">
-
-        <div >
-            <div v-if="id <= 10" class="front" v-show="!rotateFiszka">
-                {{ this.pollution[this.id].word }}
+        <div @click="toggleRotation" class="flashcard" :class="{ rotate: rotateFiszka }">
+            <div v-if="!flashcardCategoryClicked" class="flashcardCategory">wybierz kategorię</div>
+            <div v-if="showPollution1">
+                <div v-if="!showSport1 && !showCommon1" class="front" v-show="!rotateFiszka">
+                    {{ this.pollution[this.id1].word }}
+                </div>
+                <div v-if="!showSport1 && !showCommon1" class="back" v-show="rotateFiszka">
+                    {{ this.pollution[this.id1].definition }}
+                </div>
             </div>
-            <div v-if="id <= 9" class="back" v-show="rotateFiszka">
-                {{ this.pollution[this.id].definition }}
+            <div v-if="showSport1">
+                <div v-if="!showPollution1 && !showCommon1" class="front" v-show="!rotateFiszka">
+                    {{ this.sport[this.id2].word }}
+                </div>
+                <div v-if="!showPollution1 && !showCommon1" class="back" v-show="rotateFiszka">
+                    {{ this.sport[this.id2].definition }}
+                </div>
             </div>
+            <div v-if="showCommon1">
+                <div v-if="!showPollution1 && !showSport1" class="front" v-show="!rotateFiszka">
+                    {{ this.common[this.id3].word }}
+                </div>
+                <div v-if="!showPollution1 && !showSport1" class="back" v-show="rotateFiszka">
+                    {{ this.common[this.id3].definition }}
+                </div>
+            </div>
+
         </div>
 
-        <div v-if="showSport">
-            <div 
-             class="front" v-show="!rotateFiszka">
-                {{ this.sport[id].word }}
-            </div>
-            <div v-if="id2 <= 10" class="back" v-show="rotateFiszka">
-                {{ this.sport[this.id2].definition }}
-            </div>
+
+        <div @click="FlashcardCategory"
+            class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" data-toggle="buttons">
+            <label :class="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option1'}">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> common
+            </label>
+            <label :class="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option2'}">
+                <input type="radio" name="options" id="option2" autocomplete="off"> pollution
+            </label>
+            <label :class="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option3'}">
+                <input type="radio" name="options" id="option3" autocomplete="off"> sport
+            </label>
         </div>
 
     </div>
 
 
 
-    <button class="nextFlashcard" @click="inscreaseId()"> następna</button>
+    <button class="d-flex justify-content-center nextFlashcard" @click="inscreaseId()"> następna</button>
 
-    <ul v-if="showAllWords">
-        <h1>pollution</h1>
-        <li v-for="item in pollution ">
-            {{ item.word }} - {{ item.definition }}
-        </li>
-        <h1>sport</h1>
-        <li v-for="item in sport">
-            {{ item.word }} - {{ item.definition }}
-        </li>
-        <h1>common</h1>
-        <li v-for="item in common">
-            {{ item.word }} - {{ item.definition }}
-        </li>
-    </ul>
+
+    <diV class="container">
+        <ul class="allWords" v-if="showAllWords">
+            <div v-if="showPollution1">
+                <h1>pollution</h1>
+                <div class="row col-4" v-for="item in pollution ">
+                    {{ item.word }} - {{ item.definition }}
+                </div>
+            </div>
+
+            <div v-if="showSport1">
+                <h1>sport</h1>
+                <div class="row col-4" v-for="item in sport">
+                    {{ item.word }} - {{ item.definition }}
+                </div>
+            </div>
+
+            <div v-if="showCommon1">
+                <h1>common</h1>
+                <div v-if="showCommon1" class="row col-6" v-for="item in common">
+                    {{ item.word }} - {{ item.definition }}
+                </div>
+            </div>
+
+        </ul>
+    </div>
+
+</diV>
+
 </div>
 
 

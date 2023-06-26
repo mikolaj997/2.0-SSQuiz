@@ -181,6 +181,12 @@ a:hover{
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+
+.flashcardCategory{
+    position: absolute;
+    top: 40%;
+    left: 22%;
+}
  
 .flashcard:hover {
     
@@ -222,3 +228,32 @@ a:hover{
     transition: transform 0.3s ease;
   }
 
+
+  .FlashcardArea {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  
+  .next-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+  }
+  .flashcardButtons{
+    position: absolute;
+top: 250px;
+left: 50%;
+transform: translate(-40%);
+
+  }
+  .allWords{
+    
+  }
+  

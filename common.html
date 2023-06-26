@@ -17,7 +17,6 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">{{ name }}
                 <div class="navButtons">
-
                     <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
                             href="vocabularyList.html">pojęcia i definicje</a></button>
                     <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
@@ -27,15 +26,14 @@
                 <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
             </a>
         </nav>
-
         <div>
             <div v-if="showPopup" class="popup">
-                <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
-                <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
-                <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
+                <button class="btn btn-outline-secondary comman"><a class="comman"
+                        href="common.html">common</a></button>
+                <button class="btn btn-outline-secondary pollution"> <a href="index.html">pollution</a></button>
+                <button class="btn btn-outline-secondary sport"><a href="sport.html">sport</a></button>
             </div>
         </div>
-
         <div>
             <div v-if="showPopup2" class="popupM">
                 <button class="btn btn-outline-secondary comman"><a class="comman" href="modifications.html">5 pojęć z

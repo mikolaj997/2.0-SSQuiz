@@ -140,7 +140,7 @@ createApp({
             ],
             word21: 'to bring',
             definition21: [
-                { definition: 'robic', flag: false },
+                { definition: 'robić', flag: false },
                 { definition: 'mówić', flag: false },
                 { definition: 'przynieść', flag: true },
             ],
@@ -152,7 +152,7 @@ createApp({
             ],
             word23: 'to predict',
             definition23: [
-                { definition: 'dzwonic', flag: false },
+                { definition: 'dzwonić', flag: false },
                 { definition: 'przewidzieć', flag: true },
                 { definition: 'zdołać', flag: false },
             ],
@@ -166,7 +166,7 @@ createApp({
             definition25: [
                 { definition: 'zdołać', flag: false },
                 { definition: 'robić', flag: true },
-                { definition: 'zrobic', flag: false }
+                { definition: 'zrobić', flag: false }
             ],
             word26: 'to know',
             definition26: [
@@ -188,7 +188,7 @@ createApp({
             ],
             word29: 'to call',
             definition29: [
-                { id: 1, definition: 'dzwonic', flag: true },
+                { id: 1, definition: 'dzwonić', flag: true },
                 { id: 2, definition: 'mówić', flag: false },
                 { id: 3, definition: 'zdołać', flag: false },
             ],
@@ -196,7 +196,7 @@ createApp({
             definition30: [
                 { definition: 'dzwonić', flag: false },
                 { definition: 'grać', flag: true },
-                { definition: 'udawac', flag: false },
+                { definition: 'udawać', flag: false },
             ],
 
             pollution: [
@@ -232,7 +232,7 @@ createApp({
                 { word: 'to make', definition: 'robić' },
                 { word: 'to know', definition: 'wiedzieć' },
                 { word: 'to come', definition: 'przyjść' },
-                { word: 'to find', definition: 'znalesc' },
+                { word: 'to find', definition: 'znaleźć' },
                 { word: 'to call', definition: 'dzwonić' },
                 { word: 'to play', definition: 'grać' },
             ],
@@ -327,6 +327,10 @@ createApp({
         },
         showResults() {
             this.showResult = true;
+            // const slide3 = document.querySelector('.slide3')
+            // const slide1 = document.querySelector('.slide1')
+            // slide3.classList.remove('active')
+            // slide1.classList.add('active')
         },
         showPollutionVocabulary() {
             this.showVocabulary = true;

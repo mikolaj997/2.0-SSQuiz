@@ -14,6 +14,7 @@
 
 <div>
     <div id="app">
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">{{ name }}
                 <div class="navButtons">
@@ -35,6 +36,8 @@
                 <button class="btn btn-outline-secondary sport"><a href="sport.html">sport</a></button>
             </div>
         </div>
+
+
         <div>
             <div v-if="showPopup2" class="popupM">
                 <button class="btn btn-outline-secondary comman"><a class="comman" href="modifications.html">5 pojęć z
@@ -46,12 +49,12 @@
         <!-- v-if="!showResult" -->
         <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    class="active slide1" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
+                    aria-label="Slide 2" class="slide2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+                    aria-label="Slide 3" class="slide3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -548,7 +551,7 @@
 
 
 </div>
-
+<script src="./js/categoryPopup.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>

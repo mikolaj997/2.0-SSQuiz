@@ -12,578 +12,578 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<div>
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">{{ name }}
-                <div class="navButtons">
 
-                    <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
-                            href="vocabularyList.html">pojęcia i definicje</a></button>
-                    <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
-                    </button>
-                    <button @click="togglePopup2" type="button" class="btn btn-outline-secondary">modyfikacje</button>
-                </div>
-                <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
-            </a>
-        </nav>
-        <div>
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">{{ name }}
+            <div class="navButtons">
 
-            <div v-if="showPopup" class="popup">
-                <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
-                <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
-                <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
+                <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
+                        href="vocabularyList.html">pojęcia i definicje</a></button>
+                <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
+                </button>
+                <button @click="togglePopup2" type="button" class="btn btn-outline-secondary">modyfikacje</button>
             </div>
+            <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
+        </a>
+    </nav>
+    <div>
+
+        <div v-if="showPopup" class="popup">
+            <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
+            <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
+            <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
         </div>
-
-        <div v-if="showPopup2" class="popupM">
-            <button class="btn btn-outline-secondary ">5 pojęć z karzdej
-                kategorii</button>
-        </div>
-
-        <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord21 }}</h2>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition21" :key="definition.id"
-                                    :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
-                                    class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{ definition.definition }} </h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div>
-                            <h2 class="words"> {{ forWord22 }}</h2>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="definition in definition22" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord13 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition13" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord14 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button class="answer" v-for="(definition, index) in definition14" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="carousel-item">
-
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord25 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition25" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord26 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition26" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord27 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition27" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord28 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition28" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-
-                <div class="carousel-item">
-
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord29 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition29" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord30 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition30" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord6 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition6" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord7 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition7" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="carousel-item">
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord8 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition8" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord9 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition9" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="word first">
-                            <h2 class="words">{{ forWord10 }}</h2>
-                        </div>
-
-                    </div>
-                    <div class="d-flex justify-content-center row">
-                        <div class="word first">
-                            <div class="answers first">
-                                <button v-for="(definition, index) in definition10" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
-                                    <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
-
-                                    <!-- after submitting answers -->
-                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
-                                        <span class="correct" v-if="definition.flag">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
-                                            </svg>
-                                        </span>
-                                    </h3>
-                                </button>
-                                <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
-                            </div>
-
-                            <button class="result" v-on:click="showResults">Zatwierdź</button>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-            </div>
-            <button @click:="" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden previous">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden next">Next</span>
-            </button>
-
-
-
-
-
-
-
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
+    <div v-if="showPopup2" class="popupM">
+        <button class="btn btn-outline-secondary ">4 pojęcia pojęć ze wszystkich kategorii</button>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord11 }}</h2>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition11" :key="definition.id"
+                                :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
+                                class="answer">
+                                <h3 v-if="!showResult" class="a1">{{ definition.definition }} </h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition11" :key="definition.id">
+                                    <span :class="[userAnswer.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer.definition }} {{")"}} była {{
+                                        userAnswer.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div>
+                        <h2 class="words"> {{ forWord12 }}</h2>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="definition in definition12" :key="definition.id"
+                                v-on:click="checkIfCorrect2(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer2.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition12" :key="definition.id">
+                                <span :class="[userAnswer2.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer2.definition }} {{")"}} była {{
+                                    userAnswer2.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord13 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition13" :key="definition.id"
+                                v-on:click="checkIfCorrect3(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer3.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition13" :key="definition.id">
+                                <span :class="[userAnswer3.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer3.definition }} {{")"}} była {{
+                                    userAnswer3.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord14 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button class="answer" v-for="(definition, index) in definition14" :key="definition.id"
+                                v-on:click="checkIfCorrect4(definition)">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer4.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition14" :key="definition.id">
+                                <span :class="[userAnswer4.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer4.definition }} {{")"}} była {{
+                                    userAnswer4.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="carousel-item">
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord25 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center row">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition25" :key="definition.id"
+                                v-on:click="checkIfCorrect5(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer5.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition25" :key="definition.id">
+                                <span :class="[userAnswer5.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer5.definition }} {{")"}} była {{
+                                    userAnswer5.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord26 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center row">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition26" :key="definition.id"
+                                v-on:click="checkIfCorrect6(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer6.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition26" :key="definition.id">
+                                <span :class="[userAnswer6.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer6.definition }} {{")"}} była {{
+                                    userAnswer6.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord27 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center row">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition27" :key="definition.id"
+                                v-on:click="checkIfCorrect7(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer7.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition27" :key="definition.id">
+                                <span :class="[userAnswer7.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer7.definition }} {{")"}} była {{
+                                    userAnswer7.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord28 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center row">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition28" :key="definition.id"
+                                v-on:click="checkIfCorrect8(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer8.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition28" :key="definition.id">
+                                <span :class="[userAnswer8.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer8.definition }} {{")"}} była {{
+                                    userAnswer8.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="carousel-item">
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord9 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center row">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition9" :key="definition.id"
+                                v-on:click="checkIfCorrect9(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <div v-if="!showResult">
+
+                                odpowiedź: {{ this.userAnswer9.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition9" :key="definition.id">
+                                    <span :class="[userAnswer9.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer9.definition }} {{")"}} była
+                                        {{ userAnswer9.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <h2 class="words">{{ forWord10 }}</h2>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center row">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition10" :key="definition.id"
+                                v-on:click="checkIfCorrect10(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <div v-if="!showResult">
+
+                                odpowiedź: {{ this.userAnswer10.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition10" :key="definition.id">
+                                    <span :class="[userAnswer10.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer10.definition }} {{")"}} była
+                                        {{ userAnswer10.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <div v-for="words in words">{{words}}</div>
+
+                        <h2 class="words">{{ forWord1 }}
+                        </h2>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="(definition, index) in definition1" :key="definition.id"
+                                :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect11(definition)"
+                                class="answer">
+                                <h3 v-if="!showResult" class="a1">{{ definition.definition }}
+                                </h3>
+
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                        </div>
+
+                        <div v-if="!showResult">
+                            odpowiedź: {{ this.userAnswer11.definition }}
+                        </div>
+
+                        <div v-if="showResult">
+                            <div v-for="(definition, index) in definition11" :key="definition.id">
+                                <span :class="[userAnswer11.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                    udzielona odpowiedz {{"("}} {{ this.userAnswer11.definition }} {{")"}} była {{
+                                    userAnswer11.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div>
+                        <h2 class="words"> {{ forWord2 }}</h2>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="word first">
+                        <div class="answers first">
+                            <button v-for="definition in definition2" :key="definition.id"
+                                v-on:click="checkIfCorrect12(definition)" class="answer">
+                                <h3 v-if="!showResult" class="a1">{{definition.definition}}
+                                </h3>
+                                <!-- after submitting answers -->
+                                <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                    <span class="correct" v-if="definition.flag">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                        </svg>
+                                    </span>
+                                </h3>
+                            </button>
+                            <div v-if="!showResult">
+
+                                odpowiedź: {{ this.userAnswer12.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition12" :key="definition.id">
+                                    <span :class="[userAnswer12.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer12.definition }} {{")"}} była
+                                        {{ userAnswer12.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
+                            <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
+                        </div>
+
+                        <button class="result" v-on:click="showResults">Zatwierdź</button>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <button @click:="" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden previous">Previous</span>
+    </button>
+    <button @click:="" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden next">Next</span>
+    </button>
+
 
 </div>
 
-
-
-
-<div class="modyfications popup2">
-    <button>stoper (on/off)</button>
-    <button>ilość pytań</button>
-</div>
 <script src="./js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

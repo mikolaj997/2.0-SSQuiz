@@ -266,6 +266,8 @@ createApp({
             userAnswer8: [],
             userAnswer9: [],
             userAnswer10: [],
+            userAnswer11: [],
+            userAnswer12: [],
             selectedAnswers: [],
             selectedAnswers2: [],
             selectedAnswers3: [],
@@ -276,6 +278,8 @@ createApp({
             selectedAnswers8: [],
             selectedAnswers9: [],
             selectedAnswers10: [],
+            selectedAnswers11: [],
+            selectedAnswers12: [],
         };
     },
     methods: {
@@ -487,6 +491,32 @@ createApp({
             this.selectedAnswers10.push(definition)
             const [a, b] = [...this.selectedAnswers10]
             this.userAnswer10 = a
+
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect11(definition) {
+            this.userAnswer11 = ''
+            this.selectedAnswers11.push(definition)
+            const [a, b] = [...this.selectedAnswers11]
+            this.userAnswer11 = a
+
+            if (definition.flag && !this.showResult) {
+                console.log('Poprawna odpowiedź!');
+                this.correctAnswers++;
+            } else {
+                console.log('Niepoprawna odpowiedź!');
+            }
+        },
+        checkIfCorrect12(definition) {
+            this.userAnswer12 = ''
+            this.selectedAnswers12.push(definition)
+            const [a, b] = [...this.selectedAnswers12]
+            this.userAnswer12 = a
 
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');

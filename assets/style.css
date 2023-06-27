@@ -257,4 +257,10 @@ a:hover {
 
 }
 
-.allWords {}
+.flashcardInfo{
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%);
+
+}

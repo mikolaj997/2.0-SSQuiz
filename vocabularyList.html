@@ -23,7 +23,7 @@
                 </button>
                 <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                 </button>
-                <button type="button" class="btn btn-outline-secondary">Fiszki</button>
+                <button @click="showFlashcardInfo" type="button" class="btn btn-outline-secondary">Fiszki</button>
             </div>
 
         </a>
@@ -40,6 +40,8 @@
 
 
     <button v-on:click="showAllOfWords">pojęcia</button>
+
+    <div v-if="showFlashcardInfo1" class="flashcardInfo">wybierz kategorię</div>
 
     <div class="FlascardArea">
 

@@ -255,6 +255,7 @@ createApp({
             showSport1: false,
             showCommon1: false,
             showPollution1: false,
+            showFlashcardInfo1: false,
             flashcardCategoryClicked: false,
             userAnswer: [],
             userAnswer2: [],
@@ -307,6 +308,9 @@ createApp({
                 this.flashcardCategoryClicked = true
             }
 
+        },
+        showFlashcardInfo() {
+            this.showFlashcardInfo1 = !this.showFlashcardInfo1
         },
         showSport() {
             this.showSport1 = true;

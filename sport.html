@@ -16,11 +16,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">{{ name }}
-                
                 <div class="navButtons">
-
                     <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
-                        href="vocabularyList.html">pojęcia i definicje</a></button>
+                            href="vocabularyList.html">pojęcia i definicje</a></button>
                     <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                     </button>
                     <button @click="togglePopup2" type="button" class="btn btn-outline-secondary">modyfikacje</button>
@@ -30,7 +28,7 @@
         </nav>
 
         <div>
-           <div v-if="showPopup" class="popup">
+            <div v-if="showPopup" class="popup">
                 <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
                 <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
                 <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
@@ -39,8 +37,9 @@
 
         <div>
             <div v-if="showPopup2" class="popupM">
-                <button class="btn btn-outline-secondary comman"><a class="comman" href="modifications.html">5 pojęć z karzdej kategorii</a></button>
-                </div>
+                <button class="btn btn-outline-secondary comman"><a class="comman" href="modifications.html">5 pojęć z
+                        karzdej kategorii</a></button>
+            </div>
         </div>
 
         <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
@@ -78,6 +77,19 @@
                                         </span>
                                     </h3>
                                 </button>
+
+                                <div v-if="!showResult">
+                                    odpowiedź: {{ this.userAnswer.definition }}
+                                </div>
+
+                                <div v-if="showResult">
+                                    <div v-for="(definition, index) in definition11" :key="definition.id">
+                                        <span :class="[userAnswer.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                            udzielona odpowiedz {{"("}} {{ this.userAnswer.definition }} {{")"}} była {{
+                                            userAnswer.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -91,7 +103,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="definition in definition12" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect2(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -107,7 +119,17 @@
                                 </button>
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer2.definition }}
+                            </div>
 
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition12" :key="definition.id">
+                                    <span :class="[userAnswer2.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer2.definition }} {{")"}} była {{
+                                        userAnswer2.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -121,7 +143,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition13" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect3(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -137,7 +159,17 @@
                                 </button>
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer3.definition }}
+                            </div>
 
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition13" :key="definition.id">
+                                    <span :class="[userAnswer3.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer3.definition }} {{")"}} była {{
+                                        userAnswer3.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -152,7 +184,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button class="answer" v-for="(definition, index) in definition14" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)">
+                                    v-on:click="checkIfCorrect4(definition)">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -168,7 +200,17 @@
                                 </button>
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer4.definition }}
+                            </div>
 
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition14" :key="definition.id">
+                                    <span :class="[userAnswer4.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer4.definition }} {{")"}} była {{
+                                        userAnswer4.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -186,13 +228,33 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition15" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect5(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
+                                    <h3 v-if="showResult" class="a1">{{ definition.definition }}
+                                        <span class="correct" v-if="definition.flag">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z" />
+                                            </svg>
+                                        </span>
+                                    </h3>
                                 </button>
+
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer5.definition }}
+                            </div>
 
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition15" :key="definition.id">
+                                    <span :class="[userAnswer5.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer5.definition }} {{")"}} była {{
+                                        userAnswer5.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -207,7 +269,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition16" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect6(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -224,6 +286,18 @@
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
+                            <div v-if="!showResult">
+
+                                odpowiedź: {{ this.userAnswer6.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition16" :key="definition.id">
+                                    <span :class="[userAnswer6.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer6.definition }} {{")"}} była
+                                        {{ userAnswer6.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -238,7 +312,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition17" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect7(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -255,6 +329,17 @@
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer7.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition17" :key="definition.id">
+                                    <span :class="[userAnswer7.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer7.definition }} {{")"}} była {{
+                                        userAnswer7.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -269,7 +354,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition18" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect8(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -287,6 +372,17 @@
                             </div>
 
 
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer8.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition18" :key="definition.id">
+                                    <span :class="[userAnswer8.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer8.definition }} {{")"}} była {{
+                                        userAnswer8.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -308,7 +404,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition19" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect9(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -326,6 +422,17 @@
                             </div>
 
 
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer9.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition19" :key="definition.id">
+                                    <span :class="[userAnswer9.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer9.definition }} {{")"}} była {{
+                                        userAnswer9.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -339,7 +446,7 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition20" :key="definition.id"
-                                    v-on:click="checkIfCorrect(definition)" class="answer">
+                                    v-on:click="checkIfCorrect10(definition)" class="answer">
                                     <h3 v-if="!showResult" class="a1">{{definition.definition}}</h3>
 
                                     <!-- after submitting answers -->
@@ -356,6 +463,17 @@
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
+                            <div v-if="!showResult">
+                                odpowiedź: {{ this.userAnswer10.definition }}
+                            </div>
+
+                            <div v-if="showResult">
+                                <div v-for="(definition, index) in definition20" :key="definition.id">
+                                    <span :class="[userAnswer10.flag ? 'correct' : 'wrong']" v-if="definition.flag">
+                                        udzielona odpowiedz {{"("}} {{ this.userAnswer10.definition }} {{")"}} była {{
+                                        userAnswer10.flag ? 'poprawna' : 'niepoprawna' }}</span>
+                                </div>
+                            </div>
                             <button class="result" v-on:click="showResults">Zatwierdź</button>
 
                         </div>

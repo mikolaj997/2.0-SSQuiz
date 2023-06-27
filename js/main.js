@@ -48,7 +48,7 @@ createApp({
                 { definition: 'sadza', flag: true },
                 { definition: 'siarczan', flag: false }
             ],
-            word6: 'exhoust',
+            word6: 'exhaust',
             definition6: [
                 { definition: 'spaliny', flag: true },
                 { definition: 'dwutlenek', flag: false },
@@ -144,11 +144,11 @@ createApp({
                 { definition: 'mówić', flag: false },
                 { definition: 'przynieść', flag: true },
             ],
-            word22: 'to menage',
+            word22: 'to manage',
             definition22: [
                 { definition: 'zdołać', flag: true },
                 { definition: 'robić', flag: false },
-                { definition: 'znaleść', flag: false },
+                { definition: 'znaleźć', flag: false },
             ],
             word23: 'to predict',
             definition23: [
@@ -183,7 +183,7 @@ createApp({
             word28: 'to find',
             definition28: [
                 { definition: 'przynieść', flag: false },
-                { definition: 'znaleść', flag: true },
+                { definition: 'znaleźć', flag: true },
                 { definition: 'przewidywać', flag: false },
             ],
             word29: 'to call',
@@ -206,7 +206,7 @@ createApp({
                 { word: 'sulpour', definition: 'siarka' },
                 { word: 'soot', definition: 'sadza' },
 
-                { word: 'exhoust', definition: 'spaliny' },
+                { word: 'exhaust', definition: 'spaliny' },
                 { word: 'harmful', definition: 'szkodliwy' },
                 { word: 'monoxide', definition: 'tlenek' },
                 { word: 'nitrogen', definition: 'azot' },

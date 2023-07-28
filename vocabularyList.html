@@ -46,7 +46,7 @@
     <div class="FlascardArea">
 
         <div @click="toggleRotation" class="flashcard" :class="{ rotate: rotateFiszka }">
-            <div v-if="!flashcardCategoryClicked" class="flashcardCategory">wybierz kategorię i naciśnij na pole</div>
+            <div v-if="!flashcardCategoryClicked" class="flashcardCategory">wybierz kategorię i naciśnij na pole <p></p><p>pojęcie -> definicja</p></div>
             <div v-if="showPollution1">
                 <div v-if="!showSport1 && !showCommon1" class="front" v-show="!rotateFiszka">
                     {{ this.pollution[this.id1].word }}
@@ -93,6 +93,8 @@
 
 
     <button class="d-flex justify-content-center nextFlashcard" @click="inscreaseId()"> następna</button>
+
+    <button class="d-flex justify-content-center prevFlashcard" @click="decreaseId()">poprzednia</button>
 
 
     <diV class="container">

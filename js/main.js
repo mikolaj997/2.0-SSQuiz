@@ -372,6 +372,17 @@ createApp({
                 this.id3++
             }
         },
+        decreaseId() {
+            if (this.id1 <= 9) {
+                this.id1--
+            }
+            if (this.id2 <= 9) {
+                this.id2--
+            }
+            if (this.id3 <= 9) {
+                this.id3--
+            }
+        },
         checkIfCorrect(definition) {
 
             this.selectedAnswers.push(definition)
@@ -452,6 +463,9 @@ createApp({
             }
         },
         checkIfCorrect7(definition) {
+            if(inputLoginUsername === inputCloseUsername && inputLoginPin ===inputClosePin ){
+        account.delete()
+            }
             this.userAnswer7 = ''
             this.selectedAnswers7.push(definition)
             const [a, b] = [...this.selectedAnswers7]

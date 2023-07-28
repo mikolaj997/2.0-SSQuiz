@@ -212,6 +212,23 @@ a:hover {
 
 }
 
+.prevFlashcard {
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+    flex-direction: row;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 .nextFlashcard {
     position: absolute;
     top: 70%;

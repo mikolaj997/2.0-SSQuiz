@@ -154,9 +154,21 @@ a:hover {
     color: white;
 }
 
+.FlashcardAndDefinition {
+    position: relative;
+    margin-top: 5%;
+    top: 30px;
+}
 
+.definitions {
+    position: absolute;
+    top:0;
+    left: 10%;
+    width: 250px;
+    border: 1px solid #6c757d
+}
 
-.fiszki {
+/* .fiszki {
     position: absolute;
     top: 5%;
     left: 35%;
@@ -166,12 +178,23 @@ a:hover {
     padding: 10px;
     border: 1px solid #ccc;
     z-index: 999;
+} */
+.flashcardArea {
+    position: relative;
+    top: 40%;
+    left: 45%;
+    width: 400px;
+    height: 400px;
+    padding: 5%;
+    border: 1px solid grey;
+    border-radius: 25px;
+    z-index: 1;
 }
 
 .flashcard {
     position: absolute;
-    top: 40%;
-    left: 45%;
+    top: 20%;
+    left: 25%;
     width: 200px;
     height: 200px;
     border-radius: 20px;
@@ -188,7 +211,7 @@ a:hover {
 
 .flashcardCategory {
     position: absolute;
-    top: 40%;
+    top: 20%;
 }
 
 .flashcard:hover {
@@ -198,6 +221,7 @@ a:hover {
 .rotate {
     transform: rotateY(360deg);
 }
+
 .front,
 .back {
     position: absolute;
@@ -212,26 +236,9 @@ a:hover {
 
 }
 
-.prevFlashcard {
-    position: absolute;
-    top: 70%;
-    left: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    text-align: center;
-    flex-direction: row;
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ccc;
-    z-index: 1;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
 .nextFlashcard {
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 55%;
     display: flex;
     justify-content: center;
@@ -247,34 +254,45 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
-
-.FlashcardArea {
-    position: relative;
-    height: 100vh;
+.prevFlashcard {
+    position: absolute;
+    top: 80%;
+    left: 25%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+    flex-direction: row;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 
 
+
+
+/* 
 .next-button {
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 10px;
-}
+} */
 
 .flashcardButtons {
     position: absolute;
-    top: 250px;
-    left: 50%;
+    top: 5%;
+    left: 40%;
     transform: translate(-40%);
 
 }
 
-.flashcardInfo{
+.flashcardInfo {
     position: absolute;
     left: 50%;
     top: 15%;

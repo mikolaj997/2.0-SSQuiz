@@ -363,23 +363,42 @@ createApp({
         },
         inscreaseId() {
             if (this.id1 < 9) {
-                this.id1++
+                this.id1++;
+            } else {
+                this.id1 = 0;
             }
+            
             if (this.id2 < 9) {
-                this.id2++
+                this.id2++;
+            } else {
+                this.id2 = 0;
             }
+            
             if (this.id3 < 9) {
-                this.id3++
+                this.id3++;
+            } else {
+                this.id3 = 0;
             }
+            // setTimeout(()=>{
+            //     if (this.id1 == 10) {
+            //         return this.id = 0
+            //     }
+            //     if (this.id2 == 10) {
+            //         this.id2 = 0
+            //     }
+            //     if (this.id3 == 10) {
+            //         this.id3 = 0
+            //     }
+            // }, 1000)
         },
         decreaseId() {
-            if (this.id1 <= 9) {
+            if (this.id1 < 10) {
                 this.id1--
             }
-            if (this.id2 <= 9) {
+            if (this.id2 < 10) {
                 this.id2--
             }
-            if (this.id3 <= 9) {
+            if (this.id3 < 10) {
                 this.id3--
             }
         },

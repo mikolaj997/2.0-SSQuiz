@@ -557,9 +557,12 @@
                             </div>
                             <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                         </div>
-
-                        <button class="result" v-on:click="showResults">Zatwierdź</button>
-
+                        <button class="result" v-on:click="userAnswer.length !== 0 && showResults()">
+                            <div v-if="!showResult">
+                                Zatwierdź
+                            </div>
+                            <div v-else>resetuj</div>
+                        </button>
                     </div>
                 </div>
 

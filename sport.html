@@ -473,8 +473,12 @@
                                         userAnswer10.flag ? 'poprawna' : 'niepoprawna' }}</span>
                                 </div>
                             </div>
-                            <button class="result" v-on:click="showResults">Zatwierdź</button>
-
+                            <button class="result" v-on:click="userAnswer.length !== 0 && showResults()">
+                                <div v-if="!showResult">
+                                    Zatwierdź
+                                </div>
+                                <div v-else>resetuj</div>
+                            </button>
                         </div>
                     </div>
 

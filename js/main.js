@@ -334,7 +334,33 @@ createApp({
             this.flashcardCategoryClicked = true
         },
         showResults() {
-            this.showResult = true;
+            this.showResult = !this.showResult;
+
+            const btns = document.querySelectorAll('.answer');
+
+            if(this.showResult){
+
+                btns.forEach(btn => {
+                    btn.disabled = true;
+                });
+            } else{
+                btns.forEach(btn => {
+                    btn.disabled = false;
+                });
+                this.correctAnswers = 0
+                this.userAnswer=[]
+                this.userAnswer11 = []
+                this.userAnswer2 = []
+                this.userAnswer3=[]
+                this.userAnswer4 = []
+                this.userAnswer5 = []
+                this.userAnswer6=[]
+                this.userAnswer7 = []
+                this.userAnswer8 = []
+                this.userAnswer9=[]
+                this.userAnswer10 = []   
+            }
+            
             // const slide3 = document.querySelector('.slide3')
             // const slide1 = document.querySelector('.slide1')
             // slide3.classList.remove('active')
@@ -403,11 +429,19 @@ createApp({
             }
         },
         checkIfCorrect(definition) {
-
+            this.userAnswer = ''
             this.selectedAnswers.push(definition)
             const [a, b] = [...this.selectedAnswers]
+            // this.userAnswer=this.selectedAnswers.flat().slice(-1)[0].definition
             this.userAnswer = a
             console.log(this.userAnswer.flag);
+            console.log(this.selectedAnswers.flat().slice(-1)[0].definition);
+            console.log(this.selectedAnswers);
+            console.log(this.selectedAnswers[1]);
+            console.log(...this.selectedAnswers);
+            console.log(this.selectedAnswers.slice(-1));
+            console.log(b);
+            // this.selectedAnswers = this.selectedAnswers.flat().definition
 
             if (definition.flag && !this.showResult) {
                 console.log('Poprawna odpowiedź!');
@@ -482,9 +516,7 @@ createApp({
             }
         },
         checkIfCorrect7(definition) {
-            if(inputLoginUsername === inputCloseUsername && inputLoginPin ===inputClosePin ){
-        account.delete()
-            }
+           
             this.userAnswer7 = ''
             this.selectedAnswers7.push(definition)
             const [a, b] = [...this.selectedAnswers7]

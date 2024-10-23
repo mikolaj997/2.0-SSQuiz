@@ -69,8 +69,10 @@
                         <div class="word first">
                             <div class="answers first">
                                 <button v-for="(definition, index) in definition1" :key="definition.id"
-                                    :class="{ disabledButton: isAnswered }" v-on:click="checkIfCorrect(definition)"
+                                    :class="{ disabledButton: isAnswered }" 
+                                v-on:click="checkIfCorrect(definition)"
                                     class="answer">
+                                    
                                     <h3 v-if="!showResult" class="a1">{{ definition.definition }}
                                     </h3>
 
@@ -499,7 +501,12 @@
                                 <!-- Jeśli odpowiedż bedzie prawiłowa lub błędna dodajemy klasę w js correct/wrong , które są w css -->
                             </div>
 
-                            <button class="result" v-on:click="showResults">Zatwierdź</button>
+                            <button class="result" v-on:click="userAnswer.length !== 0 && showResults()">
+                                <div v-if="!showResult">
+                                    Zatwierdź
+                                </div>
+                                <div v-else>resetuj</div>
+                            </button>
 
                         </div>
                     </div>

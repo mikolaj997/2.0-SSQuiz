@@ -1,0 +1,403 @@
+import {Component, Input} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; 
+import { NgModule } from '@angular/core';
+
+@Component({
+    selector: 'app-user',
+    imports: [ FormsModule, CommonModule],
+    template: `
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">{{ name }}
+            <div class="navButtons">
+
+                <button type="button" class="btn btn-outline-secondary">
+                    pojęcia i definicje
+                </button>
+                <button (click)="togglePopup()" type="button" class="btn btn-outline-secondary category">kategorie
+                </button>
+                <button (click)="showFlashcardInfo()" type="button" class="btn btn-outline-secondary">Fiszki</button>
+            </div>
+
+        </a>
+    </nav>
+
+     <div>
+     
+     @if (flashcardData.showPopup) {
+        <div  class="popup">
+            <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
+            <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
+            <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
+        </div>
+     }
+     
+    </div>
+    <button (click)="showAllOfWords()">pojęcia</button>
+@if(flashcardData.showFlashcardInfo1){
+    <div  class="flashcardInfo">wybierz kategorię</div>
+}
+
+
+  <div class="FlashcardAndDefinition">
+  <div class="flashcardArea">
+    <div (click)="toggleRotation()" class="flashcard" [ngClass]="{ 'rotate': flashcardData.rotateFiszka }">
+     @if(!flashcardData.flashcardCategoryClicked){
+   
+         <div  class="flashcardCategory">
+           wybierz kategorię i naciśnij na pole 
+           <p></p><p>pojęcie -> definicja</p>
+         </div>
+} 
+
+      @if(flashcardData.showPollution1){
+          <div >
+    @if(!flashcardData.showSport1 && !flashcardData.showCommon1 && !flashcardData.rotateFiszka){
+                <div  class="front" >
+                  {{ flashcardData.pollution[flashcardData.id1].word }}
+                </div>
+    }
+
+    @if(!flashcardData.showSport1 && !flashcardData.showCommon1 && flashcardData.rotateFiszka){
+                <div  class="back" >
+                  {{ flashcardData.pollution[flashcardData.id1].definition }}
+                </div>
+    }
+          </div>
+}
+
+@if(flashcardData.showSport1){
+          <div >
+          @if(!flashcardData.showPollution1 && !flashcardData.showCommon1 &&!flashcardData.rotateFiszka){
+            <div class="front" >
+              {{ flashcardData.sport[flashcardData.id2].word }}
+            </div>
+}
+
+@if(!flashcardData.showPollution1 && !flashcardData.showCommon1 && flashcardData.rotateFiszka){
+    <div  class="back" >
+      {{ flashcardData.sport[flashcardData.id2].definition }}
+    </div>
+}
+          </div>
+}
+
+@if(flashcardData.showCommon1){
+          <div >
+          @if(!flashcardData.showPollution1 && !flashcardData.showSport1 && !flashcardData.rotateFiszka){
+            <div class='front'>
+              {{ flashcardData.common[flashcardData.id3].word }}
+            </div>
+}
+            @if(!flashcardData.showPollution1 && !flashcardData.showSport1 && flashcardData.rotateFiszka){
+                <div class='back'>
+                  {{ flashcardData.common[flashcardData.id3].definition }}
+                </div>
+}
+          </div>
+}
+    </div>
+
+   <div class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" data-toggle="buttons">
+  <label [ngClass]="{'btn btn-outline-secondary': true, 'active': flashcardData.selectedOption === 'option1'}">
+    <input type="radio" name="options" id="option1" (change)="flashcardData.selectedOption = 'option1'; FlashcardCategory()" autocomplete="off"> common
+  </label>
+  <label [ngClass]="{'btn btn-outline-secondary': true, 'active': flashcardData.selectedOption === 'option2'}">
+    <input type="radio" name="options" id="option2" (change)="flashcardData.selectedOption = 'option2'; FlashcardCategory()" autocomplete="off"> pollution
+  </label>
+  <label [ngClass]="{'btn btn-outline-secondary': true, 'active': flashcardData.selectedOption === 'option3'}">
+    <input type="radio" name="options" id="option3" (change)="flashcardData.selectedOption = 'option3'; FlashcardCategory()" autocomplete="off"> sport
+  </label>
+</div>
+
+    <button class="d-flex justify-content-center nextFlashcard" (click)="inscreaseId()"> następna</button>
+    <button class="d-flex justify-content-center prevFlashcard" (click)="decreaseId()"> poprzednia</button>
+  </div>
+
+  <div class="container definitions">
+  @if(flashcardData.showAllWords){
+    <ul class="allWords" >
+
+    
+@if(flashcardData.showPollution1){
+    <div >
+      <h1>pollution</h1>
+      @for(item of flashcardData.pollution ; track item.id){
+           {{ item.word }} - {{ item.definition }}
+          }
+    
+    </div>
+}
+
+
+@if(flashcardData.showSport1){
+          <div >
+            <h1>sport</h1>
+            @for(item of flashcardData.sport ; track item.id){
+           {{ item.word }} - {{ item.definition }}
+          }
+          </div>
+}
+
+
+@if(flashcardData.showCommon1){
+          <div >
+             <h1>common</h1>
+          @for(item of flashcardData.common ; track item.id){
+           {{ item.word }} - {{ item.definition }}
+          }
+          
+          </div>
+}
+    </ul>
+}
+  </div>
+</div>
+
+    `,
+    standalone: true,
+  })
+  export class FlashcardComponent {
+    flashcardData = {
+        pollution: [
+          { id: '1',word: 'acid', definition: 'kwas' },
+          { word: 'petrol', definition: 'benzyna' },
+          { word: 'dioxide', definition: 'dwutlenek' },
+          { word: 'sulpour', definition: 'siarka' },
+          { word: 'soot', definition: 'sadza' },
+          { word: 'exhaust', definition: 'spaliny' },
+          { word: 'harmful', definition: 'szkodliwy' },
+          { word: 'monoxide', definition: 'tlenek' },
+          { word: 'nitrogen', definition: 'azot' },
+          { word: 'particule', definition: 'cząsteczka' },
+        ],
+        sport: [
+          { id: '1', word: 'archery', definition: 'łucznictwo' },
+          { word: 'basketball', definition: 'koszykówka' },
+          { word: 'coach', definition: 'trener' },
+          { word: 'draw', definition: 'remis' },
+          { word: 'fencing', definition: 'szermierka' },
+          { word: 'goalkeeper', definition: 'bramkarz' },
+          { word: 'net', definition: 'siatka' },
+          { word: 'pole vault', definition: 'skok o tyczce' },
+          { word: 'racket', definition: 'rakieta' },
+          { word: 'relay', definition: 'sztafeta' },
+        ],
+        common: [
+          { word: 'to bring', definition: 'przynieść', id: '1' },
+          { word: 'to manage', definition: 'zdołać', id:  '2' },
+          { word: 'to predict', definition: 'przewidywać', id:  '3' },
+          { word: 'to say', definition: 'mówić', id:  '4' },
+          { word: 'to make', definition: 'robić', id:  '5' },
+          { word: 'to know', definition: 'wiedzieć', id:  '6' },
+          { word: 'to come', definition: 'przyjść' , id:  '7'},
+          { word: 'to find', definition: 'znaleźć', id:  '8'},
+          { word: 'to call', definition: 'dzwonić' , id:  '9'},
+          { word: 'to play', definition: 'grać', id:  '10'},
+        ],
+        id1: 0,
+        id2: 0,
+        id3: 0,
+        currentSlide: 0,
+        correctAnswers: 0,
+        rotateFiszka: false,
+        selectedOption: '',
+        showPopup: false,
+        showPopup2: false,
+        showPopupFC: false,
+        showResult: false,
+        showVocabulary: false,
+        showAllWords: false,
+        isAnswered: false,
+        isCorrect: false,
+        sportCategory1: false,
+        showSport1: false,
+        showCommon1: false,
+        showPollution1: false,
+        showFlashcardInfo1: false,
+        flashcardCategoryClicked: false,
+        
+    }
+
+    
+//   <div class="FlashcardAndDefinition">
+//   <div class="flashcardArea">
+//     <div (click)="toggleRotation()" class="flashcard" [ngClass]="{ 'rotate': rotateFiszka }">
+   //   @if(!flashcardData.flashcardCategoryClicked){
+   
+   //       <div *ngIf="!flashcardData.flashcardCategoryClicked" class="flashcardCategory">
+   //         wybierz kategorię i naciśnij na pole 
+   //         <p></p><p>pojęcie -> definicja</p>
+   //       </div>
+//}
+
+//       @if(flashcardData.showPollution1){
+    //       <div *ngIf="flashcardData.showPollution1">
+    //@if(!flashcardData.showSport1 && !flashcardData.showCommon1 && !rotateFiszka){
+        //         <div *ngIf="!flashcardData.showSport1 && !flashcardData.showCommon1" class="front" *ngIf="!rotateFiszka">
+        //           {{ flashcardData.pollution[flashcardData.id1].word }}
+        //         </div>
+    //}
+
+    //@if(!flashcardData.showSport1 && !flashcardData.showCommon1 && rotateFiszka){
+        //         <div *ngIf="!showSport1 && !showCommon1" class="back" *ngIf="rotateFiszka">
+        //           {{ flashcardData.pollution[flashcardData.id1].definition }}
+        //         </div>
+    //}
+    //       </div>
+//}
+
+//@if(flashcardData.showSport1){
+    //       <div *ngIf="showSport1">
+    //         <div *ngIf="!showPollution1 && !showCommon1" class="front" *ngIf="!rotateFiszka">
+    //           {{ flashcardData.sport[flashcardData.id2].word }}
+    //         </div>
+    //         <div *ngIf="!showPollution1 && !showCommon1" class="back" *ngIf="rotateFiszka">
+    //           {{ flashcardData.sport[flashcardData.id2].definition }}
+    //         </div>
+    //       </div>
+//}
+
+//@if(flashcardData.showCommon1){
+    //       <div *ngIf="showCommon1">
+    //         <div *ngIf="!showPollution1 && !showSport1" class="front" *ngIf="!rotateFiszka">
+    //           {{ flashcardData.common[flashcardData.id3].word }}
+    //         </div>
+    //         <div *ngIf="!showPollution1 && !showSport1" class="back" *ngIf="rotateFiszka">
+    //           {{ flashcardData.common[flashcardData.id3].definition }}
+    //         </div>
+    //       </div>
+//}
+//     </div>
+
+//     <div (click)="FlashcardCategory()" class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" data-toggle="buttons">
+//       <label [ngClass]="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option1'}">
+//         <input type="radio" name="options" id="option1" autocomplete="off" checked> common
+//       </label>
+//       <label [ngClass]="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option2'}">
+//         <input type="radio" name="options" id="option2" autocomplete="off"> pollution
+//       </label>
+//       <label [ngClass]="{'btn btn-outline-secondary': true, 'active': flashcardData.selectedOption === 'option3'}">
+//         <input type="radio" name="options" id="option3" autocomplete="off"> sport
+//       </label>
+//     </div>
+
+//     <button class="d-flex justify-content-center nextFlashcard" (click)="inscreaseId()"> następna</button>
+//     <button class="d-flex justify-content-center prevFlashcard" (click)="decreaseId()"> poprzednia</button>
+//   </div>
+
+//   <div class="container definitions">
+//     <ul class="allWords" *ngIf="showAllWords">
+//       <div *ngIf="showPollution1">
+//         <h1>pollution</h1>
+//         <div *ngFor="let item of flashcardData.pollution">
+//           {{ item.word }} - {{ item.definition }}
+//         </div>
+//       </div>
+
+
+//@if(flashcardData.showSport1){
+    //       <div *ngIf="showSport1">
+    //         <h1>sport</h1>
+    //         <div *ngFor="let item of flashcardData.sport">
+    //           {{ item.word }} - {{ item.definition }}
+    //         </div>
+    //       </div>
+//}
+
+
+//@if(flashcardData.showCommon1){
+    //       <div *ngIf="showCommon1">
+    //         <h1>common</h1>
+    //         <div *ngFor="let item of flashcardData.common">
+    //           {{ item.word }} - {{ item.definition }}
+    //         </div>
+    //       </div>
+//}
+//     </ul>
+//   </div>
+// </div>
+
+
+
+name = 'ssQuiz'
+FlashcardCategory() {
+  
+    if (this.flashcardData.selectedOption == 'option1') {
+        this.flashcardData.showCommon1 = true;
+        this.flashcardData.showSport1 = false;
+        this.flashcardData.showPollution1 = false;
+
+        this.flashcardData.flashcardCategoryClicked = true
+    }
+    if (this.flashcardData.selectedOption == 'option2') {
+        this.flashcardData.showPollution1 = true;
+        this.flashcardData.showSport1 = false;
+        this.flashcardData.showCommon1 = false;
+
+        this.flashcardData.flashcardCategoryClicked = true
+    }
+    if (this.flashcardData.selectedOption == 'option3') {
+        this.flashcardData.showSport1 = true;
+        this.flashcardData.showCommon1 = false;
+        this.flashcardData.showPollution1 = false;
+
+        this.flashcardData.flashcardCategoryClicked = true
+    }
+
+}
+togglePopup(){
+    this.flashcardData.showPopup = !this.flashcardData.showPopup;
+}
+toggleRotation() {
+    this.flashcardData.rotateFiszka = !this.flashcardData.rotateFiszka;
+}
+showFlashcardInfo(){
+    this.flashcardData.showFlashcardInfo1 = !this.flashcardData.showFlashcardInfo1
+}
+showAllOfWords() {
+    this.flashcardData.showAllWords = !this.flashcardData.showAllWords;
+}
+inscreaseId() {
+    if (this.flashcardData.id1 < 9) {
+        this.flashcardData.id1++;
+    } else {
+        this.flashcardData.id1 = 0;
+    }
+    
+    if (this.flashcardData.id2 < 9) {
+        this.flashcardData.id2++;
+    } else {
+        this.flashcardData.id2 = 0;
+    }
+    
+    if (this.flashcardData.id3 < 9) {
+        this.flashcardData.id3++;
+    } else {
+        this.flashcardData.id3 = 0;
+    }
+    // setTimeout(()=>{
+    //     if (this.id1 == 10) {
+    //         return this.id = 0
+    //     }
+    //     if (this.id2 == 10) {
+    //         this.id2 = 0
+    //     }
+    //     if (this.id3 == 10) {
+    //         this.id3 = 0
+    //     }
+    // }, 1000)
+}
+decreaseId() {
+    if (this.flashcardData.id1 < 10) {
+        this.flashcardData.id1--
+    }
+    if (this.flashcardData.id2 < 10) {
+        this.flashcardData.id2--
+    }
+    if (this.flashcardData.id3 < 10) {
+        this.flashcardData.id3--
+    }
+}
+  }
+  

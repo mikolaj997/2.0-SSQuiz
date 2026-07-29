@@ -4,6 +4,10 @@
 - aplikacja została pierwotnie stworzona w technologii Vue.js
   
 - W późniejszym okresie na innej gałęzi dodane zostały części aplikacji napisane w frameworkach: React.js i Angular.js
+## Funkcje:
+
+- uczenie się z fiszek
+- rozwiązywanie testów
 
 ## Zrzuty ekranu: 
 <img width="1216" height="909" alt="image" src="https://github.com/user-attachments/assets/a7457325-fc36-461f-9a75-8e072072a776" />

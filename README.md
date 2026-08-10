@@ -21,3 +21,9 @@
 <br>
 
 <img width="1240" height="789" alt="image" src="https://github.com/user-attachments/assets/0c33361a-5e15-4a8a-89f2-d261a81cbda2" />
+
+## How to Run the Project
+
+1. Open the project in Visual Studio Code.
+2. Open `index.html`.
+3. Right-click on the file and select **Open with Browser** or **Open with Live Server**.

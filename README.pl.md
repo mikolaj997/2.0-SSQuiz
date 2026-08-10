@@ -1,9 +1,17 @@
 # 2.0-SSQuiz to aplikacja, która umożliwia uczenie się z fiszek i krótkich testów. 
 🇵🇱 Polski | 🇬🇧 [English](README.md)
 
-- aplikacja została pierwotnie stworzona w technologii Vue.js
-  
-- W późniejszym okresie na innej gałęzi dodane zostały części aplikacji napisane w frameworkach: React.js i Angular.js
+## Technologie
+
+Aplikacja została pierwotnie stworzona z wykorzystaniem frameworka Vue.js. 
+W ramach dalszego rozwoju projektu przygotowano również wersje wykorzystujące React.js i Angular.js.
+
+## Gałęzie
+
+- `master` – główna wersja aplikacji oparta na Vue.js.
+- `dev` – gałąź przeznaczona do dalszego rozwoju aplikacji.
+- `React` – wersja aplikacji wykorzystująca React.js.
+- `Angular` – wersja aplikacji wykorzystująca Angular.js.
 ## Funkcje:
 
 - uczenie się z fiszek

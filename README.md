@@ -1,11 +1,19 @@
-# 2.0-SSQuiz
+# 2.0-SSQuiz is an e-learning application that allows users to study using flashcards and short quizzes.
 
 🇬🇧 English | 🇵🇱 [Polski](README.pl.md)
 
-2.0-SSQuiz is an e-learning application that allows users to study using flashcards and short quizzes.
 
-- The application was originally developed using **Vue.js**.
-- Later, additional versions of the application were created in separate branches using **React.js** and **Angular** to compare different frontend frameworks.
+## Technologies
+
+The application was originally developed using the Vue.js framework.
+As part of the further development of the project, versions using React.js and Angular.js were also created.
+
+## Branches
+
+- `master` – the main version of the application based on Vue.js.
+- `dev` – the branch used for further development of the application.
+- `React` – the version of the application using React.js.
+- `Angular` – the version of the application using Angular.js.
 
 ## Features
 

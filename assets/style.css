@@ -393,3 +393,34 @@ a:hover {
         left: 5%;
     }
 }
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+   
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 25px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+     .navButtons {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        left: auto;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+        background-color: white;
+        border: 1px solid #ccc;
+    }
+}

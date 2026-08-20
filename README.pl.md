@@ -24,6 +24,15 @@ W ramach dalszego rozwoju projektu przygotowano również wersje wykorzystujące
  <br>
 <img width="1240" height="789" alt="image" src="https://github.com/user-attachments/assets/0c33361a-5e15-4a8a-89f2-d261a81cbda2" />
 
+### Responsywność:
+
+<img width="770" height="570" alt="image" src="https://github.com/user-attachments/assets/a1af7087-eb6a-41bb-93c0-485b1c678993" />
+
+- Widok dla telefonu:
+
+<img width="356" height="808" alt="image" src="https://github.com/user-attachments/assets/b5363172-726c-4055-ab07-7902b8847b97" />
+
+
 
 ## Jak uruchomić projekt
 

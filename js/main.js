@@ -238,6 +238,7 @@ createApp({
       id3: 0,
       currentSlide: 0,
       correctAnswers: 0,
+      menuOpen: false,
       rotateFiszka: false,
       selectedOption: "",
       showPopup: false,

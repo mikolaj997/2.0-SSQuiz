@@ -30,6 +30,9 @@ As part of the further development of the project, versions using React.js and A
 
 <img width="1240" height="789" alt="image" src="https://github.com/user-attachments/assets/0c33361a-5e15-4a8a-89f2-d261a81cbda2" />
 
+<img width="770" height="570" alt="image" src="https://github.com/user-attachments/assets/a1af7087-eb6a-41bb-93c0-485b1c678993" />
+
+
 ## How to Run the Project
 
 1. Open the project in Visual Studio Code.

@@ -1,9 +1,6 @@
-
 //do po stromie html
 
-
 const { createApp } = Vue;
-
 
 //
 
@@ -345,7 +342,7 @@ createApp({
         });
         this.correctAnswers = 0;
         this.userAnswer = [];
-        this.userAnswer11 = [];
+        this.userAnswer1 = [];
         this.userAnswer2 = [];
         this.userAnswer3 = [];
         this.userAnswer4 = [];
@@ -355,6 +352,17 @@ createApp({
         this.userAnswer8 = [];
         this.userAnswer9 = [];
         this.userAnswer10 = [];
+
+        this.selectedAnswers = [];
+        this.selectedAnswers2 = [];
+        this.selectedAnswers3 = [];
+        this.selectedAnswers4 = [];
+        this.selectedAnswers5 = [];
+        this.selectedAnswers6 = [];
+        this.selectedAnswers7 = [];
+        this.selectedAnswers8 = [];
+        this.selectedAnswers9 = [];
+        this.selectedAnswers10 = [];
       }
 
       // const slide3 = document.querySelector('.slide3')

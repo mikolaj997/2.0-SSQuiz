@@ -1,43 +1,72 @@
 # 2.0-SSQuiz to aplikacja, która umożliwia uczenie się z fiszek i krótkich testów. 
 🇵🇱 Polski | 🇬🇧 [English](README.md)
 
+## Funkcje
+
+- Testy ze słownictwa podzielone na kategorie
+- Interaktywne fiszki z pojęciami i definicjami
+- Natychmiastowa informacja o poprawności odpowiedzi oraz śledzenie wyniku
+- Jasny i ciemny motyw z zapisywaniem wybranych ustawień
+- Responsywny układ dla komputerów, tabletów i urządzeń mobilnych
+- Nawigacja mobilna z menu hamburgerowym
+
 ## Technologie
 
-Aplikacja została pierwotnie stworzona z wykorzystaniem frameworka Vue.js. 
-W ramach dalszego rozwoju projektu przygotowano również wersje wykorzystujące React.js i Angular.js.
+- HTML5
+- CSS3
+- JavaScript
+- Vue.js 3
+- Bootstrap
+
+Oryginalna wersja aplikacji została stworzona z wykorzystaniem Vue.js. Oddzielne wersje wykorzystujące React i Angular są dostępne na odpowiadających im gałęziach.
 
 ## Gałęzie
 
-- `master` – główna wersja aplikacji oparta na Vue.js.
-- `dev` – gałąź przeznaczona do dalszego rozwoju aplikacji.
-- `React` – wersja aplikacji wykorzystująca React.js.
-- `Angular` – wersja aplikacji wykorzystująca Angular.js.
-## Funkcje:
+- `master` – główna wersja oparta na Vue.js
+- `dev` – gałąź przeznaczona do aktywnego rozwoju aplikacji
+- `react` – wersja wykorzystująca React
+- `angular` – wersja wykorzystująca Angular
 
-- uczenie się z fiszek
-- rozwiązywanie testów
+## Zrzuty ekranu
 
-## Zrzuty ekranu: 
-<img width="1216" height="909" alt="image" src="https://github.com/user-attachments/assets/a7457325-fc36-461f-9a75-8e072072a776" />
- <br>
- <img width="1227" height="573" alt="image" src="https://github.com/user-attachments/assets/3b990c21-fefa-435e-8e76-b22406dbd24c" />
+### Test
 
-<img width="1234" height="719" alt="image" src="https://github.com/user-attachments/assets/f62e7459-ca78-4712-8bfa-38cf70a2bdff" />
- <br>
-<img width="1240" height="789" alt="image" src="https://github.com/user-attachments/assets/0c33361a-5e15-4a8a-89f2-d261a81cbda2" />
+<img width="1881" height="904" alt="image" src="https://github.com/user-attachments/assets/c413d4b0-ab75-4d82-aab3-8ad56aa94ee0" />
 
-### Responsywność:
+<img width="1889" height="527" alt="image" src="https://github.com/user-attachments/assets/aabf42a0-1721-4d15-91e0-a0e7a8f3aa65" />
 
-<img width="770" height="570" alt="image" src="https://github.com/user-attachments/assets/a1af7087-eb6a-41bb-93c0-485b1c678993" />
+### Fiszki
 
-- Widok dla telefonu:
+<img width="1911" height="913" alt="image" src="https://github.com/user-attachments/assets/b3144ca9-c98f-4d4a-97d5-f05f5e8b16ec" />
 
-<img width="356" height="808" alt="image" src="https://github.com/user-attachments/assets/b5363172-726c-4055-ab07-7902b8847b97" />
+<img width="1907" height="591" alt="image" src="https://github.com/user-attachments/assets/338634ac-3752-4eeb-b60f-037be616ec83" />
 
+<br>
 
+### Responsywny układ
 
-## Jak uruchomić projekt
+<img width="788" height="880" alt="image" src="https://github.com/user-attachments/assets/2ff70806-4a34-40f1-bb2b-e0c3a367306b" />
 
-1. Otwórz projekt w Visual Studio Code.
-2. Otwórz plik `index.html`.
-3. Kliknij prawym przyciskiem myszy na plik i wybierz **Open with Browser** lub **Open with Live Server**.
+<img width="778" height="900" alt="image" src="https://github.com/user-attachments/assets/ffe2192a-0abe-4b33-a064-d374155407d1" />
+
+### Widok mobilny
+
+<img width="234" height="523" alt="image" src="https://github.com/user-attachments/assets/b2ce0ffd-c987-4f35-b4da-43697ac7552c" />
+
+<img width="241" height="520" alt="image" src="https://github.com/user-attachments/assets/77d4b8fd-3047-497d-9149-3223f3d5de72" />
+
+### Tryb ciemny
+
+<img width="1890" height="906" alt="image" src="https://github.com/user-attachments/assets/3896aa10-a80a-4d67-979f-cf332e4d6ca7" />
+
+<img width="1906" height="905" alt="image" src="https://github.com/user-attachments/assets/8536b380-1023-4180-8003-93b4603213ea" />
+
+## Uruchomienie lokalne
+
+Projekt nie wymaga procesu budowania ani instalowania dodatkowych zależności.
+
+1. Sklonuj lub pobierz repozytorium.
+2. Otwórz katalog projektu w Visual Studio Code.
+3. Otwórz plik `index.html` za pomocą lokalnego serwera deweloperskiego, np. rozszerzenia **Live Server**.
+
+Możesz również otworzyć plik `index.html` bezpośrednio w nowoczesnej przeglądarce internetowej, jednak zalecane jest korzystanie z lokalnego serwera.

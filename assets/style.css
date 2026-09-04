@@ -1,16 +1,105 @@
+.theme-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #6c757d;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid #80bdff;
+    outline-offset: 2px;
+}
+
+html.dark-mode {
+    color-scheme: dark;
+}
+
+html.dark-mode body,
+html.dark-mode .carousel {
+    background-color: #12161d;
+    color: #e8edf2;
+}
+
+html.dark-mode .navbar.bg-light,
+html.dark-mode .navButtons,
+html.dark-mode .popup,
+html.dark-mode .popupM,
+html.dark-mode .popupFC {
+    background-color: #1d2530 !important;
+    border-color: #465364;
+}
+
+html.dark-mode .navbar-brand,
+html.dark-mode a,
+html.dark-mode .previous,
+html.dark-mode .next {
+    color: #d9e2ec;
+}
+
+html.dark-mode .answer,
+html.dark-mode .flashcard,
+html.dark-mode .nextFlashcard,
+html.dark-mode .prevFlashcard,
+html.dark-mode .definitions,
+html.dark-mode .theme-toggle {
+    background-color: #242e3b;
+    border-color: #59687a;
+    color: #f1f5f9;
+}
+
+html.dark-mode .answer:hover,
+html.dark-mode .flashcard:hover {
+    background-color: #364457;
+}
+
+html.dark-mode .btn-outline-secondary {
+    color: #d9e2ec;
+    border-color: #8291a3;
+}
+
+html.dark-mode .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #59687a;
+}
+
+html.dark-mode .correct {
+    color: #65d68a;
+}
+
+html.dark-mode .wrong {
+    color: #ff7b86;
+}
+
 .navbar-brand {
     z-index: 999;
 }
 
 .navButtons {
     position: absolute;
-    left: 25%;
+    left: 50%;
     top: 5px;
+    transform: translateX(-50%);
 }
 
 .relutlCount {
     position: absolute;
-    right: 10px;
+    right: 70px;
     z-index: 999;
 }
 
@@ -403,7 +492,7 @@ a:hover {
     .hamburger {
         display: block;
         position: absolute;
-        right: 15px;
+        right: 70px;
         top: 10px;
         font-size: 25px;
         background: none;
@@ -415,6 +504,7 @@ a:hover {
         top: 50px;
         right: 10px;
         left: auto;
+        transform: none;
         z-index: 9999;
         display: flex;
         flex-direction: column;

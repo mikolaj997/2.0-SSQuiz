@@ -17,6 +17,80 @@
     transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
+.language-toggle {
+    position: absolute;
+    top: 50%;
+    right: 65px;
+    transform: translateY(-50%);
+    min-width: 40px;
+    height: 32px;
+    padding: 0 7px;
+    border: 1px solid #6c757d;
+    border-radius: 4px;
+    color: #495057;
+    background-color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.language-toggle:hover {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+html.dark-mode .language-toggle {
+    color: #e8edf2;
+    background-color: #242e3b;
+    border-color: #59687a;
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(50% + 23px);
+    right: 65px;
+    display: none;
+    padding: 6px;
+    border: 1px solid #adb5bd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    z-index: 10005;
+}
+
+.language-menu.is-open {
+    display: flex;
+    gap: 4px;
+}
+
+.language-option {
+    padding: 5px 8px;
+    border: 1px solid #adb5bd;
+    border-radius: 4px;
+    color: #495057;
+    background-color: #fff;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.language-option:hover,
+.language-option.is-active {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+html.dark-mode .language-menu,
+html.dark-mode .language-option {
+    color: #e8edf2;
+    background-color: #242e3b;
+    border-color: #59687a;
+}
+
+html.dark-mode .language-option:hover,
+html.dark-mode .language-option.is-active {
+    background-color: #59687a;
+}
+
 .theme-toggle:hover {
     transform: translateY(-50%) scale(1.06);
 }
@@ -114,7 +188,7 @@ html.dark-mode .wrong {
 
 .relutlCount {
     position: absolute;
-    right: 70px;
+    right: 120px;
     z-index: 999;
 }
 
@@ -647,6 +721,14 @@ a:hover {
 
     .has-hamburger .theme-toggle {
         right: 70px;
+    }
+
+    .has-hamburger .language-toggle {
+        right: 125px;
+    }
+
+    .has-hamburger .language-menu {
+        right: 10px;
     }
 
     .has-hamburger .navButtons {

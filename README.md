@@ -42,7 +42,11 @@ The original application is built with Vue.js. Separate React and Angular versio
 
 <img width="1234" alt="Vocabulary flashcards view" src="https://github.com/user-attachments/assets/f62e7459-ca78-4712-8bfa-38cf70a2bdff">
 
-<img width="1240" alt="Flashcard definition view" src="https://github.com/user-attachments/assets/0c33361a-5e15-4a8a-89f2-d261a81cbda2">
+<img width="1227" height="573" alt="image" src="https://github.com/user-attachments/assets/81435ccf-507c-4db8-a74c-650cfd025e76" />
+
+
+<img width="1234" height="719" alt="image" src="https://github.com/user-attachments/assets/f62e7459-ca78-4712-8bfa-38cf70a2bdff" />
+<br>
 
 ### Responsive layout
 

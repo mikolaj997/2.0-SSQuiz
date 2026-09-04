@@ -12,6 +12,10 @@ createApp({
       definitions: [],
       //
       name: "SSMindGames",
+      darkMode:
+        localStorage.getItem("ssquiz-theme") === "dark" ||
+        (localStorage.getItem("ssquiz-theme") === null &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches),
       word1: "acid",
       definition1: [
         { id: 1, definition: "kwas", flag: true },
@@ -278,7 +282,18 @@ createApp({
       selectedAnswers12: [],
     };
   },
+  mounted() {
+    this.applyTheme();
+  },
   methods: {
+    toggleTheme() {
+      this.darkMode = !this.darkMode;
+      localStorage.setItem("ssquiz-theme", this.darkMode ? "dark" : "light");
+      this.applyTheme();
+    },
+    applyTheme() {
+      document.documentElement.classList.toggle("dark-mode", this.darkMode);
+    },
     FlashcardCategory() {
       this.selectedOption = event.target.id;
       if (this.selectedOption == "option1") {

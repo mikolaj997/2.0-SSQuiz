@@ -15,6 +15,11 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button @click="toggleTheme" class="theme-toggle" type="button"
+                :aria-label="darkMode ? 'Włącz tryb jasny' : 'Włącz tryb nocny'"
+                :title="darkMode ? 'Tryb jasny' : 'Tryb nocny'">
+                {{ darkMode ? '☀️' : '🌙' }}
+            </button>
             <a class="navbar-brand" href="#">{{ name }}
                 <div class="navButtons">
                     <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a

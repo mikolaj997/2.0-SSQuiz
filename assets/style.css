@@ -87,7 +87,22 @@ html.dark-mode .wrong {
 }
 
 .navbar-brand {
-    z-index: 999;
+    flex: 0 0 auto;
+    min-width: max-content;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.navbar {
+    position: relative;
+    min-height: 56px;
+    z-index: 10002;
+}
+
+.carousel,
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 1;
 }
 
 .navButtons {
@@ -241,6 +256,19 @@ a:hover {
 
     text-decoration: none;
     color: white;
+}
+
+/* Bootstrap 4 nie zawiera klasy używanej przez kontrolki z Bootstrapa 5. */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
 .FlashcardAndDefinition {
@@ -406,7 +434,101 @@ a:hover {
     transform: translate(-50%);
 
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .carousel {
+        height: auto;
+        min-height: calc(100vh - 56px);
+        padding-right: 42px;
+        padding-left: 42px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+    }
+
+    .word {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    .words {
+        max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: clamp(22px, 10vw, 36px);
+        overflow-wrap: anywhere;
+    }
+
+    .carousel-item > .d-flex {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .answers {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .answer,
+    .answer:hover,
+    .answer:active {
+        display: block;
+        flex: 0 0 180px;
+        width: 180px;
+        max-width: 100%;
+        margin: 5px;
+    }
+
+    .answer .a1 {
+        margin: 0;
+        padding: 8px 4px;
+        font-size: 20px;
+        overflow-wrap: anywhere;
+    }
+
+    .answers > div {
+        flex: 0 0 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .result {
+        margin: 20px auto;
+        left: auto;
+    }
+
+    @media (max-width: 460px) {
+        .answers {
+            max-width: 180px;
+        }
+
+        .answer,
+        .answer:hover,
+        .answer:active {
+            flex-basis: min(180px, 100%);
+            width: min(180px, 100%);
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
     .definitions {
         position: relative;
         top: auto;
@@ -434,7 +556,7 @@ a:hover {
         font-size: 14px;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .FlashcardAndDefinition {
         flex-direction: column;
         align-items: center;
@@ -486,19 +608,42 @@ a:hover {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
    
 
     .hamburger {
         display: block;
         position: absolute;
-        right: 70px;
+        right: 15px;
         top: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
         font-size: 25px;
+        line-height: 40px;
+        color: #343a40;
         background: none;
         border: none;
         cursor: pointer;
+        z-index: 10001;
     }
+
+    html.dark-mode .hamburger {
+        color: #e8edf2;
+    }
+
+    .has-hamburger .theme-toggle {
+        right: 70px;
+    }
+
+    .has-hamburger .navButtons {
+        display: none;
+    }
+
+    .has-hamburger .navButtons.menu-open {
+        display: flex;
+    }
+
      .navButtons {
         position: absolute;
         top: 50px;

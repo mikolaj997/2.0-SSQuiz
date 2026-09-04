@@ -1,4 +1,4 @@
-# SSMindGames
+# 2.0-SSQuiz
 
 A responsive e-learning application for studying English vocabulary with flashcards and short quizzes.
 

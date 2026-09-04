@@ -21,7 +21,7 @@
             {{ darkMode ? '☀️' : '🌙' }}
         </button>
         <a class="navbar-brand" href="#">{{ name }}
-            <div class="navButtons" :class="{ 'menu-open': menuOpen }">
+            <div class="navButtons" :class="{ 'menu-open': menuOpen, 'submenu-open': showPopup || showPopup2 || showPopupFC }">
 
                 <button type="button" class="btn btn-outline-secondary">
                     pojęcia i definicje
@@ -31,7 +31,7 @@
                 <button @click="showFlashcardInfo" type="button" class="btn btn-outline-secondary">Fiszki</button>
             </div>
 
-            <button class="hamburger" type="button" @click="menuOpen = !menuOpen"
+            <button class="hamburger" type="button" @click="toggleMobileMenu"
                 :aria-expanded="menuOpen" aria-label="Otwórz lub zamknij menu">☰</button>
 
         </a>

@@ -286,6 +286,15 @@ createApp({
     this.applyTheme();
   },
   methods: {
+    toggleMobileMenu() {
+      this.menuOpen = !this.menuOpen;
+
+      if (!this.menuOpen) {
+        this.showPopup = false;
+        this.showPopup2 = false;
+        this.showPopupFC = false;
+      }
+    },
     toggleTheme() {
       this.darkMode = !this.darkMode;
       localStorage.setItem("ssquiz-theme", this.darkMode ? "dark" : "light");

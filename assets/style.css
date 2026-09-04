@@ -492,13 +492,36 @@ a:hover {
     .hamburger {
         display: block;
         position: absolute;
-        right: 70px;
+        right: 15px;
         top: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
         font-size: 25px;
+        line-height: 40px;
+        color: #343a40;
         background: none;
         border: none;
         cursor: pointer;
+        z-index: 10001;
     }
+
+    html.dark-mode .hamburger {
+        color: #e8edf2;
+    }
+
+    .has-hamburger .theme-toggle {
+        right: 70px;
+    }
+
+    .has-hamburger .navButtons {
+        display: none;
+    }
+
+    .has-hamburger .navButtons.menu-open {
+        display: flex;
+    }
+
      .navButtons {
         position: absolute;
         top: 50px;

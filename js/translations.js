@@ -123,16 +123,30 @@
     ])
     .sort((first, second) => second.source.length - first.source.length);
 
+  function replaceWholePhrase(text, source, target) {
+    const escapedSource = source.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const phrasePattern = new RegExp(
+      `(?<![\\p{L}\\p{N}])${escapedSource}(?![\\p{L}\\p{N}])`,
+      "gu"
+    );
+
+    return text.replace(phrasePattern, target);
+  }
+
   function translateText(text) {
     let translatedText = text;
 
     variants.forEach(({ source, entry }) => {
-      translatedText = translatedText.split(source).join(entry[currentLanguage]);
+      translatedText = replaceWholePhrase(
+        translatedText,
+        source,
+        entry[currentLanguage]
+      );
     });
 
     vocabularyVariants.forEach(({ source, entry }) => {
       const target = currentLanguage === "de" ? entry.de : entry.pl;
-      translatedText = translatedText.split(source).join(target);
+      translatedText = replaceWholePhrase(translatedText, source, target);
     });
 
     return translatedText;

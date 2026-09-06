@@ -509,8 +509,8 @@ a:hover {
 .flashcardButtons {
     position: absolute;
     top: 5%;
-    left: 40%;
-    transform: translate(-40%);
+    left: 50%;
+    transform: translateX(-50%);
 
 }
 

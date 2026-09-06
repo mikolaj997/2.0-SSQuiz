@@ -22,14 +22,14 @@
             {{ darkMode ? '☀️' : '🌙' }}
         </button>
         <a class="navbar-brand" href="#">{{ name }}
-            <div class="navButtons" :class="{ 'menu-open': menuOpen, 'submenu-open': showPopup || showPopup2 || showPopupFC }">
+            <div class="navButtons" :class="{ 'menu-open': menuOpen, 'submenu-open': showCategories }">
 
                 <button type="button" class="btn btn-outline-secondary">
                     pojęcia i definicje
                 </button>
-                <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
+                <button @click="toggleCategories" type="button" class="btn btn-outline-secondary category">kategorie
                 </button>
-                <button @click="showFlashcardInfo" type="button" class="btn btn-outline-secondary">Fiszki</button>
+                <button @click="showFlashcardInfo = !showFlashcardInfo" type="button" class="btn btn-outline-secondary">Fiszki</button>
             </div>
 
             <button class="hamburger" type="button" @click="toggleMobileMenu"
@@ -40,95 +40,50 @@
 
 
     <div>
-        <div v-if="showPopup" class="popup">
-            <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
-            <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
-            <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
+        <div v-if="showCategories" class="popup">
+            <a class="btn btn-outline-secondary" href="common.html">common</a>
+            <a class="btn btn-outline-secondary" href="index.html">pollution</a>
+            <a class="btn btn-outline-secondary" href="sport.html">sport</a>
         </div>
     </div>
 
 
-    <button v-if="flashcardCategoryClicked" v-on:click="showAllOfWords">pojęcia</button>
+    <button v-if="hasCategory" @click="showAllWords = !showAllWords">pojęcia</button>
 
-    <div v-if="showFlashcardInfo1" class="flashcardInfo">wybierz kategorię</div>
+    <div v-if="showFlashcardInfo" class="flashcardInfo">wybierz kategorię</div>
 
     <div class="FlashcardAndDefinition">
 
         <div class="flashcardArea">
 
-            <div @click="toggleRotation" class="flashcard" :class="{ rotate: rotateFiszka }">
-                <div v-if="!flashcardCategoryClicked" class="flashcardCategory">wybierz kategorię i naciśnij na pole <p></p><p>pojęcie -> definicja</p>
-                </div>
-                <div v-if="showPollution1">
-                    <div v-if="!showSport1 && !showCommon1" class="front" v-show="!rotateFiszka">
-                        {{ this.pollution[this.id1].word }}
-                    </div>
-                    <div v-if="!showSport1 && !showCommon1" class="back" v-show="rotateFiszka">
-                        {{ this.pollution[this.id1].definition }}
-                    </div>
-                </div>
-                <div v-if="showSport1">
-                    <div v-if="!showPollution1 && !showCommon1" class="front" v-show="!rotateFiszka">
-                        {{ this.sport[this.id2].word }}
-                    </div>
-                    <div v-if="!showPollution1 && !showCommon1" class="back" v-show="rotateFiszka">
-                        {{ this.sport[this.id2].definition }}
-                    </div>
-                </div>
-                <div v-if="showCommon1">
-                    <div v-if="!showPollution1 && !showSport1" class="front" v-show="!rotateFiszka">
-                        {{ this.common[this.id3].word }}
-                    </div>
-                    <div v-if="!showPollution1 && !showSport1" class="back" v-show="rotateFiszka">
-                        {{ this.common[this.id3].definition }}
-                    </div>
-                </div>
-
-            </div>
+            <flashcard-card :card="currentCard" :flipped="isFlipped" :has-category="hasCategory"
+                @toggle="isFlipped = !isFlipped"></flashcard-card>
 
 
-            <div @click="FlashcardCategory"
-                class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" data-toggle="buttons">
-                <label :class="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option1'}">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> common
+            <div class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" role="radiogroup">
+                <label :class="{'btn btn-outline-secondary': true, 'active': category === 'common'}">
+                    <input v-model="category" type="radio" name="category" value="common"> common
                 </label>
-                <label :class="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option2'}">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> pollution
+                <label :class="{'btn btn-outline-secondary': true, 'active': category === 'pollution'}">
+                    <input v-model="category" type="radio" name="category" value="pollution"> pollution
                 </label>
-                <label :class="{'btn btn-outline-secondary': true, 'active': selectedOption === 'option3'}">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> sport
+                <label :class="{'btn btn-outline-secondary': true, 'active': category === 'sport'}">
+                    <input v-model="category" type="radio" name="category" value="sport"> sport
                 </label>
             </div>
 
 
-            <button class="d-flex justify-content-center nextFlashcard" @click="inscreaseId()"> następna</button>
-            <button class="d-flex justify-content-center prevFlashcard" @click="decreaseId()"> poprzednia</button>
+            <button class="d-flex justify-content-center nextFlashcard" @click="moveCard(1)"> następna</button>
+            <button class="d-flex justify-content-center prevFlashcard" @click="moveCard(-1)"> poprzednia</button>
         </div>
 
-        <div v-if="flashcardCategoryClicked" class="container definitions">
-            <ul class="allWords" v-if="showAllWords">
-                <div v-if="showPollution1">
-                    <h1>pollution</h1>
-                    <div v-for="item in pollution ">
+        <div v-if="hasCategory" class="container definitions">
+            <div class="allWords" v-if="showAllWords">
+                <h1>{{ category }}</h1>
+                <div v-for="item in activeCards" :key="item.word">
                         {{ item.word }} - {{ item.definition }}
-                    </div>
                 </div>
-    
-                <div v-if="showSport1">
-                    <h1>sport</h1>
-                    <div v-for="item in sport">
-                        {{ item.word }} - {{ item.definition }}
-                    </div>
-                </div>
-    
-                <div v-if="showCommon1">
-                    <h1>common</h1>
-                    <div v-if="showCommon1" v-for="item in common">
-                        {{ item.word }} - {{ item.definition }}
-                    </div>
-                </div>
-    
-            </ul>
+            </div>
         </div>
 
     </div>
@@ -146,7 +101,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-<script src="./js/main.js"></script>
+<script src="./js/vocabularyList.js"></script>
 <script src="./js/translations.js"></script>
 </body>
 

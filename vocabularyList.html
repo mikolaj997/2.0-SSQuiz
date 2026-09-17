@@ -73,8 +73,9 @@
             </div>
 
 
-            <button class="d-flex justify-content-center nextFlashcard" @click="moveCard(1)"> następna</button>
-            <button class="d-flex justify-content-center prevFlashcard" @click="moveCard(-1)"> poprzednia</button>
+            <p class="keyboard-hint flashcard-hint">SPACJA = DEFINICJA</p>
+            <button class="d-flex justify-content-center nextFlashcard" :disabled="!hasCategory" aria-keyshortcuts="ArrowRight" @click="moveCard(1)">DALEJ →</button>
+            <button class="d-flex justify-content-center prevFlashcard" :disabled="!hasCategory" aria-keyshortcuts="ArrowLeft" @click="moveCard(-1)">← WSTECZ</button>
         </div>
 
         <div v-if="hasCategory" class="container definitions">

@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-keyboard="false" ref="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active slide1"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -483,10 +483,10 @@
                                         userAnswer10.flag ? 'poprawna' : 'niepoprawna' }}</span>
                                 </div>
                             </div>
-                            <button class="result" v-on:click="userAnswer.length !== 0 && showResults()">
+                            <button class="result" v-on:click="showResults()" aria-keyshortcuts="Enter">
                                 <div v-if="!showResult">
                                     Zatwierdź
-                                </div>
+                                <span class="keyboard-hint">ENTER</span></div>
                                 <div v-else>resetuj</div>
                             </button>
                         </div>
@@ -501,12 +501,12 @@
         <button @click:="" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden previous">Poprzednia</span>
+            <span class="quiz-nav-label">← WSTECZ</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden next">Następna</span>
+            <span class="quiz-nav-label">DALEJ →</span>
         </button>
 
 

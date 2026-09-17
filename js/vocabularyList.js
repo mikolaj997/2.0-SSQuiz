@@ -1,4 +1,4 @@
-const { computed, createApp, defineComponent, onMounted, ref, watch } = Vue;
+const { computed, createApp, defineComponent, onMounted, onUnmounted, ref, watch } = Vue;
 
 function useTheme() {
   const savedTheme = localStorage.getItem("ssquiz-theme");
@@ -137,9 +137,25 @@ createApp({
       isFlipped.value = false;
     };
 
+    const handleKeyDown = (event) => {
+      const isCategoryInput = event.target.matches(
+        '.flashcardButtons input[type="radio"][name="category"]',
+      );
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
+          (!isCategoryInput && event.target.closest('input, textarea, select, [contenteditable], nav, .navbar')) ||
+          !hasCategory.value) return;
+      if (!["ArrowLeft", "ArrowRight", " "].includes(event.key)) return;
+      event.preventDefault();
+      if (event.repeat) return;
+      if (event.key === " ") isFlipped.value = !isFlipped.value;
+      else moveCard(event.key === "ArrowLeft" ? -1 : 1);
+    };
+
     onMounted(() => {
       document.title = "Vocabulary list";
+      document.addEventListener("keydown", handleKeyDown);
     });
+    onUnmounted(() => document.removeEventListener("keydown", handleKeyDown));
 
     return {
       activeCards,

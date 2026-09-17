@@ -779,3 +779,10 @@ a:hover {
         border: 1px solid #ccc;
     }
 }
+
+.keyboard-hint { font-family: monospace; font-size: 11px; letter-spacing: 1.5px; color: inherit; opacity: .7; }
+.flashcard-hint { position: absolute; top: 290px; width: 100%; text-align: center; }
+.prevFlashcard, .nextFlashcard { border-radius: 0; border: 1px solid currentColor; box-shadow: 2px 2px 0 currentColor; font-family: monospace; font-size: 12px; }
+.carousel-control-prev, .carousel-control-next { flex-direction: column; gap: 8px; }
+.quiz-nav-label { font-family: monospace; font-size: 10px; color: var(--text-color, currentColor); }
+@media (max-width: 900px) { .quiz-nav-label { writing-mode: vertical-rl; } }

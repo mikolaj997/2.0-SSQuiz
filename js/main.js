@@ -284,8 +284,29 @@ createApp({
   },
   mounted() {
     this.applyTheme();
+    document.addEventListener("keydown", this.handleKeyDown);
+  },
+  beforeUnmount() {
+    document.removeEventListener("keydown", this.handleKeyDown);
   },
   methods: {
+    handleKeyDown(event) {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
+          event.target.closest('input, textarea, select, [contenteditable], nav, .navbar')) return;
+      const carousel = document.querySelector(".carousel");
+      if (!carousel) return;
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        if (!event.repeat) {
+          document.querySelector(event.key === "ArrowLeft" ? ".carousel-control-prev" : ".carousel-control-next")?.click();
+        }
+      } else if (event.key === "Enter") {
+        const submit = carousel.querySelector(".carousel-item.active .result");
+        if (!submit || this.showResult) return;
+        event.preventDefault();
+        if (!event.repeat) submit.click();
+      }
+    },
     toggleMobileMenu() {
       this.menuOpen = !this.menuOpen;
 

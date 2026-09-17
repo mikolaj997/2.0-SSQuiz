@@ -8,6 +8,9 @@
   };
 
   const translations = [
+    { pl: "SPACJA = DEFINICJA", en: "SPACE = DEFINITION", de: "LEERTASTE = DEFINITION" },
+    { pl: "WSTECZ", en: "BACK", de: "ZURÜCK" },
+    { pl: "DALEJ", en: "NEXT", de: "WEITER" },
     {
       pl: "4 pojęcia pojęć ze wszystkich kategorii",
       en: "4 terms from all categories",

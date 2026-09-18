@@ -8,6 +8,7 @@
   };
 
   const translations = [
+    { pl: "pojęcia i fiszki", en: "terms and flashcards", de: "Begriffe und Karteikarten" },
     { pl: "SPACJA = DEFINICJA", en: "SPACE = DEFINITION", de: "LEERTASTE = DEFINITION" },
     { pl: "WSTECZ", en: "BACK", de: "ZURÜCK" },
     { pl: "DALEJ", en: "NEXT", de: "WEITER" },

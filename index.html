@@ -27,8 +27,7 @@
             <a class="navbar-brand" href="#">{{ name }}
                 <div class="navButtons" :class="{ 'menu-open': menuOpen, 'submenu-open': showPopup || showPopup2 || showPopupFC }">
 
-                    <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
-                            href="vocabularyList.html">pojęcia i definicje</a></button>
+                    <a href="vocabularyList.html" class="btn btn-outline-secondary vocabulary-link">pojęcia i fiszki</a>
                     <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                     </button>
                     <button @click="togglePopup2" type="button" class="btn btn-outline-secondary">modyfikacje</button>

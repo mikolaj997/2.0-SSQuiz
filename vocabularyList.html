@@ -24,9 +24,7 @@
         <a class="navbar-brand" href="#">{{ name }}
             <div class="navButtons" :class="{ 'menu-open': menuOpen, 'submenu-open': showCategories }">
 
-                <button type="button" class="btn btn-outline-secondary">
-                    pojęcia i definicje
-                </button>
+                <a href="vocabularyList.html" class="btn btn-outline-secondary vocabulary-link" aria-current="page">pojęcia i fiszki</a>
                 <button @click="toggleCategories" type="button" class="btn btn-outline-secondary category">kategorie
                 </button>
                 <button @click="showFlashcardInfo = !showFlashcardInfo" type="button" class="btn btn-outline-secondary">Fiszki</button>

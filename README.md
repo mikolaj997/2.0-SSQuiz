@@ -34,36 +34,36 @@ The original application is built with Vue.js. Separate React and Angular versio
 
 ### Quiz
 
-<img width="1881" height="904" alt="image" src="https://github.com/user-attachments/assets/c413d4b0-ab75-4d82-aab3-8ad56aa94ee0" />
+<img width="1885" height="911" alt="image" src="https://github.com/user-attachments/assets/93fa2dbc-3af6-46b9-9130-e5acff6bd074" />
 
-<img width="1889" height="527" alt="image" src="https://github.com/user-attachments/assets/aabf42a0-1721-4d15-91e0-a0e7a8f3aa65" />
+<img width="1881" height="548" alt="image" src="https://github.com/user-attachments/assets/14ab2698-5c39-4b2d-85f8-0523a057e5ae" />
 
 ### Flashcards
 
-<img width="1911" height="913" alt="image" src="https://github.com/user-attachments/assets/b3144ca9-c98f-4d4a-97d5-f05f5e8b16ec" />
+<img width="1906" height="561" alt="image" src="https://github.com/user-attachments/assets/453ebc0d-775a-4734-9b02-cd241c69e304" />
 
-<img width="1907" height="591" alt="image" src="https://github.com/user-attachments/assets/338634ac-3752-4eeb-b60f-037be616ec83" />
+<img width="1906" height="652" alt="image" src="https://github.com/user-attachments/assets/4fb6eef6-5561-4440-9ffe-ad8fc366096c" />
 
 <br>
 
 ### Responsive Layout
 
-<img width="788" height="880" alt="image" src="https://github.com/user-attachments/assets/2ff70806-4a34-40f1-bb2b-e0c3a367306b" />
+<img width="768" height="894" alt="image" src="https://github.com/user-attachments/assets/1b7ae370-6829-481d-949a-e80bcad02b86" />
 
 
-<img width="778" height="900" alt="image" src="https://github.com/user-attachments/assets/ffe2192a-0abe-4b33-a064-d374155407d1" />
+<img width="794" height="894" alt="image" src="https://github.com/user-attachments/assets/332be5d2-fe5d-48e4-b994-7ea96e4a161c" />
 
 ### Mobile
-<img width="234" height="523" alt="image" src="https://github.com/user-attachments/assets/b2ce0ffd-c987-4f35-b4da-43697ac7552c" />
+<img width="355" height="779" alt="image" src="https://github.com/user-attachments/assets/3e379c9a-23c8-475c-8aaa-449830fa9c49" />
 
-<img width="241" height="520" alt="image" src="https://github.com/user-attachments/assets/77d4b8fd-3047-497d-9149-3223f3d5de72" />
+<img width="361" height="788" alt="image" src="https://github.com/user-attachments/assets/7ff47901-9ee5-47a2-9274-31a4557227ef" />
 
 ### Dark Mode
 
-<img width="1890" height="906" alt="image" src="https://github.com/user-attachments/assets/3896aa10-a80a-4d67-979f-cf332e4d6ca7" />
+<img width="1904" height="780" alt="image" src="https://github.com/user-attachments/assets/74c7f1b3-7b27-4acd-b0a8-1009c4659bdf" />
 
 
-<img width="1906" height="905" alt="image" src="https://github.com/user-attachments/assets/8536b380-1023-4180-8003-93b4603213ea" />
+<img width="1913" height="597" alt="image" src="https://github.com/user-attachments/assets/dd60acb2-33ef-4549-b55e-86b5c8e04456" />
 
 
 ## Running Locally

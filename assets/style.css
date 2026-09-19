@@ -1,16 +1,202 @@
+.theme-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #6c757d;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.language-toggle {
+    position: absolute;
+    top: 50%;
+    right: 65px;
+    transform: translateY(-50%);
+    min-width: 40px;
+    height: 32px;
+    padding: 0 7px;
+    border: 1px solid #6c757d;
+    border-radius: 4px;
+    color: #495057;
+    background-color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.language-toggle:hover {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+html.dark-mode .language-toggle {
+    color: #e8edf2;
+    background-color: #242e3b;
+    border-color: #59687a;
+}
+
+.language-menu {
+    position: absolute;
+    top: calc(50% + 23px);
+    right: 65px;
+    display: none;
+    padding: 6px;
+    border: 1px solid #adb5bd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    z-index: 10005;
+}
+
+.language-menu.is-open {
+    display: flex;
+    gap: 4px;
+}
+
+.language-option {
+    padding: 5px 8px;
+    border: 1px solid #adb5bd;
+    border-radius: 4px;
+    color: #495057;
+    background-color: #fff;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.language-option:hover,
+.language-option.is-active {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+html.dark-mode .language-menu,
+html.dark-mode .language-option {
+    color: #e8edf2;
+    background-color: #242e3b;
+    border-color: #59687a;
+}
+
+html.dark-mode .language-option:hover,
+html.dark-mode .language-option.is-active {
+    background-color: #59687a;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid #80bdff;
+    outline-offset: 2px;
+}
+
+html.dark-mode {
+    color-scheme: dark;
+}
+
+html.dark-mode body,
+html.dark-mode .carousel {
+    background-color: #12161d;
+    color: #e8edf2;
+}
+
+html.dark-mode .navbar.bg-light,
+html.dark-mode .navButtons,
+html.dark-mode .popup,
+html.dark-mode .popupM,
+html.dark-mode .popupFC {
+    background-color: #1d2530 !important;
+    border-color: #465364;
+}
+
+html.dark-mode .navbar-brand,
+html.dark-mode a,
+html.dark-mode .previous,
+html.dark-mode .next {
+    color: #d9e2ec;
+}
+
+html.dark-mode .answer,
+html.dark-mode .flashcard,
+html.dark-mode .nextFlashcard,
+html.dark-mode .prevFlashcard,
+html.dark-mode .definitions,
+html.dark-mode .theme-toggle {
+    background-color: #242e3b;
+    border-color: #59687a;
+    color: #f1f5f9;
+}
+
+html.dark-mode .answer:hover,
+html.dark-mode .flashcard:hover {
+    background-color: #364457;
+}
+
+html.dark-mode .btn-outline-secondary {
+    color: #d9e2ec;
+    border-color: #8291a3;
+}
+
+html.dark-mode .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #59687a;
+}
+
+html.dark-mode .correct {
+    color: #65d68a;
+}
+
+html.dark-mode .wrong {
+    color: #ff7b86;
+}
+
 .navbar-brand {
-    z-index: 999;
+    flex: 0 0 auto;
+    min-width: max-content;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.navbar {
+    position: relative;
+    min-height: 56px;
+    z-index: 10002;
+}
+
+.carousel,
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 1;
 }
 
 .navButtons {
     position: absolute;
-    left: 25%;
+    left: 50%;
     top: 5px;
+    transform: translateX(-50%);
+}
+
+.navButtons .vocabulary-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .relutlCount {
     position: absolute;
-    right: 10px;
+    right: 120px;
     z-index: 999;
 }
 
@@ -154,125 +340,169 @@ a:hover {
     color: white;
 }
 
+/* Bootstrap 4 nie zawiera klasy używanej przez kontrolki z Bootstrapa 5. */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+@media (min-width: 901px) {
+    .carousel-control-prev .previous,
+    .carousel-control-next .next {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 8px !important;
+        overflow: visible !important;
+        clip: auto !important;
+        white-space: nowrap !important;
+    }
+}
+
 .FlashcardAndDefinition {
-    position: relative;
-    margin-top: 5%;
-    top: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
+    width: 95%;
+    max-width: 1100px;
+    margin: 5% auto 0;
 }
 
 .definitions {
-    position: absolute;
-    top:0;
-    left: 10%;
+    position: relative;
+    top: auto;
+    left: auto;
     width: 250px;
-    border: 1px solid #6c757d
+    flex-shrink: 0;
+    border: 1px solid #6c757d;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-/* .fiszki {
-    position: absolute;
-    top: 5%;
-    left: 35%;
-    display: flex;
-    flex-direction: row;
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ccc;
-    z-index: 999;
-} */
 .flashcardArea {
     position: relative;
-    top: 40%;
-    left: 45%;
-    width: 400px;
+    top: auto;
+    left: auto;
+    width: 500px;
     height: 400px;
-    padding: 5%;
+    flex-shrink: 1;
     border: 1px solid grey;
     border-radius: 25px;
     z-index: 1;
+    box-sizing: border-box;
+    order: 2;
 }
+.allWords {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow-wrap: break-word;
+}
+
+.allWords h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.allWords > div > div {
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+
+
 
 .flashcard {
     position: absolute;
-    top: 20%;
-    left: 25%;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 200px;
     height: 200px;
     border-radius: 20px;
     text-align: center;
-    justify-content: center;
-    flex-direction: row;
     background-color: #fff;
     padding: 10px;
     border: 1px solid #ccc;
     z-index: 1;
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-
-.flashcardCategory {
-    position: absolute;
-    top: 20%;
+    box-sizing: border-box;
 }
 
 .flashcard:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.rotate {
-    transform: rotateY(360deg);
+.flashcardCategory {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
 }
 
 .front,
 .back {
     position: absolute;
-    top: 45%;
+    top: 50%;
+    left: 0;
     width: 100%;
-    height: 100%;
+    transform: translateY(-50%);
     backface-visibility: hidden;
 }
 
 .back {
-    transform: rotateY(0deg);
+    transform: translateY(-50%) rotateY(0deg);
+}
 
+.flashcardButtons {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
 .nextFlashcard {
     position: absolute;
-    top: 80%;
-    left: 55%;
+    top: 320px;
+    right: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
     text-align: center;
-    flex-direction: row;
     background-color: #fff;
     padding: 10px;
     border: 1px solid #ccc;
     z-index: 1;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
 .prevFlashcard {
     position: absolute;
-    top: 80%;
-    left: 25%;
+    top: 320px;
+    left: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
     text-align: center;
-    flex-direction: row;
     background-color: #fff;
     padding: 10px;
     border: 1px solid #ccc;
     z-index: 1;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
-
-
 
 
 
@@ -287,8 +517,8 @@ a:hover {
 .flashcardButtons {
     position: absolute;
     top: 5%;
-    left: 40%;
-    transform: translate(-40%);
+    left: 50%;
+    transform: translateX(-50%);
 
 }
 
@@ -299,3 +529,285 @@ a:hover {
     transform: translate(-50%);
 
 }
+@media (max-width: 900px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .carousel {
+        height: auto;
+        min-height: calc(100vh - 56px);
+        padding-right: 42px;
+        padding-left: 42px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+    }
+
+    .word {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    .words {
+        max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: clamp(22px, 10vw, 36px);
+        overflow-wrap: anywhere;
+    }
+
+    .carousel-item > .d-flex {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .answers {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .answer,
+    .answer:hover,
+    .answer:active {
+        display: block;
+        flex: 0 0 180px;
+        width: 180px;
+        max-width: 100%;
+        margin: 5px;
+    }
+
+    .answer .a1 {
+        margin: 0;
+        padding: 8px 4px;
+        font-size: 20px;
+        overflow-wrap: anywhere;
+    }
+
+    .answers > div {
+        flex: 0 0 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .result {
+        margin: 20px auto;
+        left: auto;
+    }
+
+    @media (max-width: 460px) {
+        .answers {
+            max-width: 180px;
+        }
+
+        .answer,
+        .answer:hover,
+        .answer:active {
+            flex-basis: min(180px, 100%);
+            width: min(180px, 100%);
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    .definitions {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 90%;
+        max-width: 500px;
+        margin: 30px auto;
+    }
+
+    .allWords h1 {
+        font-size: 22px;
+    }
+}
+@media (max-width: 480px) {
+    .definitions {
+        width: 95%;
+        padding: 8px;
+    }
+
+    .allWords h1 {
+        font-size: 20px;
+    }
+
+    .allWords > div > div {
+        font-size: 14px;
+    }
+}
+@media (max-width: 900px) {
+    .FlashcardAndDefinition {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 95%;
+    }
+
+    .definitions {
+        width: 100%;
+        max-width: 500px;
+        order: 2;
+    }
+
+    .flashcardArea {
+        width: 100%;
+        max-width: 500px;
+        order: 1;
+    }
+}
+@media (max-width: 600px) {
+    .flashcardArea {
+        width: 95vw;
+        height: 360px;
+        margin: 30px auto;
+    }
+
+    .flashcard {
+        width: 180px;
+        height: 180px;
+        top: 75px;
+    }
+
+    .flashcardButtons {
+        max-width: 95%;
+        overflow-x: auto;
+    }
+
+    .nextFlashcard {
+        top: 290px;
+        right: 5%;
+    }
+
+    .prevFlashcard {
+        top: 290px;
+        left: 5%;
+    }
+}
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 900px) {
+   
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        font-size: 25px;
+        line-height: 40px;
+        color: #343a40;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 10001;
+    }
+
+    html.dark-mode .hamburger {
+        color: #e8edf2;
+    }
+
+    .has-hamburger .theme-toggle {
+        right: 70px;
+    }
+
+    .has-hamburger .language-toggle {
+        right: 125px;
+    }
+
+    .has-hamburger .language-menu {
+        right: 10px;
+    }
+
+    .has-hamburger .navButtons {
+        display: none;
+    }
+
+    .has-hamburger .navButtons.menu-open {
+        display: flex;
+    }
+
+    .has-hamburger .navButtons.submenu-open {
+        display: none;
+    }
+
+    .popup,
+    .popupM,
+    .popupFC {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        left: auto;
+        flex-direction: column;
+        width: 185px;
+        max-width: calc(100vw - 20px);
+        gap: 5px;
+        z-index: 10004;
+    }
+
+    .popup .btn,
+    .popupM .btn,
+    .popupFC .btn {
+        width: 100%;
+        white-space: normal;
+    }
+
+     .navButtons {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        left: auto;
+        transform: none;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+        background-color: white;
+        border: 1px solid #ccc;
+    }
+}
+
+.keyboard-hint { font-family: monospace; font-size: 11px; letter-spacing: 1.5px; color: inherit; opacity: .7; }
+.flashcard-hint { position: absolute; top: 290px; width: 100%; text-align: center; }
+.prevFlashcard, .nextFlashcard { border-radius: 0; border: 1px solid currentColor; box-shadow: 2px 2px 0 currentColor; font-family: monospace; font-size: 12px; }
+.carousel-control-prev, .carousel-control-next { flex-direction: column; gap: 8px; }
+.quiz-nav-label { font-family: monospace; font-size: 10px; color: var(--text-color, currentColor); }
+html:not(.dark-mode) .carousel-control-prev,
+html:not(.dark-mode) .carousel-control-next {
+    color: #212529;
+    opacity: 0.8;
+}
+
+html:not(.dark-mode) .carousel-control-prev:hover,
+html:not(.dark-mode) .carousel-control-prev:focus,
+html:not(.dark-mode) .carousel-control-next:hover,
+html:not(.dark-mode) .carousel-control-next:focus {
+    opacity: 1;
+}
+
+html:not(.dark-mode) .carousel-control-prev-icon,
+html:not(.dark-mode) .carousel-control-next-icon {
+    filter: invert(1);
+}
+@media (max-width: 900px) { .quiz-nav-label { writing-mode: vertical-rl; } }

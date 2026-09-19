@@ -14,16 +14,23 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light has-hamburger">
+            <button class="language-toggle" type="button" data-language-toggle aria-label="Zmień język">PL</button>
+            <button class="hamburger" type="button" @click="toggleMobileMenu"
+                :aria-expanded="menuOpen" aria-label="Otwórz lub zamknij menu">☰</button>
+            <button @click="toggleTheme" class="theme-toggle" type="button"
+                :aria-label="darkMode ? 'Włącz tryb jasny' : 'Włącz tryb nocny'"
+                :title="darkMode ? 'Tryb jasny' : 'Tryb nocny'">
+                {{ darkMode ? '☀️' : '🌙' }}
+            </button>
             <a class="navbar-brand" href="#">{{ name }}
-                <div class="navButtons">
-                    <button v-on:click="showAllOfWords" type="button" class="btn btn-outline-secondary"> <a
-                            href="vocabularyList.html">pojęcia i definicje</a></button>
+                <div class="navButtons" :class="{ 'menu-open': menuOpen, 'submenu-open': showPopup || showPopup2 || showPopupFC }">
+                    <a href="vocabularyList.html" class="btn btn-outline-secondary vocabulary-link">pojęcia i fiszki</a>
                     <button @click="togglePopup" type="button" class="btn btn-outline-secondary category">kategorie
                     </button>
                     <button @click="togglePopup2" type="button" class="btn btn-outline-secondary">modyfikacje</button>
                 </div>
-                <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}</span>
+                <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}/10</span>
             </a>
         </nav>
 
@@ -41,7 +48,7 @@
             </div>
         </div>
 
-        <div id="carouselExampleIndicators" class="carousel slide" ref="carousel" @keydown="handleKeyDown">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-keyboard="false" ref="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -473,10 +480,10 @@
                                         userAnswer10.flag ? 'poprawna' : 'niepoprawna' }}</span>
                                 </div>
                             </div>
-                            <button class="result" v-on:click="userAnswer.length !== 0 && showResults()">
+                            <button class="result" v-on:click="showResults()" aria-keyshortcuts="Enter">
                                 <div v-if="!showResult">
                                     Zatwierdź
-                                </div>
+                                <span class="keyboard-hint">ENTER</span></div>
                                 <div v-else>resetuj</div>
                             </button>
                         </div>
@@ -491,12 +498,12 @@
         <button @click:="" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden previous">Previous</span>
+            <span class="quiz-nav-label">← WSTECZ</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden next">Next</span>
+            <span class="quiz-nav-label">DALEJ →</span>
         </button>
 
 
@@ -550,6 +557,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/translations.js"></script>
 </body>
 
 </html>

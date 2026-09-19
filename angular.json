@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": { "analytics": false },
+  "projects": {
+    "ssquiz": {
+      "projectType": "application", "root": "", "sourceRoot": ".",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/ssquiz", "index": "angular-index.html", "browser": "main.ts",
+            "polyfills": ["zone.js"], "tsConfig": "tsconfig.json",
+            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "assets/style.css"],
+            "assets": [
+              { "glob": "**/*", "input": "assets", "output": "assets" },
+              { "glob": "**/*", "input": "js", "output": "js" },
+              { "glob": "*.html", "input": ".", "output": "legacy", "ignore": ["angular-index.html", "MainComponent.html"] },
+              { "glob": "**/*", "input": "assets", "output": "legacy/assets" },
+              { "glob": "**/*", "input": "js", "output": "legacy/js" }
+            ]
+          },
+          "configurations": { "production": { "outputHashing": "all" }, "development": { "optimization": false, "sourceMap": true } },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "options": { "buildTarget": "ssquiz:build:development" }
+        }
+      }
+    }
+  }
+}

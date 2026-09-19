@@ -1,0 +1,70 @@
+<div id="app">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light has-hamburger">
+    <button class="language-toggle" type="button" [attr.aria-label]="languageLabel" [title]="languageLabel"
+      aria-haspopup="menu" [attr.aria-expanded]="languageMenuOpen"
+      (click)="$event.stopPropagation(); languageMenuOpen = !languageMenuOpen">{{ language.toUpperCase() }}</button>
+    <div class="language-menu" [class.is-open]="languageMenuOpen" role="menu" (click)="$event.stopPropagation()">
+      @for (option of languages; track option) {
+        <button type="button" class="language-option" role="menuitem" [class.is-active]="language === option"
+          [attr.aria-current]="language === option" (click)="selectLanguage(option)">{{ languageNames[option] }}</button>
+      }
+    </div>
+    <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-label]="themeLabel" [title]="themeLabel">
+      {{ darkMode ? '☀️' : '🌙' }}
+    </button>
+    <a class="navbar-brand" href="./">{{ name }}</a>
+    <div class="navButtons" [class.menu-open]="menuOpen" [class.submenu-open]="showCategories">
+      <a href="./" class="btn btn-outline-secondary vocabulary-link" aria-current="page">{{ t('pojęcia i fiszki') }}</a>
+      <button type="button" class="btn btn-outline-secondary category" [attr.aria-expanded]="showCategories"
+        (click)="showCategories = !showCategories">{{ t('kategorie') }}</button>
+      <button type="button" class="btn btn-outline-secondary" (click)="showFlashcardInfo = !showFlashcardInfo">{{ t('Fiszki') }}</button>
+    </div>
+    <button class="hamburger" type="button" (click)="toggleMobileMenu()" [attr.aria-expanded]="menuOpen" [attr.aria-label]="menuLabel">☰</button>
+  </nav>
+
+  @if (showCategories) {
+    <div class="popup">
+      @for (item of categories; track item) {
+        <a class="btn btn-outline-secondary" [href]="categoryLinks[item]">{{ item }}</a>
+      }
+    </div>
+  }
+  @if (hasCategory) {
+    <button type="button" (click)="showAllWords = !showAllWords" [attr.aria-expanded]="showAllWords">{{ t('pojęcia') }}</button>
+  }
+  @if (showFlashcardInfo) { <div class="flashcardInfo">{{ t('wybierz kategorię') }}</div> }
+
+  <div class="FlashcardAndDefinition">
+    <div class="flashcardArea">
+      <div class="flashcard" [class.rotate]="isFlipped" (click)="toggleCard()" (keydown.enter)="toggleCard()"
+        role="button" tabindex="0" [attr.aria-disabled]="!hasCategory" [attr.aria-pressed]="isFlipped" aria-keyshortcuts="Space Enter">
+        @if (!hasCategory) {
+          <div class="flashcardCategory">{{ t('wybierz kategorię i naciśnij na pole') }}<p></p><p>{{ t('pojęcie -> definicja') }}</p></div>
+        } @else if (currentCard; as card) {
+          <div class="front" [hidden]="isFlipped">{{ card.word }}</div>
+          <div class="back" [hidden]="!isFlipped">{{ definition(card) }}</div>
+        }
+      </div>
+      <div class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" role="radiogroup" [attr.aria-label]="t('kategorie')">
+        @for (item of categories; track item) {
+          <label class="btn btn-outline-secondary" [class.active]="category === item">
+            <input type="radio" name="category" [value]="item" [checked]="category === item" (change)="selectCategory(item)"> {{ item }}
+          </label>
+        }
+      </div>
+      <p class="keyboard-hint flashcard-hint">{{ t('SPACJA = DEFINICJA') }}</p>
+      <button type="button" class="d-flex justify-content-center nextFlashcard" [disabled]="!hasCategory" aria-keyshortcuts="ArrowRight" (click)="moveCard(1)">{{ t('DALEJ') }} →</button>
+      <button type="button" class="d-flex justify-content-center prevFlashcard" [disabled]="!hasCategory" aria-keyshortcuts="ArrowLeft" (click)="moveCard(-1)">← {{ t('WSTECZ') }}</button>
+    </div>
+    @if (hasCategory) {
+      <div class="container definitions">
+        @if (showAllWords) {
+          <div class="allWords">
+            <h1>{{ category }}</h1>
+            @for (item of activeCards; track item.word) { <div>{{ item.word }} - {{ definition(item) }}</div> }
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -1,9 +1,9 @@
-# 2.0-SSQuiz to aplikacja, która umożliwia uczenie się z fiszek i krótkich testów. 
+# 2.0-SSQuiz to aplikacja, która umożliwia uczenie się z fiszek i krótkich testów.
 🇵🇱 Polski | 🇬🇧 [English](README.md)
 
 ## Technologie
 
-Aplikacja została pierwotnie stworzona z wykorzystaniem frameworka Vue.js. 
+Aplikacja została pierwotnie stworzona z wykorzystaniem frameworka Vue.js.
 W ramach dalszego rozwoju projektu przygotowano również wersje wykorzystujące React.js i Angular.js.
 
 ## Gałęzie
@@ -17,7 +17,7 @@ W ramach dalszego rozwoju projektu przygotowano również wersje wykorzystujące
 - uczenie się z fiszek
 - rozwiązywanie testów
 
-## Zrzuty ekranu: 
+## Zrzuty ekranu:
 <img width="1216" height="909" alt="image" src="https://github.com/user-attachments/assets/a7457325-fc36-461f-9a75-8e072072a776" />
  <br>
  <img width="1227" height="573" alt="image" src="https://github.com/user-attachments/assets/3b990c21-fefa-435e-8e76-b22406dbd24c" />
@@ -36,8 +36,28 @@ W ramach dalszego rozwoju projektu przygotowano również wersje wykorzystujące
 
 
 
-## Jak uruchomić projekt
+## Jak uruchomić pierwotną wersję Vue
 
 1. Otwórz projekt w Visual Studio Code.
 2. Otwórz plik `index.html`.
 3. Kliknij prawym przyciskiem myszy na plik i wybierz **Open with Browser** lub **Open with Live Server**.
+
+## Wersja Angular — lista słówek i fiszki
+
+Wymagany Node.js 20.19+ (linia 20) lub 22.12+ (linia 22).
+
+```powershell
+npm install
+npm start
+```
+
+Otwórz http://localhost:4200. Strona startowa to komponent Angulara `MainComponent.ts`
+z szablonem `MainComponent.html` i danymi w `vocabulary.data.ts`.
+Zastępuje wcześniejszy plik `MainComponent` bez rozszerzenia.
+Obejmuje fiszki, listę słówek, skróty Spacja/←/→, menu mobilne, motyw oraz języki PL/EN/DE.
+Interfejs EN zachowuje polskie definicje; DE wyświetla niemieckie.
+Quizy są dostępne przez menu kategorii pod `/legacy/` i nadal korzystają z Vue.
+Uruchom całą aplikację przez `npm start` i otwórz http://localhost:4200/. Przyciski fiszek we wszystkich quizach prowadzą bezpośrednio do strony Angulara. Stara lista słówek Vue i jej skrypt zostały usunięte. Live Server nie kompiluje Angulara — na tej gałęzi korzystaj z serwera Angulara.
+
+`npm run build` tworzy wersję produkcyjną w `dist/ssquiz/browser`.
+`npm test` sprawdza logikę fiszek, tłumaczeń, preferencji i klawiatury.

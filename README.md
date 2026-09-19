@@ -54,7 +54,7 @@ The original application is built with Vue.js. Separate React and Angular versio
 
 <img width="356" alt="Mobile layout" src="https://github.com/user-attachments/assets/b5363172-726c-4055-ab07-7902b8847b97">
 
-## Running Locally
+## Running the original Vue version locally
 
 No build step or dependency installation is required.
 
@@ -63,3 +63,23 @@ No build step or dependency installation is required.
 3. Open `index.html` with a local development server, such as the **Live Server** extension.
 
 You can also open `index.html` directly in a modern web browser, although using a local server is recommended.
+
+## Angular vocabulary page
+
+Use Node.js 20.19+ (20.x) or 22.12+ (22.x).
+
+```sh
+npm install
+npm start
+```
+
+Open http://localhost:4200. The Angular entry page uses `MainComponent.ts`,
+`MainComponent.html` and `vocabulary.data.ts`. This replaces the old extensionless
+`MainComponent` file. Flashcards, word lists, keyboard shortcuts, mobile menus,
+theme persistence and PL/EN/DE translations are implemented in Angular.
+English UI retains Polish definitions; German UI uses German definitions.
+Category links open the existing Vue quizzes under `/legacy/`.
+Start the entire application with `npm start` and open http://localhost:4200/. The flashcard links in every quiz return directly to the Angular entry page. The old Vue vocabulary page and its script have been removed. Live Server does not compile Angular; use the Angular server for this branch.
+
+Run `npm run build` for production output in `dist/ssquiz/browser` and `npm test`
+for flashcard behavior, translations, preferences and keyboard checks.

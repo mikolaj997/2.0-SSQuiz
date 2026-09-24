@@ -142,8 +142,14 @@ createApp({
         '.flashcardButtons input[type="radio"][name="category"]',
       );
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
-          (!isCategoryInput && event.target.closest('input, textarea, select, [contenteditable], nav, .navbar')) ||
-          !hasCategory.value) return;
+          (!isCategoryInput && event.target.closest('input, textarea, select, [contenteditable], nav, .navbar, .shortcut-help'))) return;
+      const categoryShortcut = { "1": "common", "2": "pollution", "3": "sport" }[event.key];
+      if (categoryShortcut) {
+        event.preventDefault();
+        if (!event.repeat) selectCategory(categoryShortcut);
+        return;
+      }
+      if (!hasCategory.value) return;
       if (!["ArrowLeft", "ArrowRight", " "].includes(event.key)) return;
       event.preventDefault();
       if (event.repeat) return;

@@ -292,7 +292,7 @@ createApp({
   methods: {
     handleKeyDown(event) {
       if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
-          event.target.closest('input, textarea, select, [contenteditable], nav, .navbar')) return;
+          event.target.closest('input, textarea, select, [contenteditable], nav, .navbar, .shortcut-help')) return;
       const carousel = document.querySelector(".carousel");
       if (!carousel) return;
       if (event.key === "ArrowLeft" || event.key === "ArrowRight") {

@@ -35,6 +35,17 @@
                 <span class="  relutlCount" v-if="showResult">Liczba poprawnych odpowiedzi: {{ correctAnswers }}/10</span>
             </a>
         </nav>
+<details class="shortcut-help">
+    <summary><span aria-hidden="true">?</span><span class="visually-hidden">Skróty klawiaturowe</span></summary>
+    <div class="shortcut-help-panel">
+        <strong>Skróty klawiaturowe</strong>
+        <ul>
+            <li><kbd>←</kbd> <span>Poprzednia strona testu</span></li>
+            <li><kbd>→</kbd> <span>Następna strona testu</span></li>
+            <li><kbd>Enter</kbd> <span>Zatwierdź wynik na ostatniej stronie testu</span></li>
+        </ul>
+    </div>
+</details>
         <div>
             <div v-if="showPopup" class="popup">
                 <button class="btn btn-outline-secondary comman"><a class="comman"

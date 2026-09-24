@@ -8,6 +8,15 @@
   };
 
   const translations = [
+    { pl: "Skróty klawiaturowe", en: "Keyboard shortcuts", de: "Tastenkürzel" },
+    { pl: "Poprzednia fiszka", en: "Previous flashcard", de: "Vorherige Karteikarte" },
+    { pl: "Następna fiszka", en: "Next flashcard", de: "Nächste Karteikarte" },
+    { pl: "Pokaż lub ukryj definicję", en: "Show or hide the definition", de: "Definition anzeigen oder ausblenden" },
+    { pl: "Wybierz kategorię", en: "Select a category", de: "Kategorie auswählen" },
+    { pl: "Poprzednia strona testu", en: "Previous quiz page", de: "Vorherige Quizseite" },
+    { pl: "Następna strona testu", en: "Next quiz page", de: "Nächste Quizseite" },
+    { pl: "Zatwierdź wynik na ostatniej stronie testu", en: "Submit the result on the last quiz page", de: "Ergebnis auf der letzten Quizseite bestätigen" },
+    { pl: "Spacja", en: "Space", de: "Leertaste" },
     { pl: "pojęcia i fiszki", en: "terms and flashcards", de: "Begriffe und Karteikarten" },
     { pl: "SPACJA = DEFINICJA", en: "SPACE = DEFINITION", de: "LEERTASTE = DEFINITION" },
     { pl: "WSTECZ", en: "BACK", de: "ZURÜCK" },

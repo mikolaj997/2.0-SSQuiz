@@ -35,6 +35,20 @@
 
         </a>
     </nav>
+<details class="shortcut-help">
+    <summary><span aria-hidden="true">?</span><span class="visually-hidden">Skróty klawiaturowe</span></summary>
+    <div class="shortcut-help-panel">
+        <strong>Skróty klawiaturowe</strong>
+        <ul>
+            <li><kbd>←</kbd> <span>Poprzednia fiszka</span></li>
+            <li><kbd>→</kbd> <span>Następna fiszka</span></li>
+            <li><kbd>Spacja</kbd> <span>Pokaż lub ukryj definicję</span></li>
+            <li><kbd>1</kbd> <span>Wybierz kategorię: common</span></li>
+            <li><kbd>2</kbd> <span>Wybierz kategorię: pollution</span></li>
+            <li><kbd>3</kbd> <span>Wybierz kategorię: sport</span></li>
+        </ul>
+    </div>
+</details>
 
 
     <div>
@@ -60,13 +74,13 @@
 
             <div class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" role="radiogroup">
                 <label :class="{'btn btn-outline-secondary': true, 'active': category === 'common'}">
-                    <input v-model="category" type="radio" name="category" value="common"> common
+                    <input v-model="category" type="radio" name="category" value="common" aria-keyshortcuts="1"> <kbd>1</kbd> common
                 </label>
                 <label :class="{'btn btn-outline-secondary': true, 'active': category === 'pollution'}">
-                    <input v-model="category" type="radio" name="category" value="pollution"> pollution
+                    <input v-model="category" type="radio" name="category" value="pollution" aria-keyshortcuts="2"> <kbd>2</kbd> pollution
                 </label>
                 <label :class="{'btn btn-outline-secondary': true, 'active': category === 'sport'}">
-                    <input v-model="category" type="radio" name="category" value="sport"> sport
+                    <input v-model="category" type="radio" name="category" value="sport" aria-keyshortcuts="3"> <kbd>3</kbd> sport
                 </label>
             </div>
 

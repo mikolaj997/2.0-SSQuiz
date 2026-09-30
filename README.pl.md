@@ -24,7 +24,7 @@ Oryginalna wersja aplikacji została stworzona z wykorzystaniem Vue.js. Oddzieln
 
 - `master` – główna wersja oparta na Vue.js
 - `dev` – gałąź przeznaczona do aktywnego rozwoju aplikacji
-- `react` – wersja wykorzystująca React
+- `react` – wersja wykorzystująca React i Typescript
 - `angular` – wersja wykorzystująca Angular
 
 ## Zrzuty ekranu

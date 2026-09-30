@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Build output and caches
+build/
+dist/
+coverage/
+.cache/
+.angular/
+*.tsbuildinfo
+.eslintcache
+
+# Local environment (keep templates versioned)
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Logs
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+*.swp
+*.swo
+
+# Accidental terminal output
+/hortcut help and category selection

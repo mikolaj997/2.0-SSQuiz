@@ -1,5 +1,6 @@
 
- import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
+import type {MouseEvent} from 'react';
 import "./App.css";
 
 
@@ -10,9 +11,7 @@ function App() {
     </div>
   );
 }
-function Quiz(){
 
-}
 
 function Flashcards(){
  const name = 'ssQuiz'
@@ -87,11 +86,12 @@ const  showFlashcardInfo = () => {
 const toggleRotation = () => {
    setRotateFiszka(!rotateFiszka);
 }
-const FlashcardCategory = (event) => {
+const FlashcardCategory = (event: MouseEvent<HTMLDivElement>) => {
+  if (!(event.target instanceof HTMLElement)) return;
 
 
   setSelectedOption(event.target.id)
-              if (selectedOption == 'option1') {
+              if (selectedOption === 'option1') {
                   setShowCommon1(true)
                   setShowSport1(false);
                   setShowPollution1 (false);
@@ -102,14 +102,14 @@ const FlashcardCategory = (event) => {
                   
                   
               }
-              if (selectedOption == 'option2') {
+              if (selectedOption === 'option2') {
                   setShowPollution1(true);
                   setShowSport1(false);
                   setShowCommon1(false);
   
                   setFlashcardCategoryClicked(true)
               }
-              if (selectedOption == 'option3') {
+              if (selectedOption === 'option3') {
                   setShowSport1(true);
                   setShowCommon1(false);
                   setShowPollution1(false);
@@ -169,7 +169,7 @@ useEffect(() => {
       setShowPollution1(true);
   }
   setFlashcardCategoryClicked(true);
-  if (selectedOption == 'option3') {
+  if (selectedOption === 'option3') {
     setShowSport1(true);
     setShowCommon1(false);
     setShowPollution1(false);
@@ -179,59 +179,59 @@ useEffect(() => {
 }, [selectedOption]);
 
   return(<>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">{ name }
-            <div class="navButtons">
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <a className="navbar-brand" href="#">{ name }
+            <div className="navButtons">
 
-                <button type="button" class="btn btn-outline-secondary">
+                <button type="button" className="btn btn-outline-secondary">
                     pojęcia i definicje
                 </button>
-                <button onClick={togglePopup}  type="button" class="btn btn-outline-secondary category">kategorie
+                <button onClick={togglePopup}  type="button" className="btn btn-outline-secondary category">kategorie
                 </button>
-                <button onClick={showFlashcardInfo} type="button" class="btn btn-outline-secondary">Fiszki</button>
+                <button onClick={showFlashcardInfo} type="button" className="btn btn-outline-secondary">Fiszki</button>
             </div>
 
         </a>
     </nav>
 
    { showPopup && <div>
-        <div  class="popup">
-            <button class="btn btn-outline-secondary"><a href="common.html">common</a></button>
-            <button class="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
-            <button class="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
+        <div  className="popup">
+            <button className="btn btn-outline-secondary"><a href="common.html">common</a></button>
+            <button className="btn btn-outline-secondary"> <a href="index.html">pollution</a></button>
+            <button className="btn btn-outline-secondary"><a href="sport.html">sport</a></button>
         </div>
     </div>}
 
 
     <button onClick={showAllOfWords}>pojęcia</button>
 
-    {showFlashcardInfo1 && <div  class="flashcardInfo">wybierz kategorię</div>}
+    {showFlashcardInfo1 && <div  className="flashcardInfo">wybierz kategorię</div>}
 
-    <div class="FlashcardAndDefinition">
+    <div className="FlashcardAndDefinition">
 
-<div class="flashcardArea">
+<div className="flashcardArea">
 
-    <div onClick={toggleRotation} class="flashcard" ClassName="{ rotate: rotateFiszka }">
-       { !flashcardCategoryClicked && <div v-if="!flashcardCategoryClicked" class="flashcardCategory">wybierz kategorię i naciśnij na pole <p></p><p>pojęcie - definicja</p>
+    <div onClick={toggleRotation} className={`flashcard${rotateFiszka ? " rotate" : ""}`}>
+       { !flashcardCategoryClicked && <div v-if="!flashcardCategoryClicked" className="flashcardCategory">wybierz kategorię i naciśnij na pole <p></p><p>pojęcie - definicja</p>
         </div>}
         {showPollution1 && <div >
             {(!showSport1 && !showCommon1 && !rotateFiszka) && <div className="front" v-show="!rotateFiszka">
                 { pollution[id1].word }
             </div>}
-           { (!showSport1 && !showCommon1 && rotateFiszka) && <div v-if="!showSport1 && !showCommon1" class="back" v-show="rotateFiszka">
+           { (!showSport1 && !showCommon1 && rotateFiszka) && <div v-if="!showSport1 && !showCommon1" className="back" v-show="rotateFiszka">
                 { pollution[id1].definition }
             </div>}
         </div>}
         {(showSport1) && <div >
-            {!rotateFiszka && <div v-if="!showPollution1 && !showCommon1" class="front" v-show="!rotateFiszka">
+            {!rotateFiszka && <div v-if="!showPollution1 && !showCommon1" className="front" v-show="!rotateFiszka">
                 { sport[id2].word }
             </div>}
-           { (!showPollution1 && !showCommon1 &&rotateFiszka) && <div class="back" >
+           { (!showPollution1 && !showCommon1 &&rotateFiszka) && <div className="back" >
                 { sport[id2].definition }
             </div>}
         </div>}
         {(showCommon1 ) && <div >
-            {!rotateFiszka && <div v-if="!showPollution1 && !showSport1" class="front" >
+            {!rotateFiszka && <div v-if="!showPollution1 && !showSport1" className="front" >
                 { common[id3].word }
             </div>}
            { (!showPollution1 && !showSport1 &&rotateFiszka) &&<div v-if="!showPollution1 && !showSport1" className="back" v-show="rotateFiszka">
@@ -245,25 +245,25 @@ useEffect(() => {
     <div onClick={(event)=>{
       return FlashcardCategory(event)}}
 
-        class="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" data-toggle="buttons">
-        <label id="option1" ClassName={`btn btn-outline-secondary ${selectedOption === 'option1' ? 'active' : ''}`} >
-            <input type="radio" name="options" id="option1" autocomplete="off" checked={selectedOption === 'option1'}/> common
+        className="btn-group btn-group-toggle flashcardButtons d-flex justify-content-center" data-toggle="buttons">
+        <label id="option1" className={`btn btn-outline-secondary ${selectedOption === 'option1' ? 'active' : ''}`} >
+            <input type="radio" name="options" id="option1" autoComplete="off" checked={selectedOption === 'option1'}/> common
         </label>
-        <label id="option2" ClassName={`btn btn-outline-secondary ${selectedOption === 'option2' ? 'active' : ''}`}>
-            <input type="radio" name="options" id="option2" autocomplete="off" checked={selectedOption === 'option2'}/> pollution
+        <label id="option2" className={`btn btn-outline-secondary ${selectedOption === 'option2' ? 'active' : ''}`}>
+            <input type="radio" name="options" id="option2" autoComplete="off" checked={selectedOption === 'option2'}/> pollution
         </label>
-        <label ClassName={`btn btn-outline-secondary ${selectedOption === 'option3' ? 'active' : ''}`}>
-            <input type="radio" name="options" id="option3" autocomplete="off" checked={selectedOption === 'option3'}/> sport
+        <label className={`btn btn-outline-secondary ${selectedOption === 'option3' ? 'active' : ''}`}>
+            <input type="radio" name="options" id="option3" autoComplete="off" checked={selectedOption === 'option3'}/> sport
         </label>
     </div>
 
 
-    <button class="d-flex justify-content-center nextFlashcard" onClick={inscreaseId}> następna</button>
-    <button class="d-flex justify-content-center prevFlashcard" onClick={decreaseId}> poprzednia</button>
+    <button className="d-flex justify-content-center nextFlashcard" onClick={inscreaseId}> następna</button>
+    <button className="d-flex justify-content-center prevFlashcard" onClick={decreaseId}> poprzednia</button>
 </div>
 
-<div class="container definitions">
-   { showAllWords && <ul class="allWords" v-if="showAllWords">
+<div className="container definitions">
+   { showAllWords && <ul className="allWords" v-if="showAllWords">
         {showPollution1 && <div v-if="showPollution1">
             <h1>pollution</h1>
             <div >

@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+The React source uses TypeScript (`src/*.tsx`) with strict type checking.
+Run `npm install` to install dependencies, then `npm run typecheck` to check
+types without generating files. `npm run build` also checks types.
+
 In the project directory, you can run:
 
 ### `npm start`

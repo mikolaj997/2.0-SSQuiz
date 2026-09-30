@@ -8,6 +8,15 @@ The React source uses TypeScript (`src/*.tsx`) with strict type checking.
 Run `npm install` to install dependencies, then `npm run typecheck` to check
 types without generating files. `npm run build` also checks types.
 
+The flashcard view includes the features from `origin/master`: category selection,
+cyclic navigation, a vocabulary list, a mobile menu, persisted light/dark mode,
+and Polish, English and German interfaces. German also translates definitions;
+Polish and English retain the English–Polish vocabulary.
+
+Keyboard shortcuts: `1`/`2`/`3` select common/pollution/sport, left/right arrows
+move between cards, and Space flips the card. The `?` panel lists the shortcuts.
+Run `npm test -- --watchAll=false --runInBand` for the interaction tests.
+
 In the project directory, you can run:
 
 ### `npm start`

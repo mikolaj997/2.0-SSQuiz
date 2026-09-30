@@ -27,7 +27,7 @@ The original application is built with Vue.js. Separate React and Angular versio
 
 - `master` – main Vue.js version
 - `dev` – active development branch
-- `react` – React version
+- `react` – React with TypeScript
 - `angular` – Angular version
 
 ## Screenshots

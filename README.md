@@ -38,6 +38,12 @@ The original application is built with Vue.js. Separate React and Angular versio
 
 <img width="1881" height="548" alt="image" src="https://github.com/user-attachments/assets/14ab2698-5c39-4b2d-85f8-0523a057e5ae" />
 
+<img width="1882" height="911" alt="image" src="https://github.com/user-attachments/assets/8841fa65-5ba4-4694-a886-408e6e3ccad4" />
+
+<img width="1920" height="602" alt="image" src="https://github.com/user-attachments/assets/46290100-97b7-4269-9ea5-a8073b005ffc" />
+
+
+
 ### Flashcards
 
 <img width="1906" height="561" alt="image" src="https://github.com/user-attachments/assets/453ebc0d-775a-4734-9b02-cd241c69e304" />

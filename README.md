@@ -12,6 +12,7 @@ A responsive e-learning application for studying English vocabulary with flashca
 - Light and dark themes with a saved preference
 - Responsive layout for desktop, tablet, and mobile devices
 - Mobile navigation with a hamburger menu
+- Functional shortcuts( to handle switching cards and submit quiz)
 
 ## Technologies
 

@@ -35,11 +35,21 @@ Oryginalna wersja aplikacji została stworzona z wykorzystaniem Vue.js. Oddzieln
 
 <img width="1889" height="527" alt="image" src="https://github.com/user-attachments/assets/aabf42a0-1721-4d15-91e0-a0e7a8f3aa65" />
 
+### Test - tryb ciemny
+
+<img width="1920" height="921" alt="image" src="https://github.com/user-attachments/assets/a1349807-f00d-4309-8c69-17a3b448fcb4" />
+
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/009eaa61-ca38-4d79-81ae-4527902ccb98" />
+
+
 ### Fiszki
 
 <img width="1911" height="913" alt="image" src="https://github.com/user-attachments/assets/b3144ca9-c98f-4d4a-97d5-f05f5e8b16ec" />
 
 <img width="1907" height="591" alt="image" src="https://github.com/user-attachments/assets/338634ac-3752-4eeb-b60f-037be616ec83" />
+
+### Fiszki - tryb ciemny
+<img width="1906" height="905" alt="image" src="https://github.com/user-attachments/assets/8536b380-1023-4180-8003-93b4603213ea" />
 
 <br>
 
@@ -55,11 +65,8 @@ Oryginalna wersja aplikacji została stworzona z wykorzystaniem Vue.js. Oddzieln
 
 <img width="241" height="520" alt="image" src="https://github.com/user-attachments/assets/77d4b8fd-3047-497d-9149-3223f3d5de72" />
 
-### Tryb ciemny
 
-<img width="1890" height="906" alt="image" src="https://github.com/user-attachments/assets/3896aa10-a80a-4d67-979f-cf332e4d6ca7" />
 
-<img width="1906" height="905" alt="image" src="https://github.com/user-attachments/assets/8536b380-1023-4180-8003-93b4603213ea" />
 
 ## Uruchomienie lokalne
 

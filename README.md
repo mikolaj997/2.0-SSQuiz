@@ -39,6 +39,8 @@ The original application is built with Vue.js. Separate React and Angular versio
 
 <img width="1881" height="548" alt="image" src="https://github.com/user-attachments/assets/14ab2698-5c39-4b2d-85f8-0523a057e5ae" />
 
+### Quiz - dark mode
+
 <img width="1882" height="911" alt="image" src="https://github.com/user-attachments/assets/8841fa65-5ba4-4694-a886-408e6e3ccad4" />
 
 <img width="1920" height="602" alt="image" src="https://github.com/user-attachments/assets/46290100-97b7-4269-9ea5-a8073b005ffc" />
@@ -50,6 +52,10 @@ The original application is built with Vue.js. Separate React and Angular versio
 <img width="1906" height="561" alt="image" src="https://github.com/user-attachments/assets/453ebc0d-775a-4734-9b02-cd241c69e304" />
 
 <img width="1906" height="652" alt="image" src="https://github.com/user-attachments/assets/4fb6eef6-5561-4440-9ffe-ad8fc366096c" />
+
+### Flashcards - dark mode
+
+<img width="1913" height="597" alt="image" src="https://github.com/user-attachments/assets/dd60acb2-33ef-4549-b55e-86b5c8e04456" />
 
 <br>
 
@@ -65,12 +71,9 @@ The original application is built with Vue.js. Separate React and Angular versio
 
 <img width="361" height="788" alt="image" src="https://github.com/user-attachments/assets/7ff47901-9ee5-47a2-9274-31a4557227ef" />
 
-### Dark Mode
-
-<img width="1904" height="780" alt="image" src="https://github.com/user-attachments/assets/74c7f1b3-7b27-4acd-b0a8-1009c4659bdf" />
 
 
-<img width="1913" height="597" alt="image" src="https://github.com/user-attachments/assets/dd60acb2-33ef-4549-b55e-86b5c8e04456" />
+
 
 
 ## Running Locally
